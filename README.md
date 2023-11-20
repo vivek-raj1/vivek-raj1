@@ -1,5 +1,5 @@
 # [![vivek raj header](https://raw.githubusercontent.com/vivek-raj1/vivek-raj1/main/images/vivek.png)](https://waylonwalker.com)
-<p align="left">
+<p align="center">
   <a href="mailto:7.vivke.raj@gmail.com">
   <img width="50px"  src="https://img.icons8.com/doodle/512/gmail.png"/>
   </a>
@@ -10,12 +10,11 @@
   <img width="50px"  src="https://img.icons8.com/color/512/telegram-app.png"/>
   </a>
 </p>
-</p>
-<h4> Feel free to connect with me, and I'm always open to interesting conversations and collaborations!</h4>
+<p align="center"> Feel free to connect with me, and I'm always open to interesting conversations and collaborations!<p>
+<hr>
 Hey there 👋,
 
 Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing in cloud migration, Kubernetes, and CI/CD automation, with a strong background in risk management and Redis. Notable achievements include orchestrating cross-functional projects resulting in a 20% decrease in project completion time and seamlessly migrating 50+ microservices from Ali Cloud to AWS, leading to a 25% reduction in operational costs.
- 
  ---
 
 # Skills
@@ -133,7 +132,6 @@ Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing 
 - JIRA
 
 
-
 <p align="left">
   <img width="50px" src="https://img.icons8.com/color/512/amazon-web-services.png"/> <!-- AWS -->
   <img width="50px" src="https://img.icons8.com/color/512/google-cloud.png"/> <!-- GCP -->
@@ -171,4 +169,9 @@ Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing 
   <img width="50px" src="https://img.icons8.com/color/512/microsoft-teams.png"/> <!-- Microsoft Teams -->
   <img width="50px" src="https://img.icons8.com/color/512/atlassian-confluence.png"/> <!-- Atlassian Confluence -->
   <img width="50px" src="https://img.icons8.com/color/512/jira.png"/> <!-- JIRA -->
+</p>
+<hr>
+<h3> Visitor count </h3>
+<p align="left">
+  <img src="https://profile-counter.glitch.me/vivek-raj1/count.svg" />
 </p>
