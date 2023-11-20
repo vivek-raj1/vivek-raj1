@@ -9,12 +9,12 @@
   <a href="https://web.telegram.org/k/#@vivek_raj3">
   <img width="50px"  src="https://img.icons8.com/color/512/telegram-app.png"/>
   </a>
+  Feel free to connect with me, and I'm always open to interesting conversations and collaborations!
 </p>
-<p align="center"> Feel free to connect with me, and I'm always open to interesting conversations and collaborations!<p>
-<hr>
 Hey there 👋,
 
 Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing in cloud migration, Kubernetes, and CI/CD automation, with a strong background in risk management and Redis. Notable achievements include orchestrating cross-functional projects resulting in a 20% decrease in project completion time and seamlessly migrating 50+ microservices from Ali Cloud to AWS, leading to a 25% reduction in operational costs.
+
  ---
 
 # Skills
