@@ -1,4 +1,4 @@
-# [![vivek raj header](https://raw.githubusercontent.com/vivek-raj1/vivek-raj1/main/images/vivek.png)](https://waylonwalker.com)
+# [![vivek raj header](https://raw.githubusercontent.com/vivek-raj1/vivek-raj1/main/images/vivek.png)](https://vivek-raj.medium.com/)
 <p>
 Hey there 👋,
 
