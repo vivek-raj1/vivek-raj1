@@ -128,7 +128,6 @@ Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing 
   <img width="50px" src="https://img.icons8.com/color/512/docker.png"/> <!-- Docker -->
   <img width="50px" src="https://img.icons8.com/color/512/kubernetes.png"/> <!-- Kubernetes -->
   <img width="60px" src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2020/04/08/Screen-Shot-2020-04-08-at-10.19.52-AM.png"/> 
-  <img width="50px" src="https://img.icons8.com/color/512/docker.png"/> <!-- Docker Hub -->-->
   <img width="50px" src="https://img.icons8.com/color/512/mysql.png"/> <!-- MySQL -->
   <img width="50px" src="https://img.icons8.com/color/512/mongodb.png"/> <!-- MongoDB -->
   <img width="50px" src="https://img.icons8.com/color/512/postgreesql.png"/> <!-- PostgreSQL -->
@@ -149,6 +148,7 @@ Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing 
   <img width="50px" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Prometheus_software_logo.svg"/> <!-- Monitoring - Prometheus -->
   <img width="50px" src="https://img.icons8.com/color/512/grafana.png"/> <!-- Monitoring - Grafana -->
   <img width="70px" src="https://webplutora.wpenginepowered.com/wp-content/uploads/2018/11/pinpoint.jpg"/> <!-- APM - Pinpoint -->
+  <img width="50px" src="https://img.site24x7static.com/images/site24x7-logo-new.svg?p=Nov_20_2023_1"/> <!-- site24x7 -->
   <img width="50px" src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9mYWE4MjI2NmRmMmYwZTc1OTgzNzkxZDFiODAwZDdhMz9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.x8bEPwVj7AjJWLi9x95yadGNRRyiA-9Yp199ESL5VXA"/> <!-- APM - Dynatrace -->
   <img width="50px" src="https://img.icons8.com/color/512/elasticsearch.png"/> <!-- Logging - Elasticsearch -->
   <img width="50px" src="https://img.icons8.com/color/512/logstash.png"/> <!-- Logging - Logstash -->
