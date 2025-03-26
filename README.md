@@ -1,8 +1,8 @@
-# [![vivek raj header](https://raw.githubusercontent.com/vivek-raj1/vivek-raj1/main/images/vivek.png)](https://vivek-raj.medium.com/)
+# [![vivek raj header](https://raw.githubusercontent.com/vivek-raj1/vivek-raj1/main/images/vivek_lead.png)](https://vivek-raj.medium.com/)
 <p>
 Hey there 👋,
 
-Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing in cloud migration, Kubernetes, and CI/CD automation, with a strong background in risk management and Redis. Notable achievements include orchestrating cross-functional projects resulting in a 20% decrease in project completion time and seamlessly migrating 50+ microservices from Ali Cloud to AWS, leading to a 25% reduction in operational costs.
+Experienced <b>7+ years</b> as a Lead <b>DevOps/SRE</b> Engineer specializing in cloud migration, Kubernetes, and CI/CD automation, with a strong background in risk management and Redis. Notable achievements include orchestrating cross-functional projects resulting in a 20% decrease in project completion time and seamlessly migrating 50+ microservices from Ali Cloud to AWS, leading to a 25% reduction in operational costs.
 </p>
 
  ---
@@ -87,6 +87,7 @@ Experienced <b>5+ years</b> as a Senior <b>DevOps/SRE</b> Engineer specializing 
 ### APM
 - Pinpoint
 - Dynatrace
+- Jeger
 
 ### Logging
 - ELK Stack (Elasticsearch, Logstash, Kibana)
