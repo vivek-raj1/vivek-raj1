@@ -89,7 +89,7 @@ export function Skills() {
       className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 scroll-mt-24"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12, margin: '0px 0px -8% 0px' }}
+      viewport={{ once: true, amount: 'some', margin: '0px 0px -8% 0px' }}
       transition={{ type: 'spring', stiffness: 260, damping: 34, mass: 0.9 }}
     >
       <SectionHeader eyebrow={skills.eyebrow} title={skills.title} subtitle={skills.subtitle} />
@@ -98,7 +98,7 @@ export function Skills() {
         className="mt-10 lg:grid lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-8"
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.18, margin: '0px 0px -8% 0px' }}
+        viewport={{ once: true, amount: 'some', margin: '0px 0px -8% 0px' }}
         transition={{ type: 'spring', stiffness: 280, damping: 32, mass: 0.85, delay: 0.06 }}
       >
         <FilterRail
