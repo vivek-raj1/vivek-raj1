@@ -1,0 +1,47 @@
+{
+  "mode": "ultra",
+  "background": {
+    "kind": "mesh+beams+aurora",
+    "grid": false,
+    "gradient": true,
+    "particles": false,
+    "particleCount": 28,
+    "gridOpacity": 0.22,
+    "gradientOpacity": 0.55,
+    "scanlines": false,
+    "codeRain": false,
+    "meshAurora": true,
+    "lightBeams": true,
+    "maskRadius": 0.6
+  },
+  "effects": {
+    "glassmorphism": true,
+    "neonGlow": true,
+    "animatedBorders": true,
+    "cursorGlow": true,
+    "magneticButtons": true,
+    "scrollProgress": true,
+    "pageTransitions": true,
+    "noise": true
+  },
+  "density": "comfortable",
+  "corner": "xl",
+  "sections": {
+    "order": ["hero", "liveSystems", "about", "skills", "experience", "projects", "certifications", "footer"],
+    "visible": {
+      "hero": true,
+      "liveSystems": true,
+      "about": true,
+      "skills": true,
+      "experience": true,
+      "projects": true,
+      "certifications": true,
+      "footer": true
+    }
+  },
+  "viewCounter": {
+    "enabled": true,
+    "storageKey": "vr_portfolio_views",
+    "label": "Views"
+  }
+}

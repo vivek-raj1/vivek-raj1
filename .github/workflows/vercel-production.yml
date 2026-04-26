@@ -1,0 +1,48 @@
+# Deploys the static app inside `out/` (Next with output: "export") to Vercel.
+#
+# Add GitHub → Settings → Secrets and variables:
+#   VERCEL_TOKEN       — Vercel → Account Settings → Tokens
+#   VERCEL_ORG_ID      — Project → Settings → General (or Team ID for team projects)
+#   VERCEL_PROJECT_ID  — Project → Settings → General
+#
+# If the repo is already connected in Vercel, you may prefer Git-only deploys;
+# then disable or remove this workflow to avoid two production builds per push.
+
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Static export
+        run: npm run build
+
+      - name: Vercel project file (for CLI)
+        run: |
+          mkdir -p .vercel
+          echo "{\"orgId\":\"$VERCEL_ORG_ID\",\"projectId\":\"$VERCEL_PROJECT_ID\"}" > .vercel/project.json
+
+      - name: Deploy static output
+        run: npx --yes vercel@39 deploy out --yes --prod --token "$VERCEL_TOKEN"

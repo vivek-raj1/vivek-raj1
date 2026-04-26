@@ -1,0 +1,59 @@
+{
+  "eyebrow": "RECOGNITION",
+  "title": "Awards & certifications.",
+  "subtitle": "Recognitions earned across Paytm, Airtel, and PayU — plus continued investment in the craft.",
+  "awards": [
+    {
+      "title": "Rockstar Award — PG2 Migration & Monitoring",
+      "org": "Paytm",
+      "year": "2022",
+      "body": "Led the PG2 migration from Ali Cloud to AWS alongside a full CI/CD and monitoring buildout.",
+      "icon": "award",
+      "tone": "accent"
+    },
+    {
+      "title": "Paytm Payment Infinity Award",
+      "org": "Paytm",
+      "year": "2023",
+      "body": "Recognized for outstanding contributions in building Paytm Payment Infinity.",
+      "icon": "sparkles",
+      "tone": "accent2"
+    },
+    {
+      "title": "Rockstar Award — Infrastructure Automation",
+      "org": "Paytm",
+      "year": "2023",
+      "body": "Automated PG2 infrastructure end-to-end with a best-in-class monitoring system.",
+      "icon": "zap",
+      "tone": "accent"
+    },
+    {
+      "title": "Outstanding JVM Hygiene Award",
+      "org": "Airtel",
+      "year": "2021",
+      "body": "Automated JVM hygiene across multiple microservices for measurable reliability and performance gains.",
+      "icon": "activity",
+      "tone": "accent2"
+    },
+    {
+      "title": "Thank You Award — Big Billion Day",
+      "org": "PayU",
+      "year": "2019",
+      "body": "Delivered scalable infrastructure and dashboards that carried Big Billion Day traffic.",
+      "icon": "trophy",
+      "tone": "accent"
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech",
+      "institution": "Greater Noida Institute of Technology",
+      "year": "2013 — 2017"
+    }
+  ],
+  "certifications": [
+    { "name": "Certified Kubernetes Administrator (CKA)", "issuer": "CNCF", "status": "in-progress" },
+    { "name": "AWS Solutions Architect — Associate", "issuer": "AWS", "status": "earned" },
+    { "name": "Terraform Associate", "issuer": "HashiCorp", "status": "earned" }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "eyebrow": "SELECTED WORK",
+  "title": "Systems I've designed & shipped.",
+  "subtitle": "A sample of the platforms, operators, and dashboards that moved real numbers in production.",
+  "items": [
+    {
+      "id": "devops-ui",
+      "name": "DevOps Custom UI",
+      "category": "Platform",
+      "tone": "accent",
+      "icon": "layout-dashboard",
+      "summary": "Internal DevOps control plane used across multiple verticals — RBAC, compliance, vendor VPN, AWS monitoring, asset management.",
+      "impact": ["70% reduction in toil", "Single pane for 100+ engineers", "RBAC with 12 scoped roles"],
+      "stack": ["React", "Flask", "Ansible", "AWS", "MySQL"],
+      "highlights": [
+        "Roles-based authentication with fine-grained scopes.",
+        "Live AWS monitoring UI — EC2, RDS, ELB, and cost.",
+        "Approval workflow for infrastructure creation.",
+        "Full audit history for security groups and user actions."
+      ]
+    },
+    {
+      "id": "pg2-migration",
+      "name": "PG2 Cloud Migration",
+      "category": "Migration",
+      "tone": "accent2",
+      "icon": "cloud",
+      "summary": "Lifted and re-platformed 50+ payment microservices from Ali Cloud to AWS on EKS with end-to-end CI/CD and monitoring.",
+      "impact": ["Zero customer-visible downtime", "~30% cost optimization", "2× Rockstar award winner"],
+      "stack": ["AWS", "EKS", "Terraform", "ArgoCD", "Prometheus"],
+      "highlights": [
+        "Designed the target architecture on EKS with multi-AZ resiliency.",
+        "Built the end-to-end CI/CD pipeline for all PG2 services.",
+        "Comprehensive monitoring + alerting before the first customer was cut over.",
+        "Automated infrastructure provisioning via Terraform modules."
+      ]
+    },
+    {
+      "id": "hpa-operator",
+      "name": "Scheduled HPA Operator",
+      "category": "Kubernetes",
+      "tone": "accent",
+      "icon": "cpu",
+      "summary": "Kubernetes Operator with a Custom Resource Definition that patches Horizontal Pod Autoscalers on business-day schedules.",
+      "impact": ["Zero manual HPA edits", "Weekday/weekend schedule awareness", "Audit logs per patch"],
+      "stack": ["Go", "Kubernetes", "CRD", "controller-runtime"],
+      "highlights": [
+        "Day-of-week schedule customization for fine-grained scaling.",
+        "Resource-name sorting for predictable ordering.",
+        "Structured logging for debugging and observability.",
+        "Zero-downtime rollouts via leader election."
+      ]
+    },
+    {
+      "id": "ai-sre-copilot",
+      "name": "AI SRE Copilot",
+      "category": "AI + Platform",
+      "tone": "accent2",
+      "icon": "sparkles",
+      "summary": "LLM-powered assistant that ingests alerts, correlates runbooks, and auto-executes safe remediations — with full Langfuse tracing.",
+      "impact": ["1200+ alerts auto-remediated/week", "MTTR down 42%", "100% traced prompts"],
+      "stack": ["Python", "LLMs", "Langfuse", "RAG", "Kubernetes"],
+      "highlights": [
+        "Alert deduplication and root-cause hypothesis generation.",
+        "Retrieval over institutional runbooks and postmortems.",
+        "Safe-remediation playbooks gated by blast-radius scoring.",
+        "Eval harness for prompt regressions on historical incidents."
+      ]
+    },
+    {
+      "id": "business-dashboard",
+      "name": "Business Metrics Dashboard",
+      "category": "Observability",
+      "tone": "accent",
+      "icon": "bar-chart-3",
+      "summary": "Custom Grafana + Prometheus dashboard for business-critical metrics with automated alerting and incident workflows.",
+      "impact": ["Faster incident response", "Tailored to business KPIs", "Alerting on leading indicators"],
+      "stack": ["Prometheus", "Grafana", "Alertmanager"],
+      "highlights": [
+        "Business-facing KPIs alongside infra SLOs.",
+        "Automated alerts with context-rich payloads.",
+        "On-call playbooks linked directly from panels."
+      ]
+    },
+    {
+      "id": "2fa-firewall",
+      "name": "2FA Firewall Integration",
+      "category": "Security",
+      "tone": "accent2",
+      "icon": "shield",
+      "summary": "Two-factor authentication bolted onto the vendor-access firewall — streamlined onboarding with strict role-based controls.",
+      "impact": ["Fewer unauthorized entries", "Faster vendor onboarding", "Role-scoped access"],
+      "stack": ["Firewall", "LDAP", "2FA", "Ansible"],
+      "highlights": [
+        "Role-based access for vendors with time-boxed permissions.",
+        "Streamlined onboarding flow with automated provisioning.",
+        "Full auditability of vendor sessions."
+      ]
+    }
+  ]
+}

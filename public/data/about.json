@@ -1,0 +1,29 @@
+{
+  "eyebrow": "ABOUT",
+  "title": "I turn fragile infra into boring, predictable platforms.",
+  "paragraphs": [
+    "I'm Vivek — a Lead DevOps Engineer with 8+ years shipping production systems across e-commerce, payments, and telecom. I've led cloud migrations (Ali Cloud → AWS), designed Kubernetes Operators that automate toil, and built observability stacks that page humans only when humans are actually needed.",
+    "Today I focus on platform engineering at scale: running 1000+ Kubernetes clusters for 5000+ engineers, replacing hand-held runbooks with AI-assisted remediation, and treating reliability as a product, not a ticket queue."
+  ],
+  "highlights": [
+    { "icon": "layers", "title": "Platform at scale", "body": "1000+ clusters, 14 regions, unified control plane. GitOps-first with ArgoCD, zero-drift policy enforced by CI." },
+    { "icon": "activity", "title": "Observability", "body": "Prometheus + Thanos + VictoriaMetrics + Grafana. PB-scale retention, per-tenant SLOs, burn-rate alerting." },
+    { "icon": "cpu", "title": "AI for Ops", "body": "LLM-backed assistant (Langfuse-traced) to triage alerts, propose remediations, and auto-close low-risk incidents." },
+    { "icon": "shield", "title": "Security & compliance", "body": "IAM, KMS, GuardDuty, WAF, SonarQube, Qualys, Cortex. Shift-left policies in CI/CD." }
+  ],
+  "pillars": [
+    { "label": "Kubernetes", "percent": 96 },
+    { "label": "Observability", "percent": 94 },
+    { "label": "GitOps / CI/CD", "percent": 92 },
+    { "label": "Multi-cloud", "percent": 90 },
+    { "label": "IaC / Terraform", "percent": 88 },
+    { "label": "AI-assisted DevOps", "percent": 82 }
+  ],
+  "philosophyTitle": "Operating principles",
+  "philosophy": [
+    "Reliability is a product.",
+    "Every alert should be actionable — or deleted.",
+    "If it isn't in Git, it doesn't exist.",
+    "Automate the 2 a.m. page away."
+  ]
+}

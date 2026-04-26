@@ -1,0 +1,67 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# build / export
+.next
+out
+.turbo
+dist
+build
+*.tsbuildinfo
+
+# env & local
+.env
+.env.*
+!.env.example
+.vercel
+*.local
+
+# logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE / tooling
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.sublime-*
+.coverage
+coverage
+.eslintcache
+
+# testing
+playwright-report
+test-results
+
+# misc
+*.pem
+.cache
+
+# local scratch / archives
+tmp/
+temp/
+*.orig
+*.zip
+*.tgz
+*.rar
+*.7z
+
+# local Cursor (optional — remove this line if you want .cursor/ in git)
+.cursor/
+
+# local-only Claude settings
+.claude/settings.local.json
+
+.claude/

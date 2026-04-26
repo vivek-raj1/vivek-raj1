@@ -1,0 +1,155 @@
+VIVEK RAJ
+Lead DevOps Engineer
+Experienced Senior DevOps Engineer with a solid background in e-commerce, payment, and telecom domains. Adept at managing multi-platform IT infrastructure with a strong focus on security. Proficient in AWS, Ansible, Kubernetes, Docker, Git, monitoring (Prometheus), Jenkins, and Terraform. Skilled in scripting languages (Python, JavaScript) and frameworks (Flask, Django, React) with an emphasis on security best practices. Expertise spans cloud services, containerization and orchestration, database management, programming, version control, CI/CD, IaC, monitoring, APM, logging, security, compliance, API management, and collaboration tools.
+
+
+📞 +91-7779994411 
+✉️ 7.vivek.raj@gmail.com
+🔗 linkedin.com/in/vivek-raj0
+github https://github.com/vivek-raj1
+
+
+EXPERIENCE
+
+
+Lead DevOps Engineer
+One97 Communications Ltd ( Paytm )
+ 04/2022 - Present	 Noida, India
+Experienced IT leader with expertise in cloud migration, Kubernetes, CI/CD automation, risk management, and Redis.
+Lead and successfully managed cross-functional projects, showcasing strong leadership and project management skills.
+Oversaw the seamless migration of 50+ microservices from Ali Cloud to AWS, improving scalability and cost-efficiency through automation.
+Deployed microservices on Kubernetes, optimizing system efficiency and implementing comprehensive monitoring for performance and reliability.
+Created a Release Engineering UI that increased productivity and reduced toil by 30%.
+Enabled APM tools and deployed application monitoring with alerting based on errors, resulting in a 99% infrastructure uptime.
+Designed and deployed a Kubernetes Operator, utilizing a Custom Resource Definition (CRD), to automate Horizontal Pod Autoscaler (HPA) patching on a scheduled basis. This streamlined scaling operations and improved efficiency.
+Enhanced scheduling flexibility by enabling day-of-the-week customization for task scheduling, providing more control over resource management. Also, introduced resource name sorting for efficient Kubernetes resource management. Implemented logging for debugging and information gathering.
+Collaborated with stakeholders to provide risk management suggestions for automated and secure cloud environments.
+Leveraged Redis(SME) expertise to enhance data management and retrieval capabilities.
+Set up monitoring from scratch, starting with basic metrics and extending to top-level label-based monitoring. Additionally, enabled open-source APM tools for enhanced system visibility.
+Actively participated in cross-functional teamwork and promoted a culture of collaboration and innovation.
+
+
+SKILLS
+
+Cloud Services
+AWS - EKS, ECS, ECR, VPC, S3, IAM, EC2, Lambda, Cost explorer, Billing, Gaurdduty, CloudTrail, WAF, Opensearch, Quick-Sight, Route53, Certificate Manager, Secret Manager     
+GCP - GKE, GCR, VM, Storage, IAM, Cloud Monitoring and Cloud Logging, Apigee, VPC, Firewall, 
+Azure - VM, ACR, Function, AKS, AD, Frontdoor, Firewalls, Vnet, azure bastian, azure arc, applications, valut
+Containerization and Orchestration
+Docker, Kubernetes, Docker Compose, Amazon ECS, Google Kubernetes Engine (GKE)
+Artifact Repository
+Docker Hub, AWS Elastic Container Registry (ECR), Google Container Registry (GCR), Nexus Repository
+Database Management
+Amazon RDS, MySQL, Google Cloud SQL, MongoDB, PostgreSQL 
+Programming Skills
+Python - Flask, Django
+JavaScript - React
+HTML
+Version Control
+GitLab, Bitbucket
+Continuous Integration and Continuous Deployment (CI/CD)
+Argocd, Jenkins, GitLab CI/CD
+Infrastructure as Code (IaC) & Configuration Management
+Terraform, Ansible
+Monitoring , APM and Logging
+Monitoring - Prometheus, Grafana, 
+APM - Pinpoint,  Dynatrace
+Logging - ELK Stack (Elasticsearch, Logstash, Kibana), Loki
+Security and Compliance
+SonarQube, Identity and Access Management (IAM), AWS Key Management Service (KMS), Secret Manager, AWS GuardDuty, AWS CloudTrail, AWS Config, Amazon VPC (Virtual Private Cloud), AWS Organizations, AWS WAF (Web Application Firewall), AWS Shield, Amazon S3 Access Control, Amazon Certificate Manager (ACM), qualys, cortex
+API Management
+AWS API Gateway, Kong
+Collaboration and Communication
+Slack, Microsoft Teams, Atlassian Confluence, JIRA
+Senior Software Engineer(SRE)
+Bharti Airtel
+ 08/2021 - 04/2022	 Gurgaon, India
+Experienced professional with a proven track record at Airtel, specializing in project leadership, cloud migration, Kubernetes, CI/CD automation, cost optimization, patch management, and infrastructure security.
+Conducted capacity planning for cost-effective scaling, ensuring optimal resource allocation.
+Automated software and infrastructure deployments for over 15 microservices.
+Achieved a 30% reduction in cloud utilization by optimizing cloud costs through resource allocation and automation.
+Ensure availability of Production and Development systems based on AWS Cloud Platform - EC2 and ECS.
+Focused on infrastructure security, implementing measures to safeguard systems and data.
+Skilled in Release Engineering for efficient software deployment.
+Resource optimization expert for efficient operations.
+Implemented infrastructure security measures to protect against threats and vulnerabilities, enhancing overall system integrity.
+Deployed anonboarded applications on AppDynamics for comprehensive monitoring of infrastructure, including CPU, memory, disk, TCP, port, and network, to ensure optimal performance and reliability.
+
+
+
+EXPERIENCE
+
+Site Reliability Engineer
+PayU Payments Private Limited
+ 10/2018 - 08/2021	 Gurgaon, India
+SRE expert with React UI development skills, compliance management, DR migration on Kubernetes, and Gitlab CI/CD, experienced at PayU.
+Proficient in scripting and UI development for DevOps using React, enhancing user interface and automation.
+Lead a project to develop a customized DevOps UI with roles-based authentication, improving usability and security.
+Managed compliance and non-compliance servers, vendor VPN, and critical systems.
+Played a key role in disaster recovery (DR) migration on Kubernetes and established a robust monitoring infrastructure.
+Implemented Gitlab CI/CD and transitioned monitoring from commercial tools to open-source solutions for cost efficiency and flexibility.Hands-on experience with Nginx/Apache for optimizing system performance.
+Successfully migrated infrastructure from a physical data center to AWS Cloud with minimal downtime.
+Proficient in build, release, and configuration management of production systems.
+Skilled in system troubleshooting and problem-solving across various platforms and application domains.
+Proven expertise in monitoring and troubleshooting production/non- production servers to ensure high availability.
+Worked with Kubernetes on-premise and demonstrated experience with AWS security services: AWS SSO, Secrets Manager, AWS Org, CloudTrail, and Certificate Manager.
+Proficiency in scripting and UI development for DevOps through React.
+Authored multiple playbooks for configuration management using Ansible.
+
+
+PROJECTS
+
+DevOps Custom UI
+Used for Multi-verticals with experience in roles- based authentication, compliance management, vendor VPN, AWS infrastructure monitoring, and IT asset management etc can be managed by UI, resulting in a 70% reduction in toil and a significant increase in productivity.
+Roles-Based Authentication: Implemented a roles-based authentication system for enhanced security and access control.
+Compliance Management: Monitored compliance servers for infrastructure security.
+AWS Monitoring UI: Created a monitoring user interface for AWS EC2, RDS, ELB, and more, improving visibility into AWS resources.
+Infrastructure Approval System: Implemented an infrastructure creation system with an approval process to ensure controlled resource provisioning.
+Security Group and Users History: Maintained a history of security group changes and user actions for auditing and security purposes.
+2FA Integration with Firewall for Vendor Control
+Successfully lead the integration of a robust two- factor authentication (2FA) system to enhance security and simplify vendor onboarding. This initiative resulted in better control, improved operational efficiency, and a streamlined approach to managing vendor access.
+Enhanced Security: Implemented two-factor authentication (2FA) to fortify vendor access, reducing the risk of unauthorized entry.
+Role-Based Access: Established role-based access controls for vendors, ensuring appropriate permissions and security.
+Efficient Onboarding: Streamlined vendor onboarding processes, making it simpler and more efficient for vendors to access company resources.
+AWARD
+
+Thank You Award (PayU)   10/2019
+Awarded for Exceptional Contribution during Big Billion Day: Recognized for setting up multiple business dashboards and creating scalable infrastructure to support high-demand scenarios during Big Billion Day, resulting in improved business performance and customer experience.
+
+
+Award (Airtel)   11/2021
+Award for Outstanding JVM Hygiene (Automation): Recognized for exceptional contributions to JVM hygiene, achieved through automation across multiple microservices. This initiative enhanced performance, reliability, and efficiency, showcasing a commitment to excellence in infrastructure management.
+
+
+Business Metrics Customized Dashboard
+I played a key role in creating a custom dashboard with Grafana and Prometheus, enabling automated alerts and improved incident management. This enhancement greatly improved the organization's decision-making capabilities.
+Customized Dashboard Creation: Played a pivotal role in designing and creating a customized dashboard using Grafana and Prometheus.
+Critical Metrics Monitoring: The dashboard was tailored to monitor critical business metrics essential for decision-making.
+Automated Alerts: Implemented automated alerting, ensuring timely notifications of important changes or incidents.
+Incident Management: Enhanced incident management through the dashboard, facilitating swift responses to issues.
+Rockstar Award (Paytm)   07/2022
+Rockstar Award for PG2 Migration (Ali Cloud to AWS) and End-to-
+End CI/CD and Monitoring Setup: Acknowledged for exceptional contributions in leading the successful PG2 migration from Ali Cloud to AWS, while simultaneously establishing an end-to-end CI/CD pipeline and comprehensive monitoring infrastructure. This achievement exemplifies a commitment to excellence in cloud migration and infrastructure management.
+
+
+Paytm Payment Infinity Award (Paytm)   03/2023
+Demonstrated outstanding work in building Paytm Payment Infinity: Acknowledged for outstanding contributions in the development and building of Paytm Payment Infinity, showcasing dedication to excellence in payment systems and innovation.
+
+
+Rockstar Award (Paytm)   04/2023
+Rockstar Award for PG2 Infrastructure Automation and Excellent MonitoringSetup: Recognized for exceptional achievements in automating PG2 infrastructure and establishing an outstanding monitoring system, demonstrating commitment to excellence in infrastructure management and monitoring.
+
+
+PG2 Migration
+Led seamless infrastructure migration to AWS, optimized performance with Kubernetes, and improved cost-efficiency
+Lead a crucial role in migrating infrastructure from Ali Cloud to AWS, ensuring a seamless transition.
+Set up monitoring for Kubernetes and deployed microservices on EKS, optimizing infrastructure efficiency.
+Resulted in enhanced infrastructure management, contributing to improved performance and cost-efficiency.
+EDUCATION
+
+B.Tech 08/2013 - 08/2017
+Greater Noida Institute Of Technology 
+
+
+
+

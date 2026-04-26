@@ -1,0 +1,290 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 8 10 16;
+  --surface: 14 17 26;
+  --elevated: 20 24 36;
+  --border: 46 52 70;
+  --fg: 232 236 245;
+  --muted: 150 158 178;
+  --accent: 139 92 246;
+  --accent2: 34 211 238;
+  --success: 52 211 153;
+  --warn: 251 191 36;
+  --danger: 248 113 113;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+html,
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+  color: rgb(var(--fg));
+}
+
+/* thin rails */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--accent) / 0.6);
+}
+
+@layer utilities {
+  .glass {
+    background: rgb(var(--surface) / 0.55);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgb(var(--border) / 0.6);
+  }
+  .glass-strong {
+    background: rgb(var(--surface) / 0.78);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgb(var(--border) / 0.7);
+  }
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      rgb(var(--fg)) 0%,
+      rgb(var(--accent)) 50%,
+      rgb(var(--accent2)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .text-gradient-accent {
+    background: linear-gradient(120deg, rgb(var(--accent)) 0%, rgb(var(--accent2)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgb(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 0%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 0%, transparent 85%);
+  }
+  .noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
+  }
+  .shadow-glow-accent {
+    box-shadow: 0 0 32px -4px rgb(var(--accent) / 0.55), 0 0 80px -12px rgb(var(--accent2) / 0.35);
+  }
+  .border-animated {
+    position: relative;
+    isolation: isolate;
+  }
+  .border-animated::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      rgb(var(--accent) / 0.9),
+      rgb(var(--accent2) / 0.9),
+      rgb(var(--accent) / 0) 40%,
+      rgb(var(--accent) / 0) 60%,
+      rgb(var(--accent) / 0.9)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: spin-angle 6s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .text-mask-fade {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%);
+  }
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgb(var(--surface)) 0%,
+      rgb(var(--elevated)) 50%,
+      rgb(var(--surface)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.2s linear infinite;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-angle {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '▊';
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: rgb(var(--accent));
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.aurora::before,
+.aurora::after {
+  content: '';
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: floaty 18s ease-in-out infinite;
+}
+.aurora::before {
+  background: radial-gradient(circle, rgb(var(--accent) / 0.9), transparent 60%);
+  top: -10vw;
+  left: -10vw;
+}
+.aurora::after {
+  background: radial-gradient(circle, rgb(var(--accent2) / 0.8), transparent 60%);
+  bottom: -20vw;
+  right: -15vw;
+  animation-delay: -9s;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4vw, 2vw, 0) scale(1.08); }
+}
+
+@keyframes mesh-drift-a {
+  0%   { transform: translate3d(-8%, -6%, 0) scale(1.05); }
+  50%  { transform: translate3d(6%, 4%, 0) scale(1.18); }
+  100% { transform: translate3d(-8%, -6%, 0) scale(1.05); }
+}
+@keyframes mesh-drift-b {
+  0%   { transform: translate3d(10%, 8%, 0) scale(1.1); }
+  50%  { transform: translate3d(-6%, -4%, 0) scale(1.22); }
+  100% { transform: translate3d(10%, 8%, 0) scale(1.1); }
+}
+@keyframes mesh-drift-c {
+  0%   { transform: translate3d(0%, 12%, 0) scale(1); }
+  50%  { transform: translate3d(-4%, -8%, 0) scale(1.15); }
+  100% { transform: translate3d(0%, 12%, 0) scale(1); }
+}
+
+@keyframes beam-slide-a {
+  0%   { transform: translate3d(-30%, -10%, 0) rotate(18deg); opacity: 0.0; }
+  20%  { opacity: 0.08; }
+  80%  { opacity: 0.08; }
+  100% { transform: translate3d(40%, 20%, 0) rotate(18deg); opacity: 0.0; }
+}
+@keyframes beam-slide-b {
+  0%   { transform: translate3d(40%, 10%, 0) rotate(-22deg); opacity: 0.0; }
+  20%  { opacity: 0.06; }
+  80%  { opacity: 0.06; }
+  100% { transform: translate3d(-30%, -20%, 0) rotate(-22deg); opacity: 0.0; }
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  will-change: transform;
+}
+.mesh-blob.a {
+  width: 60vmax; height: 60vmax;
+  top: -20vmax; left: -10vmax;
+  background: radial-gradient(circle, rgb(var(--accent) / 0.45), transparent 60%);
+  animation: mesh-drift-a 64s ease-in-out infinite;
+}
+.mesh-blob.b {
+  width: 55vmax; height: 55vmax;
+  bottom: -18vmax; right: -12vmax;
+  background: radial-gradient(circle, rgb(var(--accent2) / 0.38), transparent 60%);
+  animation: mesh-drift-b 78s ease-in-out infinite;
+}
+.mesh-blob.c {
+  width: 45vmax; height: 45vmax;
+  top: 30%; left: 40%;
+  background: radial-gradient(circle, rgb(var(--accent) / 0.22), transparent 65%);
+  animation: mesh-drift-c 92s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.light-beam {
+  position: absolute;
+  width: 60vw;
+  height: 22vh;
+  top: 20%;
+  left: -20%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, rgb(var(--accent) / 0.55) 50%, transparent 100%);
+  filter: blur(34px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+.light-beam.a { animation: beam-slide-a 38s linear infinite; }
+.light-beam.b {
+  top: 55%;
+  background: linear-gradient(90deg, transparent 0%, rgb(var(--accent2) / 0.5) 50%, transparent 100%);
+  animation: beam-slide-b 52s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html { scroll-padding-top: 96px; }

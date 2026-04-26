@@ -1,0 +1,41 @@
+{
+  "site": {
+    "title": "Vivek Raj — Lead DevOps Engineer",
+    "description": "Lead DevOps Engineer specializing in Kubernetes at scale, observability, GitOps, and AI-powered platform engineering.",
+    "url": "https://vivekraj.dev",
+    "keywords": ["DevOps", "SRE", "Kubernetes", "Observability", "Platform Engineering", "GitOps", "AWS", "Terraform"],
+    "ogImage": "/og.png",
+    "locale": "en-US"
+  },
+  "person": {
+    "name": "Vivek Raj",
+    "role": "Lead DevOps Engineer",
+    "company": "Sprinklr",
+    "location": "India",
+    "email": "7.vivek.raj@gmail.com",
+    "phone": "+91-7779994411",
+    "initials": "VR",
+    "image": "/image.jpg",
+    "resume": "/Vivek-Raj's-Resume.pdf",
+    "statusLabel": "Available for staff & principal roles",
+    "statusTone": "success"
+  },
+  "nav": {
+    "logo": "VR",
+    "tagline": "lead devops engineer",
+    "items": [
+      { "label": "Home", "href": "#hero", "icon": "home" },
+      { "label": "About", "href": "#about", "icon": "user" },
+      { "label": "Skills", "href": "#skills", "icon": "zap" },
+      { "label": "Experience", "href": "#experience", "icon": "briefcase" },
+      { "label": "Projects", "href": "#projects", "icon": "layers" },
+      { "label": "Awards", "href": "#certifications", "icon": "award" }
+    ],
+    "cta": { "label": "Get in touch", "href": "mailto:7.vivek.raj@gmail.com" }
+  },
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/vivek-raj1", "icon": "github" },
+    { "label": "LinkedIn", "href": "https://linkedin.com/in/vivek-raj0", "icon": "linkedin" },
+    { "label": "Email", "href": "mailto:7.vivek.raj@gmail.com", "icon": "mail" }
+  ]
+}

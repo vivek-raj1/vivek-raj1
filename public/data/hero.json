@@ -1,0 +1,82 @@
+{
+  "eyebrow": "LEAD DEVOPS · PLATFORM · SRE",
+  "headline": [
+    { "text": "Building ", "tone": "fg" },
+    { "text": "reliable", "tone": "accent" },
+    { "text": " platforms", "tone": "fg" },
+    { "text": " for", "tone": "fg" },
+    { "text": " thousands", "tone": "accent2" },
+    { "text": " of engineers.", "tone": "fg" }
+  ],
+  "subhead": "I design, scale, and operate Kubernetes fleets — 1000+ clusters, 5000+ users, petabyte-scale observability, and AI-driven remediation at production-grade SLOs.",
+  "primaryCta": { "label": "View experience", "href": "#experience" },
+  "secondaryCta": { "label": "Download resume", "href": "/Vivek-Raj's-Resume.pdf" },
+  "profile": {
+    "image": "/image.jpg",
+    "role": "Lead DevOps Engineer",
+    "company": "Sprinklr",
+    "orbitLabels": ["k8s", "argoCD", "prometheus", "terraform", "aws", "grafana"]
+  },
+  "stats": [
+    { "label": "Clusters operated", "value": "1000+", "suffix": "", "accent": "accent" },
+    { "label": "Platform users", "value": "5000+", "suffix": "", "accent": "accent2" },
+    { "label": "Uptime SLO", "value": "99.99", "suffix": "%", "accent": "success" },
+    { "label": "Years in trenches", "value": "8", "suffix": "+", "accent": "warn" }
+  ],
+  "terminal": {
+    "title": "vivek@prod-control-plane:~",
+    "lines": [
+      { "type": "prompt", "text": "kubectl get clusters --all-regions" },
+      { "type": "out", "text": "READY  RUNNING  REGIONS  NODES" },
+      { "type": "out", "text": "1042   1041     14       38,812" },
+      { "type": "prompt", "text": "argocd app sync platform/* --prune" },
+      { "type": "out", "text": "synced 417 apps · drift 0 · healthy 100%" },
+      { "type": "prompt", "text": "promql up{service=~\"api-.*\"} == 0" },
+      { "type": "out", "text": "no results · all upstreams healthy" },
+      { "type": "prompt", "text": "ai-ops remediate --alert HighLatency" },
+      { "type": "out", "text": "root cause identified · playbook auto-executed" }
+    ]
+  },
+  "metricCards": [
+    {
+      "title": "p99 latency",
+      "value": "42",
+      "unit": "ms",
+      "delta": "-18%",
+      "trend": "down",
+      "series": [80, 72, 68, 60, 55, 49, 46, 44, 43, 42]
+    },
+    {
+      "title": "CPU saturation",
+      "value": "37",
+      "unit": "%",
+      "delta": "stable",
+      "trend": "flat",
+      "series": [40, 38, 41, 39, 37, 38, 36, 37, 39, 37]
+    },
+    {
+      "title": "Error budget",
+      "value": "98.6",
+      "unit": "%",
+      "delta": "+0.3%",
+      "trend": "up",
+      "series": [95, 95.5, 96, 96.8, 97.3, 97.8, 98, 98.3, 98.5, 98.6]
+    },
+    {
+      "title": "Auto-remediated",
+      "value": "1247",
+      "unit": "/wk",
+      "delta": "+22%",
+      "trend": "up",
+      "series": [600, 680, 740, 820, 900, 980, 1050, 1130, 1200, 1247]
+    }
+  ],
+  "badges": [
+    { "label": "Kubernetes", "tone": "accent" },
+    { "label": "Prometheus", "tone": "accent2" },
+    { "label": "Thanos", "tone": "accent" },
+    { "label": "ArgoCD", "tone": "accent2" },
+    { "label": "Terraform", "tone": "accent" },
+    { "label": "AWS · GCP · Azure", "tone": "accent2" }
+  ]
+}

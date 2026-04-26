@@ -1,0 +1,29 @@
+{
+  "reveal": {
+    "fade": { "duration": 0.6, "ease": [0.22, 1, 0.36, 1] },
+    "fadeBlur": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1], "blur": 14 },
+    "slideUp": { "duration": 0.7, "ease": [0.22, 1, 0.36, 1], "y": 36 },
+    "stagger": { "each": 0.08, "delayChildren": 0.1 }
+  },
+  "hero": {
+    "wordStagger": 0.06,
+    "wordDuration": 0.7,
+    "terminalTypeMs": 22,
+    "terminalLinePauseMs": 240,
+    "floatDuration": 6
+  },
+  "scroll": {
+    "parallaxStrength": 0.2,
+    "pinOffset": 80
+  },
+  "cursor": {
+    "enabled": true,
+    "size": 22,
+    "ringSize": 44,
+    "smoothing": 0.18
+  },
+  "magnetic": {
+    "strength": 0.35,
+    "radius": 140
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "defaultMode": "system",
+  "accent": "violet",
+  "glow": "high",
+  "modes": {
+    "dark": {
+      "bg": "8 10 16",
+      "surface": "14 17 26",
+      "elevated": "20 24 36",
+      "border": "46 52 70",
+      "fg": "232 236 245",
+      "muted": "150 158 178",
+      "accent": "139 92 246",
+      "accent2": "34 211 238",
+      "success": "52 211 153",
+      "warn": "251 191 36",
+      "danger": "248 113 113"
+    },
+    "light": {
+      "bg": "248 250 252",
+      "surface": "255 255 255",
+      "elevated": "241 245 249",
+      "border": "203 213 225",
+      "fg": "15 23 42",
+      "muted": "71 85 105",
+      "accent": "124 58 237",
+      "accent2": "8 145 178",
+      "success": "5 150 105",
+      "warn": "217 119 6",
+      "danger": "220 38 38"
+    }
+  },
+  "palettes": {
+    "violet": { "accent": "139 92 246", "accent2": "34 211 238" },
+    "emerald": { "accent": "16 185 129", "accent2": "59 130 246" },
+    "rose": { "accent": "244 63 94", "accent2": "251 146 60" },
+    "sunset": { "accent": "249 115 22", "accent2": "236 72 153" }
+  }
+}
