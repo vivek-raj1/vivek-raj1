@@ -1,4 +1,4 @@
-# Deploys the static app inside `out/` (Next with output: "export") to Vercel.
+# Deploys the Next.js app to Vercel (remote build). Use standard Next output (`.next`), not static `out/`.
 #
 # Add GitHub → Settings → Secrets and variables:
 #   VERCEL_TOKEN       — Vercel → Account Settings → Tokens
@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Static export
+      - name: Build (verify)
         run: npm run build
 
       - name: Vercel project file (for CLI)
@@ -44,5 +44,5 @@ jobs:
           mkdir -p .vercel
           echo "{\"orgId\":\"$VERCEL_ORG_ID\",\"projectId\":\"$VERCEL_PROJECT_ID\"}" > .vercel/project.json
 
-      - name: Deploy static output
-        run: npx --yes vercel@39 deploy out --yes --prod --token "$VERCEL_TOKEN"
+      - name: Deploy to Vercel
+        run: npx --yes vercel@39 deploy --yes --prod --token "$VERCEL_TOKEN"
