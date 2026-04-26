@@ -1,7 +1,7 @@
 {
   "eyebrow": "CAPABILITIES",
   "title": "A full-stack DevOps toolbox.",
-  "subtitle": "From the kernel to the dashboard — battle-tested across payments, telecom, and SaaS.",
+  "subtitle": "From the kernel to the dashboard, IC to tech-lead — battle-tested across payments (Paytm, PayU), telecom (Airtel) and SaaS (Sprinklr).",
   "fieldNotesLabel": "Field notes",
   "allFilterLabel": "All",
   "allFilterIcon": "sparkles",
@@ -242,6 +242,116 @@
           "name": "RAG on runbooks",
           "level": 78,
           "note": "searchable institutional memory"
+        }
+      ]
+    },
+    {
+      "id": "databases",
+      "label": "Databases & Data",
+      "icon": "database",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-redis",
+          "name": "Redis (SME)",
+          "level": 90,
+          "note": "replication, persistence, eviction at payments scale",
+          "fieldBullets": [
+            "HA + sentinel/cluster topology hardening",
+            "Client-side patterns and connection pooling discipline"
+          ]
+        },
+        {
+          "id": "skill-rds",
+          "name": "Amazon RDS · Cloud SQL",
+          "level": 85,
+          "note": "managed MySQL/Postgres, backups, parameter groups"
+        },
+        {
+          "id": "skill-postgres-mysql",
+          "name": "PostgreSQL · MySQL",
+          "level": 84,
+          "note": "schema design, slow-query triage, replication"
+        },
+        {
+          "id": "skill-mongo",
+          "name": "MongoDB",
+          "level": 78,
+          "note": "replica sets, indexing, ops"
+        }
+      ]
+    },
+    {
+      "id": "api-mgmt",
+      "label": "API Management",
+      "icon": "plug",
+      "accent": "accent2",
+      "items": [
+        {
+          "id": "skill-api-gateway",
+          "name": "AWS API Gateway",
+          "level": 84,
+          "note": "REST/HTTP APIs, throttling, WAF integration"
+        },
+        {
+          "id": "skill-kong",
+          "name": "Kong",
+          "level": 80,
+          "note": "plugins, auth, rate limiting"
+        },
+        {
+          "id": "skill-apigee",
+          "name": "Apigee (GCP)",
+          "level": 75,
+          "note": "policy chains, dev portal"
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "label": "Leadership & Delivery",
+      "icon": "users",
+      "accent": "success",
+      "items": [
+        {
+          "id": "skill-tech-lead",
+          "name": "Tech Leadership",
+          "level": 90,
+          "note": "leading 6–12 engineer pods across DevOps/SRE",
+          "fieldBullets": [
+            "Roadmaps, design reviews, and platform OKRs",
+            "Hiring loops, ramp-up plans, growth ladders"
+          ]
+        },
+        {
+          "id": "skill-mentoring",
+          "name": "Mentoring & Coaching",
+          "level": 88,
+          "note": "SRE-2 / SRE-3 growth, 1:1 cadence"
+        },
+        {
+          "id": "skill-incident-mgmt",
+          "name": "Incident Management",
+          "level": 90,
+          "note": "on-call rotations, IM/comms, blameless postmortems"
+        },
+        {
+          "id": "skill-stakeholder",
+          "name": "Cross-functional Partnership",
+          "level": 88,
+          "note": "product, security, risk, compliance"
+        },
+        {
+          "id": "skill-finops",
+          "name": "FinOps / Cost Optimization",
+          "level": 86,
+          "note": "30% cloud-spend reductions; right-sizing & savings plans"
+        },
+        {
+          "id": "skill-collab",
+          "name": "Slack · Teams · Confluence · JIRA",
+          "level": 90,
+          "note": "documentation-first delivery"
         }
       ]
     }

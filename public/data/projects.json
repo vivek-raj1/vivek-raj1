@@ -1,7 +1,7 @@
 {
   "eyebrow": "SELECTED WORK",
   "title": "Systems I've designed & shipped.",
-  "subtitle": "A sample of the platforms, operators, and dashboards that moved real numbers in production.",
+  "subtitle": "A sample of the platforms, operators, migrations and dashboards that moved real numbers in production — across payments, telecom and SaaS.",
   "items": [
     {
       "id": "devops-ui",
@@ -10,7 +10,7 @@
       "tone": "accent",
       "icon": "layout-dashboard",
       "summary": "Internal DevOps control plane used across multiple verticals — RBAC, compliance, vendor VPN, AWS monitoring, asset management.",
-      "impact": ["70% reduction in toil", "Single pane for 100+ engineers", "RBAC with 12 scoped roles"],
+      "impact": ["70% reduction in toil", "Adopted by 100+ engineers", "RBAC with 12 scoped roles", "PayU production-grade"],
       "stack": ["React", "Flask", "Ansible", "AWS", "MySQL"],
       "highlights": [
         "Roles-based authentication with fine-grained scopes.",
@@ -26,7 +26,7 @@
       "tone": "accent2",
       "icon": "cloud",
       "summary": "Lifted and re-platformed 50+ payment microservices from Ali Cloud to AWS on EKS with end-to-end CI/CD and monitoring.",
-      "impact": ["Zero customer-visible downtime", "~30% cost optimization", "2× Rockstar award winner"],
+      "impact": ["50+ microservices migrated", "Zero customer-visible downtime", "~30% cost optimization", "2× Rockstar Award (Paytm)"],
       "stack": ["AWS", "EKS", "Terraform", "ArgoCD", "Prometheus"],
       "highlights": [
         "Designed the target architecture on EKS with multi-AZ resiliency.",
@@ -58,7 +58,7 @@
       "tone": "accent2",
       "icon": "sparkles",
       "summary": "LLM-powered assistant that ingests alerts, correlates runbooks, and auto-executes safe remediations — with full Langfuse tracing.",
-      "impact": ["1200+ alerts auto-remediated/week", "MTTR down 42%", "100% traced prompts"],
+      "impact": ["1200+ alerts auto-remediated / week", "MTTR down 42%", "100% traced prompts", "Serves 5000+ engineers"],
       "stack": ["Python", "LLMs", "Langfuse", "RAG", "Kubernetes"],
       "highlights": [
         "Alert deduplication and root-cause hypothesis generation.",

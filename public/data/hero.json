@@ -1,5 +1,5 @@
 {
-  "eyebrow": "LEAD DEVOPS · PLATFORM · SRE",
+  "eyebrow": "LEAD DEVOPS · SRE · PLATFORM · OPEN TO PRINCIPAL & MANAGER ROLES",
   "headline": [
     { "text": "Building ", "tone": "fg" },
     { "text": "reliable", "tone": "accent" },
@@ -8,7 +8,7 @@
     { "text": " thousands", "tone": "accent2" },
     { "text": " of engineers.", "tone": "fg" }
   ],
-  "subhead": "I design, scale, and operate Kubernetes fleets — 1000+ clusters, 5000+ users, petabyte-scale observability, and AI-driven remediation at production-grade SLOs.",
+  "subhead": "8+ years across Paytm, Airtel, PayU and Sprinklr — payments, telecom and SaaS. I design, scale and operate Kubernetes fleets (1000+ clusters, 5000+ engineers), petabyte observability, multi-cloud (AWS · GCP · Azure), and AI-assisted SRE at 99.99% SLOs. Open to Lead · Principal · Staff · DevOps/SRE Manager roles.",
   "primaryCta": { "label": "View experience", "href": "#experience" },
   "secondaryCta": { "label": "Download resume", "href": "/Vivek-Raj's-Resume.pdf" },
   "profile": {
@@ -72,11 +72,13 @@
     }
   ],
   "badges": [
-    { "label": "Kubernetes", "tone": "accent" },
-    { "label": "Prometheus", "tone": "accent2" },
-    { "label": "Thanos", "tone": "accent" },
-    { "label": "ArgoCD", "tone": "accent2" },
-    { "label": "Terraform", "tone": "accent" },
-    { "label": "AWS · GCP · Azure", "tone": "accent2" }
+    { "label": "Kubernetes @ scale", "tone": "accent" },
+    { "label": "SRE · 99.99% SLO", "tone": "success" },
+    { "label": "Prometheus · Thanos · VM", "tone": "accent2" },
+    { "label": "ArgoCD · GitOps", "tone": "accent" },
+    { "label": "Terraform · Ansible", "tone": "accent2" },
+    { "label": "AWS · GCP · Azure", "tone": "accent" },
+    { "label": "AI-assisted SRE", "tone": "accent2" },
+    { "label": "Team Lead · Mentor", "tone": "warn" }
   ]
 }
