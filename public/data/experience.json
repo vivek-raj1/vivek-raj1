@@ -1,0 +1,77 @@
+{
+  "eyebrow": "JOURNEY",
+  "title": "Eight years shipping production systems.",
+  "subtitle": "Ali Cloud → AWS migrations, multi-cluster Kubernetes, observability from scratch, and a DevOps UI that cut toil by 70%.",
+  "items": [
+    {
+      "id": "sprinklr",
+      "role": "Lead DevOps Engineer",
+      "company": "Sprinklr",
+      "location": "India",
+      "start": "2024",
+      "end": "Present",
+      "tone": "accent",
+      "summary": "Leading platform engineering across 1000+ Kubernetes clusters and building an AI-powered DevOps assistant for 5000+ engineers.",
+      "bullets": [
+        "Operate 1000+ EKS/GKE/AKS clusters spanning 14 regions via a unified GitOps control plane.",
+        "Designed the observability fabric: Prometheus + Thanos + VictoriaMetrics with per-tenant SLOs at PB-scale.",
+        "Shipping an LLM-assisted SRE copilot (Langfuse-traced) that triages alerts and auto-remediates low-risk incidents.",
+        "Own the platform roadmap — cluster lifecycle, cost, compliance, and developer experience for 5000+ users."
+      ],
+      "tags": ["Kubernetes", "Observability", "AI-Ops", "Platform"]
+    },
+    {
+      "id": "paytm",
+      "role": "Lead DevOps Engineer",
+      "company": "Paytm (One97 Communications)",
+      "location": "Noida, India",
+      "start": "2022",
+      "end": "2024",
+      "tone": "accent2",
+      "summary": "Led the PG2 migration from Ali Cloud to AWS, built the Release Engineering UI, and won two Rockstar awards.",
+      "bullets": [
+        "Migrated 50+ microservices from Ali Cloud to AWS — zero customer-visible downtime, cost-optimized by ~30%.",
+        "Built a Release Engineering UI that reduced toil by 30% and became the default deploy surface for multiple verticals.",
+        "Designed and shipped a Kubernetes Operator (CRD-backed) to automate HPA patching on configurable schedules.",
+        "Set up monitoring from scratch — Prometheus + Grafana + APM — with 99% infrastructure uptime.",
+        "SME for Redis — hardened replication, persistence, and client patterns across production workloads."
+      ],
+      "tags": ["AWS", "Kubernetes Operator", "CI/CD", "Monitoring", "Redis"]
+    },
+    {
+      "id": "airtel",
+      "role": "Senior SRE",
+      "company": "Bharti Airtel",
+      "location": "Gurgaon, India",
+      "start": "2021",
+      "end": "2022",
+      "tone": "accent",
+      "summary": "Capacity planning, cost optimization, and infrastructure security across 15+ microservices.",
+      "bullets": [
+        "Automated deployments for 15+ microservices on AWS EC2 + ECS.",
+        "Achieved a 30% reduction in cloud spend via right-sizing and workload automation.",
+        "Hardened infrastructure security and onboarded services to AppDynamics for full-stack APM.",
+        "Awarded for Outstanding JVM Hygiene — automation across multiple services."
+      ],
+      "tags": ["AWS", "ECS", "Cost", "APM", "Security"]
+    },
+    {
+      "id": "payu",
+      "role": "Site Reliability Engineer",
+      "company": "PayU Payments",
+      "location": "Gurgaon, India",
+      "start": "2018",
+      "end": "2021",
+      "tone": "accent2",
+      "summary": "Built the DevOps UI, led DR migration on Kubernetes, and moved monitoring from commercial tools to open source.",
+      "bullets": [
+        "Built a custom DevOps UI in React with roles-based auth — cut toil by 70% across verticals.",
+        "Led the DR migration to Kubernetes and designed the monitoring foundation.",
+        "Transitioned monitoring to open-source (Prometheus + Grafana + ELK) — flexibility + cost savings.",
+        "Migrated infrastructure from physical DC to AWS with minimal downtime.",
+        "Received the Thank You Award for Big Billion Day reliability."
+      ],
+      "tags": ["Kubernetes", "React", "Prometheus", "GitLab CI", "AWS"]
+    }
+  ]
+}

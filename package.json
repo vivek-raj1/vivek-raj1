@@ -1,0 +1,40 @@
+{
+  "name": "vivek-raj-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "export": "next build --webpack",
+    "clean": "rm -rf .next out",
+    "lint": "eslint .",
+    "verify": "npm run clean && npm run lint && npm run build"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "@types/three": "^0.184.0",
+    "clsx": "2.1.1",
+    "framer-motion": "11.18.2",
+    "gsap": "3.12.5",
+    "lucide-react": "0.453.0",
+    "motion": "^12.38.0",
+    "next": "^16.2.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "autoprefixer": "10.4.20",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.2.4",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.2"
+  }
+}

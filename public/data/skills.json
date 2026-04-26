@@ -1,0 +1,249 @@
+{
+  "eyebrow": "CAPABILITIES",
+  "title": "A full-stack DevOps toolbox.",
+  "subtitle": "From the kernel to the dashboard — battle-tested across payments, telecom, and SaaS.",
+  "fieldNotesLabel": "Field notes",
+  "allFilterLabel": "All",
+  "allFilterIcon": "sparkles",
+  "categories": [
+    {
+      "id": "orchestration",
+      "label": "Orchestration",
+      "icon": "boxes",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-k8s",
+          "name": "Kubernetes",
+          "level": 96,
+          "note": "1000+ clusters, custom operators, CRDs",
+          "fieldBullets": [
+            "Unified GitOps for EKS, GKE, and AKS",
+            "CRDs and admission policies as platform contracts"
+          ]
+        },
+        {
+          "id": "skill-docker",
+          "name": "Docker",
+          "level": 95,
+          "note": "multi-stage, distroless, BuildKit",
+          "fieldBullets": ["Reproducible image builds; SBOM in CI", "Hardening base images and supply chain"]
+        },
+        {
+          "id": "skill-helm",
+          "name": "Helm",
+          "level": 92,
+          "note": "chart libraries, umbrella charts"
+        },
+        {
+          "id": "skill-ecs-eks",
+          "name": "ECS / EKS / GKE / AKS",
+          "level": 90,
+          "note": "prod across AWS, GCP, Azure"
+        }
+      ]
+    },
+    {
+      "id": "observability",
+      "label": "Observability",
+      "icon": "activity",
+      "accent": "accent2",
+      "items": [
+        {
+          "id": "skill-prometheus",
+          "name": "Prometheus",
+          "level": 95,
+          "note": "federation, recording rules at PB scale",
+          "fieldNotesLabel": "Operations notes",
+          "fieldBullets": ["Federation and HA pairs for global views", "Recording rules to protect query paths"]
+        },
+        {
+          "id": "skill-thanos",
+          "name": "Thanos",
+          "level": 92,
+          "note": "long-term storage, global querier"
+        },
+        {
+          "id": "skill-victoriametrics",
+          "name": "VictoriaMetrics",
+          "level": 90,
+          "note": "vmagent, vmalert fleet"
+        },
+        {
+          "id": "skill-grafana",
+          "name": "Grafana",
+          "level": 94,
+          "note": "SLO dashboards, alerting, provisioning as code"
+        },
+        {
+          "id": "skill-loki-elk",
+          "name": "Loki / ELK",
+          "level": 88,
+          "note": "structured logs, cardinality discipline"
+        },
+        {
+          "id": "skill-dynatrace",
+          "name": "Dynatrace / Pinpoint",
+          "level": 82,
+          "note": "APM, trace-based alerting"
+        }
+      ]
+    },
+    {
+      "id": "gitops",
+      "label": "GitOps & CI/CD",
+      "icon": "git-branch",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-argocd",
+          "name": "ArgoCD",
+          "level": 94,
+          "note": "ApplicationSets, multi-cluster, SSO"
+        },
+        {
+          "id": "skill-jenkins",
+          "name": "Jenkins",
+          "level": 90,
+          "note": "shared libraries, dynamic agents"
+        },
+        {
+          "id": "skill-gitlab-ci",
+          "name": "GitLab CI / Bitbucket",
+          "level": 88,
+          "note": "pipelines as code, cache optimizations"
+        }
+      ]
+    },
+    {
+      "id": "iac",
+      "label": "IaC & Config",
+      "icon": "file-code",
+      "accent": "accent2",
+      "items": [
+        {
+          "id": "skill-terraform",
+          "name": "Terraform",
+          "level": 92,
+          "note": "modules, workspaces, policy-as-code"
+        },
+        {
+          "id": "skill-ansible",
+          "name": "Ansible",
+          "level": 88,
+          "note": "playbooks, roles, idempotent rollouts"
+        },
+        {
+          "id": "skill-crossplane",
+          "name": "Crossplane",
+          "level": 78,
+          "note": "cluster-as-API"
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud",
+      "icon": "cloud",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-aws",
+          "name": "AWS",
+          "level": 94,
+          "note": "EKS, VPC, IAM, WAF, KMS, GuardDuty, Lambda, Route53"
+        },
+        {
+          "id": "skill-gcp",
+          "name": "GCP",
+          "level": 85,
+          "note": "GKE, Apigee, Cloud Monitoring, IAM"
+        },
+        {
+          "id": "skill-azure",
+          "name": "Azure",
+          "level": 82,
+          "note": "AKS, Front Door, Arc, Key Vault"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security & Compliance",
+      "icon": "shield",
+      "accent": "accent2",
+      "items": [
+        {
+          "id": "skill-iam-kms",
+          "name": "IAM / KMS / Secret Manager",
+          "level": 92,
+          "note": "least-privilege, rotation"
+        },
+        {
+          "id": "skill-sonarqube",
+          "name": "SonarQube / Qualys / Cortex",
+          "level": 86,
+          "note": "shift-left scanning"
+        },
+        {
+          "id": "skill-cloudtrail",
+          "name": "CloudTrail / GuardDuty / WAF",
+          "level": 88,
+          "note": "continuous threat monitoring"
+        }
+      ]
+    },
+    {
+      "id": "programming",
+      "label": "Programming",
+      "icon": "terminal",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-python",
+          "name": "Python",
+          "level": 88,
+          "note": "Flask, Django, operators, tooling"
+        },
+        {
+          "id": "skill-js-react",
+          "name": "JavaScript / React",
+          "level": 82,
+          "note": "internal DevOps UIs"
+        },
+        {
+          "id": "skill-bash-go",
+          "name": "Bash / Go (ops)",
+          "level": 84,
+          "note": "reliability tooling"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI for DevOps",
+      "icon": "cpu",
+      "accent": "accent2",
+      "items": [
+        {
+          "id": "skill-llm-sre",
+          "name": "LLM-assisted SRE",
+          "level": 84,
+          "note": "alert triage, runbook synthesis"
+        },
+        {
+          "id": "skill-langfuse",
+          "name": "Langfuse",
+          "level": 80,
+          "note": "trace + evaluate prompts in prod"
+        },
+        {
+          "id": "skill-rag",
+          "name": "RAG on runbooks",
+          "level": 78,
+          "note": "searchable institutional memory"
+        }
+      ]
+    }
+  ]
+}
