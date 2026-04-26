@@ -1,29 +1,36 @@
 {
   "eyebrow": "ABOUT",
-  "title": "I turn fragile infra into boring, predictable platforms.",
+  "title": "I turn fragile infrastructure into boring, predictable platforms — and grow the teams that run them.",
   "paragraphs": [
-    "I'm Vivek — a Lead DevOps Engineer with 8+ years shipping production systems across e-commerce, payments, and telecom. I've led cloud migrations (Ali Cloud → AWS), designed Kubernetes Operators that automate toil, and built observability stacks that page humans only when humans are actually needed.",
-    "Today I focus on platform engineering at scale: running 1000+ Kubernetes clusters for 5000+ engineers, replacing hand-held runbooks with AI-assisted remediation, and treating reliability as a product, not a ticket queue."
+    "I'm Vivek — a Lead DevOps / SRE engineer with 8+ years shipping production systems across payments (Paytm, PayU), telecom (Airtel) and SaaS (Sprinklr). I've owned cloud migrations (Ali Cloud → AWS, on-prem DC → AWS), shipped Kubernetes Operators that automate toil, and built observability stacks that page humans only when humans are actually needed.",
+    "I lead from the keyboard: I write the design doc, ship the first version, then mentor the team that owns it. I've operated platforms at 1000+ cluster / 5000+ engineer scale, run on-call rotations, hardened security and compliance for regulated payment workloads, and driven 30%+ cloud cost reductions through right-sizing and FinOps.",
+    "Looking ahead, I'm open to Lead, Principal, Staff, or DevOps/SRE Manager roles where reliability, platform engineering and AI-assisted operations are first-class problems."
   ],
   "highlights": [
-    { "icon": "layers", "title": "Platform at scale", "body": "1000+ clusters, 14 regions, unified control plane. GitOps-first with ArgoCD, zero-drift policy enforced by CI." },
-    { "icon": "activity", "title": "Observability", "body": "Prometheus + Thanos + VictoriaMetrics + Grafana. PB-scale retention, per-tenant SLOs, burn-rate alerting." },
-    { "icon": "cpu", "title": "AI for Ops", "body": "LLM-backed assistant (Langfuse-traced) to triage alerts, propose remediations, and auto-close low-risk incidents." },
-    { "icon": "shield", "title": "Security & compliance", "body": "IAM, KMS, GuardDuty, WAF, SonarQube, Qualys, Cortex. Shift-left policies in CI/CD." }
+    { "icon": "layers", "title": "Platform at scale", "body": "1000+ Kubernetes clusters across 14 regions on EKS · GKE · AKS. GitOps-first with ArgoCD ApplicationSets; zero-drift policy enforced in CI." },
+    { "icon": "activity", "title": "Observability", "body": "Prometheus + Thanos + VictoriaMetrics + Grafana + Loki/ELK at PB scale. Per-tenant SLOs, burn-rate alerting, runbook-linked dashboards." },
+    { "icon": "cpu", "title": "AI for Ops", "body": "LLM-backed SRE copilot (Langfuse-traced, RAG over runbooks) that triages alerts, proposes remediations, and auto-closes low-risk incidents — 1200+/week." },
+    { "icon": "shield", "title": "Security & compliance", "body": "IAM, KMS, Secret Manager, GuardDuty, CloudTrail, WAF, Shield, SonarQube, Qualys, Cortex. Shift-left policies in CI/CD; PCI-DSS-aware payment workloads." },
+    { "icon": "users", "title": "Leadership & mentoring", "body": "Lead cross-functional pods of 6–12 engineers, run incident reviews and on-call rotations, mentor SRE-2/SRE-3 ICs, partner with product on platform roadmaps." },
+    { "icon": "trending-down", "title": "Cost & FinOps", "body": "30% cloud spend reductions through right-sizing, spot/savings plans, multi-tenant cluster packing, and a Release Engineering UI that cut deploy toil 70%." }
   ],
   "pillars": [
-    { "label": "Kubernetes", "percent": 96 },
-    { "label": "Observability", "percent": 94 },
+    { "label": "Kubernetes & Operators", "percent": 96 },
+    { "label": "Observability & SRE", "percent": 94 },
     { "label": "GitOps / CI/CD", "percent": 92 },
-    { "label": "Multi-cloud", "percent": 90 },
-    { "label": "IaC / Terraform", "percent": 88 },
+    { "label": "Multi-cloud (AWS · GCP · Azure)", "percent": 90 },
+    { "label": "IaC / Terraform / Ansible", "percent": 88 },
+    { "label": "Security & Compliance", "percent": 86 },
+    { "label": "Leadership & Mentoring", "percent": 88 },
     { "label": "AI-assisted DevOps", "percent": 82 }
   ],
   "philosophyTitle": "Operating principles",
   "philosophy": [
-    "Reliability is a product.",
+    "Reliability is a product, not a ticket queue.",
     "Every alert should be actionable — or deleted.",
     "If it isn't in Git, it doesn't exist.",
-    "Automate the 2 a.m. page away."
+    "Automate the 2 a.m. page away.",
+    "Hire for slope, not intercept — and unblock relentlessly.",
+    "Cost is a reliability signal: cheap is calm."
   ]
 }

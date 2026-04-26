@@ -46,14 +46,17 @@
   ],
   "education": [
     {
-      "degree": "B.Tech",
-      "institution": "Greater Noida Institute of Technology",
+      "degree": "B.Tech — Computer Science & Engineering",
+      "institution": "Greater Noida Institute of Technology (AKTU)",
       "year": "2013 — 2017"
     }
   ],
   "certifications": [
-    { "name": "Certified Kubernetes Administrator (CKA)", "issuer": "CNCF", "status": "in-progress" },
-    { "name": "AWS Solutions Architect — Associate", "issuer": "AWS", "status": "earned" },
-    { "name": "Terraform Associate", "issuer": "HashiCorp", "status": "earned" }
+    { "name": "Certified Kubernetes Administrator (CKA)", "issuer": "CNCF / Linux Foundation", "status": "in-progress" },
+    { "name": "AWS Solutions Architect — Associate", "issuer": "Amazon Web Services", "status": "earned" },
+    { "name": "Terraform Associate", "issuer": "HashiCorp", "status": "earned" },
+    { "name": "AWS Certified DevOps Engineer — Professional", "issuer": "Amazon Web Services", "status": "in-progress" },
+    { "name": "Prometheus Certified Associate (PCA)", "issuer": "CNCF / Linux Foundation", "status": "in-progress" },
+    { "name": "ArgoCD / GitOps Fundamentals", "issuer": "Codefresh", "status": "earned" }
   ]
 }

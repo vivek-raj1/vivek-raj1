@@ -313,7 +313,7 @@ function SkillCard({
       onBlur={() => onHover(false)}
       tabIndex={0}
       className={cn(
-        'group relative min-h-0 w-full max-w-full self-start overflow-hidden rounded-2xl border border-border/55 bg-surface/35 p-5 outline-none backdrop-blur-md transition-colors',
+        'group relative min-h-0 w-full max-w-full self-start overflow-hidden rounded-2xl border border-bg/80 bg-surface/35 p-5 outline-none backdrop-blur-md transition-colors',
         'hover:border-accent/55 focus-visible:border-accent/55 focus-visible:ring-2 focus-visible:ring-accent/40'
       )}
     >
