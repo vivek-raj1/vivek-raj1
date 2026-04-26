@@ -13,6 +13,11 @@
 - **Fix**: Removed static export from `next.config.js` and removed **`outputDirectory`** from `vercel.json` so Vercel uses the default **`.next`** output and the standard Next.js deploy path.
 - **GitHub Actions**: `.github/workflows/vercel-production.yml` now runs `vercel deploy` **without** the `out` argument (remote build / project deploy), after a local `npm run build` as a verify step.
 
+## Done (GitHub Actions Node deprecation)
+
+- **`actions/checkout@v6`** and **`actions/setup-node@v6`** replace v4 so action JS runtimes align with the Node **24** migration ([GitHub changelog](https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/)).
+- Workflow **`node-version: '24'`** for install/build; **`FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true`** in `env` so any remaining JS actions use Node 24 early.
+
 ## Pending / your follow-ups
 
 - **Vercel dashboard**: Open **Project → Settings → General** and ensure **Output Directory** is **empty** (default). If it was manually set to `out`, clear it so it matches the repo.
