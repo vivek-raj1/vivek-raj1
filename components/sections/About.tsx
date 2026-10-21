@@ -127,7 +127,6 @@ function PillarBar({ label, percent, delay }: { label: string; percent: number; 
           transition={{ duration: 1.05, delay, ease: [0.22, 1, 0.36, 1] }}
           className="relative h-full rounded-full bg-gradient-to-r from-accent via-accent to-accent2"
         >
-          <span className="absolute inset-0 animate-shimmer bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent)] bg-[length:200%_100%]" />
         </motion.div>
       </div>
     </div>

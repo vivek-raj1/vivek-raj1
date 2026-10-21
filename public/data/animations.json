@@ -1,9 +1,49 @@
 {
   "reveal": {
-    "fade": { "duration": 0.6, "ease": [0.22, 1, 0.36, 1] },
-    "fadeBlur": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1], "blur": 14 },
-    "slideUp": { "duration": 0.7, "ease": [0.22, 1, 0.36, 1], "y": 36 },
-    "stagger": { "each": 0.08, "delayChildren": 0.1 }
+    "fade": {
+      "duration": 0.9,
+      "ease": [
+        0.16,
+        1,
+        0.3,
+        1
+      ]
+    },
+    "fadeBlur": {
+      "duration": 1.0,
+      "ease": [
+        0.16,
+        1,
+        0.3,
+        1
+      ],
+      "blur": 6
+    },
+    "slideUp": {
+      "duration": 0.9,
+      "ease": [
+        0.16,
+        1,
+        0.3,
+        1
+      ],
+      "y": 24
+    },
+    "stagger": {
+      "each": 0.07,
+      "delayChildren": 0.05
+    },
+    "section": {
+      "duration": 1.1,
+      "ease": [
+        0.16,
+        1,
+        0.3,
+        1
+      ],
+      "y": 40,
+      "scale": 0.96
+    }
   },
   "hero": {
     "wordStagger": 0.06,
@@ -17,7 +57,7 @@
     "pinOffset": 80
   },
   "cursor": {
-    "enabled": true,
+    "enabled": false,
     "size": 22,
     "ringSize": 44,
     "smoothing": 0.18

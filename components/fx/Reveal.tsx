@@ -35,7 +35,7 @@ export function Reveal({
       reduce
         ? { opacity: 1 }
         : kind === 'slideUp'
-        ? { opacity: 0, y: a.slideUp.y, filter: 'blur(6px)' }
+        ? { opacity: 0, y: a.slideUp.y }
         : kind === 'fadeBlur'
         ? { opacity: 0, filter: `blur(${a.fadeBlur.blur}px)` }
         : { opacity: 0 },

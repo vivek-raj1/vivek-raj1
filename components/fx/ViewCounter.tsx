@@ -39,7 +39,6 @@ export function ViewCounter() {
       aria-label={`${label}: ${count}`}
     >
       <span className="relative flex h-2 w-2">
-        <span className="absolute inset-0 animate-ping rounded-full bg-success/70" />
         <span className="relative h-2 w-2 rounded-full bg-success" />
       </span>
       <Icon name="eye" size={12} className="text-muted" />

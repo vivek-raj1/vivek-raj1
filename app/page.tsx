@@ -7,10 +7,13 @@ import { Projects } from '@/components/sections/Projects';
 import { Certifications } from '@/components/sections/Certifications';
 import { Footer } from '@/components/sections/Footer';
 import { GsapSmooth } from '@/components/fx/GsapSmooth';
+import { SectionReveal } from '@/components/fx/SectionReveal';
+import { LiveSystems } from '@/components/sections/LiveSystems';
 import { data } from '@/lib/data';
 
 const registry = {
   hero: Hero,
+  liveSystems: LiveSystems,
   about: About,
   skills: Skills,
   experience: Experience,
@@ -28,7 +31,8 @@ export default function Page() {
       {ui.sections.order.map((key) => {
         const Comp = registry[key as keyof typeof registry];
         if (!Comp || !ui.sections.visible[key]) return null;
-        return <Comp key={key} />;
+        // The hero is visible on load, so only later sections get the scroll entrance.
+        return key === 'hero' ? <Comp key={key} /> : <SectionReveal key={key}><Comp /></SectionReveal>;
       })}
     </main>
   );
