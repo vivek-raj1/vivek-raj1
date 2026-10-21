@@ -36,6 +36,7 @@
       "skills",
       "experience",
       "projects",
+      "linkedin",
       "certifications",
       "footer"
     ],
@@ -47,7 +48,8 @@
       "experience": true,
       "projects": true,
       "certifications": true,
-      "footer": true
+      "footer": true,
+      "linkedin": true
     }
   },
   "viewCounter": {

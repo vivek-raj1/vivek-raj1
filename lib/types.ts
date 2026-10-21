@@ -260,6 +260,16 @@ export interface LiveData {
   clusters: { title: string; count: number; caption: string; syncLabel: string };
 }
 
+export interface LinkedInData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  profileUrl: string;
+  followLabel: string;
+  /** Newest first. `url`: the post link, or the src from LinkedIn's "Embed this post". */
+  posts: { url: string; height?: number }[];
+}
+
 export interface PortfolioData {
   meta: MetaData;
   hero: HeroData;
@@ -269,6 +279,7 @@ export interface PortfolioData {
   projects: ProjectsData;
   certifications: CertificationsData;
   live: LiveData;
+  linkedin: LinkedInData;
   theme: ThemeData;
   animations: AnimationsData;
   ui: UIData;

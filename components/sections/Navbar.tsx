@@ -12,6 +12,8 @@ import { SocialLinks } from '@/components/fx/SocialLinks';
 
 export function Navbar() {
   const { nav, person } = data.meta;
+  // The Posts link only shows once LinkedIn posts are configured.
+  const items = nav.items.filter((i) => i.href !== '#linkedin' || data.linkedin.posts.length > 0);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -45,7 +47,7 @@ export function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {nav.items.map((i) => (
+            {items.map((i) => (
               <a
                 key={i.href}
                 href={i.href}
@@ -103,7 +105,7 @@ export function Navbar() {
         className="fixed inset-0 z-40 flex flex-col items-stretch bg-bg/90 backdrop-blur-xl md:hidden"
       >
         <div className="mt-24 flex flex-col gap-3 px-6">
-          {nav.items.map((i, idx) => (
+          {items.map((i, idx) => (
             <motion.a
               key={i.href}
               href={i.href}

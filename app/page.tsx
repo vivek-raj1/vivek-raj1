@@ -9,11 +9,13 @@ import { Footer } from '@/components/sections/Footer';
 import { GsapSmooth } from '@/components/fx/GsapSmooth';
 import { SectionReveal } from '@/components/fx/SectionReveal';
 import { LiveSystems } from '@/components/sections/LiveSystems';
+import { LinkedInPosts } from '@/components/sections/LinkedInPosts';
 import { data } from '@/lib/data';
 
 const registry = {
   hero: Hero,
   liveSystems: LiveSystems,
+  linkedin: LinkedInPosts,
   about: About,
   skills: Skills,
   experience: Experience,
