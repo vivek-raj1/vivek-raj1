@@ -40,6 +40,12 @@ import {
   X,
   GraduationCap,
   Heart,
+  Bot,
+  Workflow,
+  Users,
+  TrendingDown,
+  Database,
+  Plug,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -84,6 +90,12 @@ const registry: Record<string, LucideIcon> = {
   'arrow-right': ArrowRight,
   'graduation-cap': GraduationCap,
   heart: Heart,
+  bot: Bot,
+  workflow: Workflow,
+  users: Users,
+  'trending-down': TrendingDown,
+  database: Database,
+  plug: Plug,
 };
 
 export function Icon({

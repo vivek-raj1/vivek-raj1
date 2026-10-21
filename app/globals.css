@@ -29,6 +29,8 @@ body {
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
   position: relative;
+  /* Decorative blobs bleed past the viewport; clip (not hidden) keeps sticky elements working. */
+  overflow-x: clip;
 }
 
 ::selection {

@@ -1,11 +1,15 @@
 {
   "site": {
-    "title": "Vivek Raj — Lead DevOps / SRE / Platform Engineering Leader",
-    "description": "Lead DevOps Engineer with 8+ years across payments, telecom and SaaS. Kubernetes at scale (1000+ clusters), observability (Prometheus/Thanos/VictoriaMetrics), GitOps (ArgoCD), multi-cloud (AWS/GCP/Azure) and AI-assisted SRE. Open to Lead, Principal, Staff, Engineering Manager and DevOps/SRE Manager roles.",
+    "title": "Vivek Raj — DevOps · AIOps · Software Engineer",
+    "description": "DevOps, AIOps and software engineer with 8+ years across payments, telecom and SaaS. Lead Cloud Engineer at Sprinklr running 100+ Kubernetes clusters on AWS, GCP and Azure; builds MCP gateways, AI agents and workflow automation in Go and Python.",
     "url": "https://raj-vivek.com",
     "keywords": [
       "Vivek Raj",
       "Lead DevOps Engineer",
+      "Platform Engineer",
+      "SDE",
+      "Software Engineer",
+      "AIOps Engineer",
       "Senior DevOps Engineer",
       "Principal DevOps Engineer",
       "Staff Site Reliability Engineer",
@@ -20,14 +24,11 @@
       "EKS",
       "GKE",
       "AKS",
-      "Helm",
       "ArgoCD",
       "GitOps",
       "Terraform",
       "Ansible",
-      "Crossplane",
       "Prometheus",
-      "Thanos",
       "VictoriaMetrics",
       "Grafana",
       "Loki",
@@ -65,10 +66,24 @@
       "PostgreSQL",
       "MySQL",
       "MongoDB",
+      "Lead Cloud Engineer",
+      "AIOps",
+      "MCP",
+      "Model Context Protocol",
+      "AI Agents",
+      "LangGraph",
+      "OpenTelemetry",
+      "ClickHouse",
+      "Argo Rollouts",
+      "Argo Workflows",
+      "KEDA",
+      "Terragrunt",
+      "Litmus Chaos",
+      "FluxCD",
+      "Kafka",
       "AI for DevOps",
       "LLM",
       "RAG",
-      "Langfuse",
       "Payments",
       "Telecom",
       "SaaS",
@@ -82,33 +97,72 @@
   },
   "person": {
     "name": "Vivek Raj",
-    "role": "Lead DevOps Engineer · SRE · Platform",
+    "role": "DevOps · AIOps · Software Engineer",
     "company": "Sprinklr",
-    "location": "India · Open to Remote / Hybrid (Noida · Gurgaon · Bengaluru)",
+    "location": "Gurgaon, India · Open to Remote / Hybrid",
     "email": "7.vivek.raj@gmail.com",
     "phone": "+91-7779994411",
     "initials": "VR",
     "image": "/image.jpg",
     "resume": "/Vivek-Raj's-Resume.pdf",
-    "statusLabel": "Open to Lead · Principal · Staff · DevOps/SRE Manager roles",
+    "statusLabel": "Open to Lead / Staff roles · DevOps · AIOps · Platform",
     "statusTone": "success"
   },
   "nav": {
     "logo": "VR",
-    "tagline": "lead devops · sre · platform",
+    "tagline": "devops · aiops · sde",
     "items": [
-      { "label": "Home", "href": "#hero", "icon": "home" },
-      { "label": "About", "href": "#about", "icon": "user" },
-      { "label": "Skills", "href": "#skills", "icon": "zap" },
-      { "label": "Experience", "href": "#experience", "icon": "briefcase" },
-      { "label": "Projects", "href": "#projects", "icon": "layers" },
-      { "label": "Awards", "href": "#certifications", "icon": "award" }
+      {
+        "label": "Home",
+        "href": "#hero",
+        "icon": "home"
+      },
+      {
+        "label": "About",
+        "href": "#about",
+        "icon": "user"
+      },
+      {
+        "label": "Skills",
+        "href": "#skills",
+        "icon": "zap"
+      },
+      {
+        "label": "Experience",
+        "href": "#experience",
+        "icon": "briefcase"
+      },
+      {
+        "label": "Projects",
+        "href": "#projects",
+        "icon": "layers"
+      },
+      {
+        "label": "Awards",
+        "href": "#certifications",
+        "icon": "award"
+      }
     ],
-    "cta": { "label": "Hire / Connect", "href": "mailto:7.vivek.raj@gmail.com?subject=Role%20opportunity%20for%20Vivek%20Raj" }
+    "cta": {
+      "label": "Hire / Connect",
+      "href": "mailto:7.vivek.raj@gmail.com?subject=Role%20opportunity%20for%20Vivek%20Raj"
+    }
   },
   "socials": [
-    { "label": "GitHub", "href": "https://github.com/vivek-raj1", "icon": "github" },
-    { "label": "LinkedIn", "href": "https://linkedin.com/in/vivek-raj0", "icon": "linkedin" },
-    { "label": "Email", "href": "mailto:7.vivek.raj@gmail.com", "icon": "mail" }
+    {
+      "label": "GitHub",
+      "href": "https://github.com/vivek-raj1",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/vivek-raj0",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:7.vivek.raj@gmail.com",
+      "icon": "mail"
+    }
   ]
 }

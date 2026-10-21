@@ -1,81 +1,192 @@
 {
   "eyebrow": "JOURNEY",
-  "title": "Eight years shipping production systems — IC and tech-lead.",
-  "subtitle": "Payments, telecom and SaaS. Ali Cloud → AWS migrations, multi-cluster Kubernetes, observability from scratch, and a DevOps UI that cut toil 70%.",
+  "title": "8+ years building and running production platforms.",
+  "subtitle": "Digital payments, telecom and SaaS. Tap any role to see the full list of achievements.",
   "items": [
     {
       "id": "sprinklr",
-      "role": "Lead DevOps Engineer · Platform & SRE",
-      "company": "Sprinklr",
-      "location": "India · Hybrid",
-      "start": "2024",
+      "role": "Lead Cloud Engineer",
+      "company": "Sprinklr India Pvt Ltd",
+      "location": "Gurgaon, India",
+      "start": "Sep 2024",
       "end": "Present",
       "tone": "accent",
-      "summary": "Tech-lead for platform engineering across 1000+ Kubernetes clusters; building an AI-assisted SRE copilot serving 5000+ engineers across multi-cloud (AWS · GCP · Azure).",
-      "bullets": [
-        "Operate 1000+ EKS / GKE / AKS clusters spanning 14 regions via a unified GitOps control plane (ArgoCD ApplicationSets, Crossplane).",
-        "Designed the observability fabric: Prometheus + Thanos + VictoriaMetrics + Grafana + Loki at PB scale with per-tenant SLOs and burn-rate alerts.",
-        "Shipping an LLM-assisted SRE copilot (Langfuse-traced, RAG over runbooks) that triages alerts and auto-remediates 1200+ low-risk incidents/week — MTTR down 42%.",
-        "Own the platform roadmap end-to-end — cluster lifecycle, cost (FinOps), compliance, and developer experience for 5000+ engineers.",
-        "Lead a cross-functional pod of 6–10 engineers; run on-call rotations, incident reviews, and SRE-2/SRE-3 mentoring."
+      "summary": "Lead a 6–10 member DevOps & Cloud team running 100+ Kubernetes clusters across AWS, GCP and Azure — and build Cosmic, our AIOps platform for workflows, Kubernetes and AI agents.",
+      "metrics": [
+        {
+          "value": "100+",
+          "label": "K8s clusters"
+        },
+        {
+          "value": "21+",
+          "label": "MCP integrations"
+        },
+        {
+          "value": "13%",
+          "label": "cloud spend cut"
+        }
       ],
-      "tags": ["Kubernetes", "Multi-cloud", "Observability", "AI-Ops", "Platform", "Tech Lead", "FinOps"]
+      "keyWins": [
+        "Built Cosmic — an MCP gateway over 21+ DevOps tools and 100+ clusters, powering multi-tool workflows, a Kubernetes lens and AI agents.",
+        "Run VictoriaMetrics across 90+ Kubernetes clusters for scalable, low-cost, long-term metrics.",
+        "Cut cloud spend 13% across AWS, GCP & Azure through right-sizing and storage optimization."
+      ],
+      "bullets": [
+        "Lead & mentor a 6–10 member DevOps & Cloud Engineering team — technical direction, code reviews, hiring, and end-to-end delivery of the internal DevOps/AIOps platform.",
+        "Architected and developed Cosmic, a Go-based MCP (Model Context Protocol) gateway federating 21+ infrastructure integrations (AWS, Kubernetes, Prometheus, PagerDuty, Jenkins, Graylog, VoIP, InfluxDB, Elasticsearch) through one RBAC-governed endpoint that works with public MCP clients such as Claude and Cursor.",
+        "Enabled AI-driven self-service operations — AWS cost & usage intelligence plus production incident triage, diagnosis and remediation through natural-language interfaces, reducing manual toil and MTTR.",
+        "Designed a Go-based workflow automation engine inside Cosmic — engineers can create any number of workflows that chain DevOps tools through their MCP, with an LLM-assisted builder, human approvals, scheduling, credential management and version history.",
+        "Engineered AI agents on Cosmic that work on an engineer's behalf — incident triage, infrastructure health checks, CAB (Change Advisory Board) scheduling and running workflows on request.",
+        "Built internal engineering platforms Prism (Kubernetes lens for multi-cluster visibility and troubleshooting), Chronos (centralized alerting & observability) and Astrosync (scheduled OS/package patching with safe rollback).",
+        "Deployed and operated VictoriaMetrics across 90+ Kubernetes clusters for high-cardinality, long-term metrics storage at lower cost.",
+        "Implemented progressive delivery with Argo Rollouts — canary and blue-green deployments with automated analysis and instant rollback.",
+        "Automated AWS provisioning with Terraform and managed self-hosted EKS clusters, using Graviton nodes, spot instances and autoscaling.",
+        "Engineered a high-throughput telemetry pipeline on OpenTelemetry & Kafka — logs & traces in ClickHouse, metrics in VictoriaMetrics — horizontally scalable and highly available.",
+        "Deployed and tuned self-hosted ClickHouse on Kubernetes for high-throughput log & trace ingestion and fast queries.",
+        "Autoscaled ingestion workloads with KEDA on Kafka consumer lag, absorbing traffic spikes and eliminating over-provisioning.",
+        "Built reusable Terraform & Terragrunt modules for consistent infrastructure across AWS, GCP & Azure.",
+        "Automated complex multi-step operational and data pipelines with Argo Workflows.",
+        "Drove a 13% reduction in cloud spend across AWS, GCP & Azure via right-sizing, workload optimization and zstd compression / lifecycle policies.",
+        "Introduced chaos engineering with Litmus Chaos in CI/CD — node failures, pod evictions and network faults validated before release."
+      ],
+      "tags": [
+        "100+ Clusters",
+        "AIOps",
+        "MCP",
+        "Go",
+        "Kubernetes",
+        "VictoriaMetrics",
+        "OpenTelemetry",
+        "Argo Rollouts",
+        "Terraform",
+        "Multi-cloud",
+        "Team Lead"
+      ]
     },
     {
       "id": "paytm",
-      "role": "Lead DevOps Engineer · Payments Platform",
-      "company": "Paytm (One97 Communications)",
+      "role": "DevOps Lead Engineer",
+      "company": "One97 Communications Ltd (Paytm)",
       "location": "Noida, India",
-      "start": "2022",
-      "end": "2024",
+      "start": "Apr 2022",
+      "end": "Sep 2024",
       "tone": "accent2",
-      "summary": "Led the PG2 cloud migration (Ali Cloud → AWS) for 50+ payment microservices, built the Release Engineering UI, and shipped a Kubernetes Operator for HPA automation. 2× Rockstar Award + Payment Infinity Award.",
-      "bullets": [
-        "Migrated 50+ payment microservices from Ali Cloud to AWS (EKS) with zero customer-visible downtime; ~30% infrastructure cost reduction.",
-        "Built a Release Engineering UI that became the default deploy surface across multiple verticals — toil down 30%, deploys-per-day up.",
-        "Designed and shipped a Kubernetes Operator (CRD + controller-runtime) that patches HPAs on configurable day-of-week schedules — eliminated manual scaling toil.",
-        "Set up monitoring from scratch — Prometheus + Grafana + APM (Pinpoint, Dynatrace) — sustained 99% infrastructure uptime on PCI-aware payment workloads.",
-        "SME for Redis: hardened replication, persistence, eviction and client patterns across production payment paths.",
-        "Partnered with risk, security and compliance for automated, auditable cloud environments. Mentored 4–6 DevOps engineers."
+      "summary": "Led the PG2 payments migration from Ali Cloud to AWS and the release-engineering and monitoring platforms around it.",
+      "metrics": [
+        {
+          "value": "50+",
+          "label": "services migrated"
+        },
+        {
+          "value": "25%",
+          "label": "ops cost cut"
+        },
+        {
+          "value": "15%",
+          "label": "fewer critical incidents"
+        }
       ],
-      "tags": ["AWS", "EKS", "Kubernetes Operator", "CI/CD", "Monitoring", "Redis", "Payments", "Tech Lead", "Cost Optimization"]
+      "keyWins": [
+        "Migrated 50+ microservices from Ali Cloud to AWS (Kubernetes/EKS) — 25% lower operating cost.",
+        "Built a Release Engineering UI that cut manual operational tasks by 30%.",
+        "Shipped a Kubernetes Operator (CRDs) that automates HPA patching."
+      ],
+      "bullets": [
+        "Led cross-functional DevOps & cloud initiatives — technical leadership, project management and delivery governance — achieving a 20% reduction in project completion time.",
+        "Directed the migration of 50+ microservices from Ali Cloud to AWS, architecting cloud-native deployment on Kubernetes/EKS and delivering a 25% reduction in operational costs.",
+        "Designed and developed a Release Engineering UI to streamline deployment and release management — 30% reduction in manual operational tasks.",
+        "Implemented APM and application monitoring with error-triggered alerting, contributing to 99% infrastructure uptime.",
+        "Designed and deployed a Kubernetes Operator using Custom Resource Definitions (CRDs) to automate HPA patching across Kubernetes workloads.",
+        "Integrated AI-powered anomaly detection into monitoring, contributing to a 15% reduction in critical incidents."
+      ],
+      "tags": [
+        "AWS",
+        "EKS",
+        "Cloud Migration",
+        "Kubernetes Operator",
+        "APM",
+        "AI Anomaly Detection",
+        "Payments",
+        "Team Lead"
+      ]
     },
     {
       "id": "airtel",
       "role": "Senior Software Engineer (SRE)",
       "company": "Bharti Airtel",
       "location": "Gurgaon, India",
-      "start": "2021",
-      "end": "2022",
+      "start": "Aug 2021",
+      "end": "Apr 2022",
       "tone": "accent",
-      "summary": "Capacity planning, cost optimization and infra security across 15+ telecom microservices on AWS. Awarded for outstanding JVM hygiene automation.",
-      "bullets": [
-        "Automated build, deploy and configuration for 15+ microservices on AWS EC2 + ECS.",
-        "Drove a 30% cloud cost reduction via capacity planning, right-sizing and reserved/spot strategy.",
-        "Hardened infrastructure security; onboarded services to AppDynamics for full-stack APM and incident response.",
-        "Owned production availability for AWS workloads — patch management, hardening, and on-call.",
-        "Awarded for Outstanding JVM Hygiene — automation across multiple services for measurable reliability gains."
+      "summary": "Capacity planning, deployment automation and cost optimization for telecom microservices on AWS.",
+      "metrics": [
+        {
+          "value": "99.9%",
+          "label": "uptime"
+        },
+        {
+          "value": "20%",
+          "label": "infra cost cut"
+        },
+        {
+          "value": "15+",
+          "label": "services automated"
+        }
       ],
-      "tags": ["AWS", "ECS", "Cost Optimization", "APM", "Security", "Telecom", "SRE"]
+      "keyWins": [
+        "Cut infrastructure costs 20% through capacity planning and scaling analysis.",
+        "Automated deployments for 15+ microservices — 25% faster deploys.",
+        "Supported 99.9% uptime across critical environments."
+      ],
+      "bullets": [
+        "Performed capacity planning and infrastructure scaling analysis, achieving a 20% reduction in infrastructure costs.",
+        "Automated deployment processes for 15+ microservices, reducing deployment execution time by 25%.",
+        "Optimized cloud infrastructure through resource allocation and automation, improving resource utilization by 30%.",
+        "Owned production and development system availability, supporting 99.9% uptime across critical environments.",
+        "Recognized for JVM hygiene automation across multiple microservices."
+      ],
+      "tags": [
+        "AWS",
+        "Capacity Planning",
+        "Cost Optimization",
+        "Automation",
+        "Telecom",
+        "SRE"
+      ]
     },
     {
       "id": "payu",
       "role": "Site Reliability Engineer",
       "company": "PayU Payments Private Limited",
       "location": "Gurgaon, India",
-      "start": "2018",
-      "end": "2021",
+      "start": "Aug 2018",
+      "end": "Aug 2021",
       "tone": "accent2",
-      "summary": "Built the PayU DevOps UI (React), led DR migration on Kubernetes, and moved monitoring from commercial to open source — recognized for Big Billion Day reliability.",
-      "bullets": [
-        "Built a custom DevOps UI in React with roles-based authentication — cut toil 70% across verticals; adopted by 100+ engineers.",
-        "Led DR migration on Kubernetes (on-prem) and stood up the monitoring foundation.",
-        "Transitioned monitoring from commercial tools to Prometheus + Grafana + ELK — flexibility and cost wins.",
-        "Migrated infrastructure from a physical data center to AWS with minimal downtime.",
-        "Authored Ansible playbooks for configuration management; integrated 2FA into vendor-firewall flow.",
-        "Received the Thank You Award for Big Billion Day scale & reliability."
+      "summary": "Built PayU's role-based DevOps portal, introduced GitLab CI/CD, and ran compliance and vendor access for a payments environment.",
+      "metrics": [
+        {
+          "value": "70%",
+          "label": "less manual effort"
+        }
       ],
-      "tags": ["Kubernetes", "React", "Prometheus", "GitLab CI", "AWS", "DR", "Payments", "On-prem"]
+      "keyWins": [
+        "Built a role-based DevOps UI that removed ~70% of manual infra effort.",
+        "Introduced GitLab CI/CD to modernize application delivery.",
+        "Recognized for reliability during Big Billion Day."
+      ],
+      "bullets": [
+        "Developed a customized DevOps UI with role-based authentication — a centralized operational interface that improved usability and controlled access.",
+        "Managed compliance and non-compliance servers, vendor VPN connectivity and critical systems in a payments environment.",
+        "Introduced GitLab CI/CD to modernize application delivery, improving automation and reducing manual release work.",
+        "Implemented 2FA with role-based permissions for vendor firewall access."
+      ],
+      "tags": [
+        "Payments",
+        "DevOps UI",
+        "GitLab CI",
+        "Compliance",
+        "Security"
+      ]
     }
   ]
 }

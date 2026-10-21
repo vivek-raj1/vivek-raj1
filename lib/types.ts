@@ -114,6 +114,10 @@ export interface ExperienceData {
     end: string;
     tone: Tone;
     summary: string;
+    /** Headline numbers shown as chips on the card (e.g. "100+" / "K8s clusters"). */
+    metrics?: { value: string; label: string }[];
+    /** Top achievements shown on the card; the full list stays in `bullets` (modal). */
+    keyWins?: string[];
     bullets: string[];
     tags: string[];
   }[];
