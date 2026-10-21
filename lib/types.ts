@@ -260,6 +260,21 @@ export interface LiveData {
   clusters: { title: string; count: number; caption: string; syncLabel: string };
 }
 
+export interface LinkedInData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  profileUrl: string;
+  followLabel: string;
+  /** Newest first. `url`: the post link, or the src from LinkedIn's "Embed this post". Used when auto-fetch finds nothing. */
+  posts: { url: string; height?: number }[];
+  /** Server-side fetch of the public profile (app/api/linkedin), cached for 6 hours. */
+  autoFetch?: { enabled: boolean; publicProfileUrl: string; slug: string; max: number };
+  /** Card shown when no posts could be loaded. */
+  fallbackTitle: string;
+  fallbackBody: string;
+}
+
 export interface PortfolioData {
   meta: MetaData;
   hero: HeroData;
@@ -269,6 +284,7 @@ export interface PortfolioData {
   projects: ProjectsData;
   certifications: CertificationsData;
   live: LiveData;
+  linkedin: LinkedInData;
   theme: ThemeData;
   animations: AnimationsData;
   ui: UIData;

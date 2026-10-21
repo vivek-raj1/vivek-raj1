@@ -23,7 +23,7 @@
     "scrollProgress": true,
     "pageTransitions": true,
     "noise": false,
-    "cardTilt": false,
+    "cardTilt": true,
     "sectionReveal": true
   },
   "density": "comfortable",
@@ -37,6 +37,7 @@
       "experience",
       "projects",
       "certifications",
+      "linkedin",
       "footer"
     ],
     "visible": {
@@ -47,7 +48,8 @@
       "experience": true,
       "projects": true,
       "certifications": true,
-      "footer": true
+      "footer": true,
+      "linkedin": true
     }
   },
   "viewCounter": {

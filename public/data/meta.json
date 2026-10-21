@@ -141,6 +141,11 @@
         "label": "Awards",
         "href": "#certifications",
         "icon": "award"
+      },
+      {
+        "label": "Posts",
+        "href": "#linkedin",
+        "icon": "linkedin"
       }
     ],
     "cta": {
@@ -169,8 +174,7 @@
     "label": "Book a call",
     "url": "",
     "embedUrl": "",
-    "note": "30-minute intro call · Google Meet",
-    "eventTitle": "Intro call — Vivek Raj",
-    "eventDetails": "Hi Vivek, I'd like to set up a call.\n\nTopic: \n\nPlease keep the Google Meet link on this invite (Google Calendar → Add Google Meet video conferencing)."
+    "note": "Pick a time · Google Meet, Microsoft Teams or Zoom",
+    "eventTitle": "Intro call — Vivek Raj"
   }
 }
