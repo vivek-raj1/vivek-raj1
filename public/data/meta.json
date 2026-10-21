@@ -164,5 +164,11 @@
       "href": "mailto:7.vivek.raj@gmail.com",
       "icon": "mail"
     }
-  ]
+  ],
+  "booking": {
+    "label": "Book a call",
+    "url": "",
+    "embedUrl": "",
+    "note": "30-minute intro call · Google Meet"
+  }
 }

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
 import { MagneticButton } from '@/components/fx/MagneticButton';
+import { BookCallButton, hasBooking } from '@/components/fx/BookCallButton';
 
 export function Footer() {
   const { meta } = data;
@@ -41,7 +42,12 @@ export function Footer() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <MagneticButton href={`mailto:${meta.person.email}`} icon={<Icon name="mail" size={14} />}>
+              {hasBooking && <BookCallButton />}
+              <MagneticButton
+                href={`mailto:${meta.person.email}`}
+                variant={hasBooking ? 'outline' : 'primary'}
+                icon={<Icon name="mail" size={14} />}
+              >
                 Email me
               </MagneticButton>
               <MagneticButton variant="outline" onClick={copyEmail} icon={<Icon name={copied ? 'check' : 'copy'} size={14} />}>

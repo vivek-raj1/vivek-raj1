@@ -29,6 +29,15 @@ export interface MetaData {
     cta: { label: string; href: string };
   };
   socials: { label: string; href: string; icon: string }[];
+  /** Google Calendar appointment schedule. Empty `url`/`embedUrl` falls back to `nav.cta`. */
+  booking?: {
+    label: string;
+    /** Public booking page link (e.g. https://calendar.app.google/…), opened in a new tab. */
+    url: string;
+    /** Embed src from Google's "Website embed" option; when set, booking opens in a modal. */
+    embedUrl?: string;
+    note?: string;
+  };
 }
 
 export interface HeroData {

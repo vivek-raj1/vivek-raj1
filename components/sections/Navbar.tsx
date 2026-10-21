@@ -7,7 +7,7 @@ import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
-import { MagneticButton } from '@/components/fx/MagneticButton';
+import { BookCallButton } from '@/components/fx/BookCallButton';
 
 export function Navbar() {
   const { nav, person } = data.meta;
@@ -61,9 +61,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <div className="hidden md:block">
-              <MagneticButton href={nav.cta.href} size="sm" variant="primary" icon={<Icon name="arrow" size={14} />}>
-                {nav.cta.label}
-              </MagneticButton>
+              <BookCallButton size="sm" />
             </div>
             <button
               type="button"
@@ -121,14 +119,11 @@ export function Navbar() {
               <Icon name="arrow" size={16} className="text-muted" />
             </motion.a>
           ))}
-          <a
-            href={nav.cta.href}
-            onClick={() => setOpen(false)}
-            className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent2 px-4 py-4 text-white"
-          >
-            {nav.cta.label}
-            <Icon name="arrow" size={16} />
-          </a>
+          <BookCallButton
+            plain
+            onOpen={() => setOpen(false)}
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent2 px-4 py-4 text-white"
+          />
         </div>
       </motion.div>
     </>

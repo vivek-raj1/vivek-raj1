@@ -46,6 +46,7 @@ import {
   TrendingDown,
   Database,
   Plug,
+  CalendarDays,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -96,6 +97,7 @@ const registry: Record<string, LucideIcon> = {
   'trending-down': TrendingDown,
   database: Database,
   plug: Plug,
+  calendar: CalendarDays,
 };
 
 export function Icon({

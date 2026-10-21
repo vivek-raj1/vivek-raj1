@@ -9,6 +9,7 @@ import { Icon } from '@/lib/icons';
 import { cn, toneToClass } from '@/lib/utils';
 import { MagneticButton } from '@/components/fx/MagneticButton';
 import { ViewCounter } from '@/components/fx/ViewCounter';
+import { BookCallButton, hasBooking } from '@/components/fx/BookCallButton';
 
 const HeroThreeCanvas = dynamic(
   () => import('@/components/fx/HeroThreeCanvas').then((m) => ({ default: m.HeroThreeCanvas })),
@@ -92,6 +93,7 @@ export function Hero() {
             >
               {hero.secondaryCta.label}
             </MagneticButton>
+            {hasBooking && <BookCallButton variant="outline" size="lg" />}
           </motion.div>
 
           <motion.div
