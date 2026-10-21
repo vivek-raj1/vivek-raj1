@@ -138,14 +138,14 @@
         "icon": "layers"
       },
       {
-        "label": "Posts",
-        "href": "#linkedin",
-        "icon": "linkedin"
-      },
-      {
         "label": "Awards",
         "href": "#certifications",
         "icon": "award"
+      },
+      {
+        "label": "Posts",
+        "href": "#linkedin",
+        "icon": "linkedin"
       }
     ],
     "cta": {
