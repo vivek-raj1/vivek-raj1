@@ -2,7 +2,9 @@
 <p>
 Hey there 👋,
 
-Experienced <b>7+ years</b> as a Lead <b>DevOps/SRE</b> Engineer specializing in cloud migration, Kubernetes, and CI/CD automation, with a strong background in risk management and Redis. Notable achievements include orchestrating cross-functional projects resulting in a 20% decrease in project completion time and seamlessly migrating 50+ microservices from Ali Cloud to AWS, leading to a 25% reduction in operational costs.
+I'm <b>Vivek Raj</b> — a <b>DevOps · AIOps · Software Engineer</b> with <b>8+ years</b> across Sprinklr, Paytm, Airtel and PayU. As <b>Lead Cloud Engineer at Sprinklr</b> I lead the team running <b>100+ Kubernetes clusters</b> on AWS, GCP and Azure, and I built <b>Cosmic</b> — an MCP gateway over 21+ DevOps tools that powers multi-tool workflows, a Kubernetes lens and AI agents. Earlier I led the migration of 50+ payment microservices from Ali Cloud to AWS at Paytm (25% lower operating cost).
+
+🌐 Portfolio: <a href="https://raj-vivek.com">raj-vivek.com</a>
 </p>
 
  ---
@@ -169,7 +171,7 @@ Experienced <b>7+ years</b> as a Lead <b>DevOps/SRE</b> Engineer specializing in
 <hr>
 <p align="center"> Feel free to connect with me, and I'm always open to interesting conversations and collaborations!</p>
 <p align="center">
-  <a href="mailto:7.vivke.raj@gmail.com">
+  <a href="mailto:7.vivek.raj@gmail.com">
   <img width="50px"  src="https://img.icons8.com/doodle/512/gmail.png"/>
   </a>
   <a href="https://linkedin.com/in/vivek-raj0">

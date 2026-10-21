@@ -339,8 +339,8 @@ function SkillCard({
         </motion.div>
 
         <div className="min-w-0 flex-1">
-          <div className="flex items-center justify-between gap-2">
-            <p className="truncate text-[13px] font-semibold text-fg">{skill.name}</p>
+          <div className="flex items-start justify-between gap-2">
+            <p className="text-sm font-semibold leading-snug text-fg">{skill.name}</p>
             <span
               className={cn(
                 'shrink-0 rounded-full border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em]',
@@ -354,7 +354,7 @@ function SkillCard({
               {skill.level >= 90 ? 'Expert' : skill.level >= 80 ? 'Advanced' : 'Working'}
             </span>
           </div>
-          <div className="mt-0.5 inline-flex min-w-0 items-center gap-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+          <div className="mt-0.5 flex min-w-0 max-w-full items-center gap-1 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
             <Icon name={skill.catIcon} size={10} />
             <span className="truncate">{skill.catLabel}</span>
             <span className="shrink-0 text-border">·</span>
@@ -370,11 +370,11 @@ function SkillCard({
           <span className="h-1 w-1 rounded-full" style={{ background: `rgb(var(${accentToken}))` }} />
           {fieldNotesSectionLabel}
         </div>
-        <p className="text-[12px] leading-relaxed text-muted">{skill.note}</p>
+        <p className="text-[13px] leading-relaxed text-fg/75">{skill.note}</p>
         {skill.fieldBullets && skill.fieldBullets.length > 0 && (
           <ul className="mt-2 space-y-1.5 border-l border-border/50 pl-3">
             {skill.fieldBullets.map((line) => (
-              <li key={line} className="text-[11.5px] leading-snug text-muted/95">
+              <li key={line} className="text-xs leading-snug text-muted">
                 {line}
               </li>
             ))}

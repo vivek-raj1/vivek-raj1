@@ -1,62 +1,71 @@
 {
   "eyebrow": "RECOGNITION",
-  "title": "Awards & certifications.",
-  "subtitle": "Recognitions earned across Paytm, Airtel, and PayU — plus continued investment in the craft.",
+  "title": "Awards & recognition.",
+  "subtitle": "Seven enterprise awards across Sprinklr, Paytm, Airtel and PayU — for AI innovation, cloud migration, platform automation and reliability.",
   "awards": [
     {
-      "title": "Rockstar Award — PG2 Migration & Monitoring",
+      "title": "Modernizing AI – Simultaneously, at Scale",
+      "org": "Sprinklr",
+      "year": "2026",
+      "body": "Recognized for AI innovation — bringing AI into platform and operations work at scale.",
+      "icon": "bot",
+      "tone": "accent"
+    },
+    {
+      "title": "Public Endpoint-Monitoring Platform Award",
+      "org": "Sprinklr",
+      "year": "2025",
+      "body": "Built a platform tracking availability and health of 5,000+ public URLs and endpoints.",
+      "icon": "activity",
+      "tone": "accent2"
+    },
+    {
+      "title": "Rockstar Award",
       "org": "Paytm",
-      "year": "2022",
-      "body": "Led the PG2 migration from Ali Cloud to AWS alongside a full CI/CD and monitoring buildout.",
-      "icon": "award",
+      "year": "2024",
+      "body": "PG2 infrastructure automation and monitoring setup.",
+      "icon": "zap",
       "tone": "accent"
     },
     {
       "title": "Paytm Payment Infinity Award",
       "org": "Paytm",
       "year": "2023",
-      "body": "Recognized for outstanding contributions in building Paytm Payment Infinity.",
+      "body": "Outstanding contribution to building Paytm Payment Infinity.",
       "icon": "sparkles",
       "tone": "accent2"
     },
     {
-      "title": "Rockstar Award — Infrastructure Automation",
+      "title": "Rockstar Award",
       "org": "Paytm",
-      "year": "2023",
-      "body": "Automated PG2 infrastructure end-to-end with a best-in-class monitoring system.",
-      "icon": "zap",
+      "year": "2022",
+      "body": "PG2 migration from Ali Cloud to AWS with end-to-end CI/CD and monitoring — 40% reduction in server downtime.",
+      "icon": "award",
       "tone": "accent"
     },
     {
-      "title": "Outstanding JVM Hygiene Award",
+      "title": "Airtel Award",
       "org": "Airtel",
       "year": "2021",
-      "body": "Automated JVM hygiene across multiple microservices for measurable reliability and performance gains.",
-      "icon": "activity",
+      "body": "JVM hygiene automation across multiple microservices.",
+      "icon": "cpu",
       "tone": "accent2"
     },
     {
-      "title": "Thank You Award — Big Billion Day",
+      "title": "Thank You Award",
       "org": "PayU",
       "year": "2019",
-      "body": "Delivered scalable infrastructure and dashboards that carried Big Billion Day traffic.",
+      "body": "Exceptional contribution during Big Billion Day.",
       "icon": "trophy",
       "tone": "accent"
     }
   ],
   "education": [
     {
-      "degree": "B.Tech — Computer Science & Engineering",
-      "institution": "Greater Noida Institute of Technology (AKTU)",
-      "year": "2013 — 2017"
+      "degree": "Bachelor of Technology (B.Tech)",
+      "institution": "Greater Noida Institute of Technology, Greater Noida",
+      "year": "Graduated Aug 2017"
     }
   ],
-  "certifications": [
-    { "name": "Certified Kubernetes Administrator (CKA)", "issuer": "CNCF / Linux Foundation", "status": "in-progress" },
-    { "name": "AWS Solutions Architect — Associate", "issuer": "Amazon Web Services", "status": "earned" },
-    { "name": "Terraform Associate", "issuer": "HashiCorp", "status": "earned" },
-    { "name": "AWS Certified DevOps Engineer — Professional", "issuer": "Amazon Web Services", "status": "in-progress" },
-    { "name": "Prometheus Certified Associate (PCA)", "issuer": "CNCF / Linux Foundation", "status": "in-progress" },
-    { "name": "ArgoCD / GitOps Fundamentals", "issuer": "Codefresh", "status": "earned" }
-  ]
+  "certifications": []
 }

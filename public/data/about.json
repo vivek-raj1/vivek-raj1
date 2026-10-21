@@ -1,28 +1,72 @@
 {
   "eyebrow": "ABOUT",
-  "title": "I turn fragile infrastructure into boring, predictable platforms — and grow the teams that run them.",
+  "title": "I build platforms, AI tooling and the software that ties them together.",
   "paragraphs": [
-    "I'm Vivek — a Lead DevOps / SRE engineer with 8+ years shipping production systems across payments (Paytm, PayU), telecom (Airtel) and SaaS (Sprinklr). I've owned cloud migrations (Ali Cloud → AWS, on-prem DC → AWS), shipped Kubernetes Operators that automate toil, and built observability stacks that page humans only when humans are actually needed.",
-    "I lead from the keyboard: I write the design doc, ship the first version, then mentor the team that owns it. I've operated platforms at 1000+ cluster / 5000+ engineer scale, run on-call rotations, hardened security and compliance for regulated payment workloads, and driven 30%+ cloud cost reductions through right-sizing and FinOps.",
-    "Looking ahead, I'm open to Lead, Principal, Staff, or DevOps/SRE Manager roles where reliability, platform engineering and AI-assisted operations are first-class problems."
+    "I'm Vivek — a DevOps, AIOps and software engineer with 8+ years across e-commerce, digital payments and telecom (Sprinklr, Paytm, Airtel, PayU). I've led cloud migrations, run Kubernetes platforms and observability stacks, and written the internal tools engineers use every day.",
+    "At Sprinklr I lead a 6–10 person DevOps & Cloud team running 100+ Kubernetes clusters across AWS, GCP and Azure. We built Cosmic — an MCP gateway over 21+ DevOps tools that powers multi-tool workflows, a Kubernetes lens, and AI agents that can do operational work on an engineer's behalf.",
+    "I'm open to Lead and Staff roles across DevOps, AIOps and platform software engineering."
   ],
   "highlights": [
-    { "icon": "layers", "title": "Platform at scale", "body": "1000+ Kubernetes clusters across 14 regions on EKS · GKE · AKS. GitOps-first with ArgoCD ApplicationSets; zero-drift policy enforced in CI." },
-    { "icon": "activity", "title": "Observability", "body": "Prometheus + Thanos + VictoriaMetrics + Grafana + Loki/ELK at PB scale. Per-tenant SLOs, burn-rate alerting, runbook-linked dashboards." },
-    { "icon": "cpu", "title": "AI for Ops", "body": "LLM-backed SRE copilot (Langfuse-traced, RAG over runbooks) that triages alerts, proposes remediations, and auto-closes low-risk incidents — 1200+/week." },
-    { "icon": "shield", "title": "Security & compliance", "body": "IAM, KMS, Secret Manager, GuardDuty, CloudTrail, WAF, Shield, SonarQube, Qualys, Cortex. Shift-left policies in CI/CD; PCI-DSS-aware payment workloads." },
-    { "icon": "users", "title": "Leadership & mentoring", "body": "Lead cross-functional pods of 6–12 engineers, run incident reviews and on-call rotations, mentor SRE-2/SRE-3 ICs, partner with product on platform roadmaps." },
-    { "icon": "trending-down", "title": "Cost & FinOps", "body": "30% cloud spend reductions through right-sizing, spot/savings plans, multi-tenant cluster packing, and a Release Engineering UI that cut deploy toil 70%." }
+    {
+      "icon": "layers",
+      "title": "Kubernetes platforms",
+      "body": "100+ clusters across AWS, GCP and Azure. Self-managed EKS with Graviton and spot nodes, KEDA autoscaling, and multi-cluster visibility through Prism."
+    },
+    {
+      "icon": "bot",
+      "title": "AI & AIOps",
+      "body": "Cosmic MCP gateway (21+ tools): build multi-tool workflows, explore clusters with a Kubernetes lens, and hand tasks to AI agents for triage and health checks."
+    },
+    {
+      "icon": "terminal",
+      "title": "Software engineering",
+      "body": "I write production software, not just config: the Cosmic gateway and workflow engine in Go, a Kubernetes Operator with CRDs, Python (Flask/Django) automation, and React DevOps portals."
+    },
+    {
+      "icon": "activity",
+      "title": "Observability",
+      "body": "VictoriaMetrics across 90+ clusters; OpenTelemetry + Kafka pipeline with logs and traces in ClickHouse; monitoring for 5,000+ public endpoints."
+    },
+    {
+      "icon": "git-branch",
+      "title": "GitOps & delivery",
+      "body": "Argo CD and FluxCD, canary and blue-green releases with Argo Rollouts, and Litmus Chaos experiments in CI/CD before every release."
+    },
+    {
+      "icon": "trending-down",
+      "title": "Cost & efficiency",
+      "body": "13% cloud spend cut at Sprinklr, 25% lower ops cost after the Paytm AWS migration, and 20% infra savings at Airtel."
+    }
   ],
   "pillars": [
-    { "label": "Kubernetes & Operators", "percent": 96 },
-    { "label": "Observability & SRE", "percent": 94 },
-    { "label": "GitOps / CI/CD", "percent": 92 },
-    { "label": "Multi-cloud (AWS · GCP · Azure)", "percent": 90 },
-    { "label": "IaC / Terraform / Ansible", "percent": 88 },
-    { "label": "Security & Compliance", "percent": 86 },
-    { "label": "Leadership & Mentoring", "percent": 88 },
-    { "label": "AI-assisted DevOps", "percent": 82 }
+    {
+      "label": "Kubernetes Platform Management",
+      "percent": 95
+    },
+    {
+      "label": "DevOps · SRE · Observability",
+      "percent": 93
+    },
+    {
+      "label": "GitOps & Continuous Delivery",
+      "percent": 92
+    },
+    {
+      "label": "AI / AIOps Automation",
+      "percent": 90
+    },
+    {
+      "label": "Software Engineering (Go · Python)",
+      "percent": 88
+    },
+    {
+      "label": "Cloud & Infrastructure as Code",
+      "percent": 90
+    },
+    {
+      "label": "Leadership & Mentoring",
+      "percent": 88
+    }
   ],
   "philosophyTitle": "Operating principles",
   "philosophy": [

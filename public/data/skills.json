@@ -1,45 +1,94 @@
 {
   "eyebrow": "CAPABILITIES",
-  "title": "A full-stack DevOps toolbox.",
-  "subtitle": "From the kernel to the dashboard, IC to tech-lead — battle-tested across payments (Paytm, PayU), telecom (Airtel) and SaaS (Sprinklr).",
-  "fieldNotesLabel": "Field notes",
+  "title": "Tools I use every day.",
+  "subtitle": "Grouped by area. Pick a category to filter — every card shows where I've used it in production.",
+  "fieldNotesLabel": "Used for",
   "allFilterLabel": "All",
   "allFilterIcon": "sparkles",
   "categories": [
     {
-      "id": "orchestration",
-      "label": "Orchestration",
-      "icon": "boxes",
+      "id": "ai",
+      "label": "AI & AIOps",
+      "icon": "bot",
       "accent": "accent",
+      "items": [
+        {
+          "id": "skill-mcp",
+          "name": "MCP (Model Context Protocol)",
+          "level": 90,
+          "note": "Cosmic gateway — 21+ infra integrations for Claude & Cursor"
+        },
+        {
+          "id": "skill-agents",
+          "name": "AI Agents (LangGraph, Agno)",
+          "level": 86,
+          "note": "incident triage, health checks, CAB scheduling"
+        },
+        {
+          "id": "skill-llm-automation",
+          "name": "LLM-assisted Automation",
+          "level": 86,
+          "note": "workflow builder, prompt engineering, RAG"
+        },
+        {
+          "id": "skill-anomaly",
+          "name": "AI Anomaly Detection",
+          "level": 82,
+          "note": "15% fewer critical incidents at Paytm"
+        },
+        {
+          "id": "skill-litellm",
+          "name": "LiteLLM · OpenAI-compatible APIs",
+          "level": 80,
+          "note": "model routing for internal AI tools"
+        }
+      ]
+    },
+    {
+      "id": "orchestration",
+      "label": "Containers & K8s",
+      "icon": "boxes",
+      "accent": "accent2",
       "items": [
         {
           "id": "skill-k8s",
           "name": "Kubernetes",
-          "level": 96,
-          "note": "1000+ clusters, custom operators, CRDs",
+          "level": 95,
+          "note": "100+ clusters across AWS, GCP & Azure",
           "fieldBullets": [
-            "Unified GitOps for EKS, GKE, and AKS",
-            "CRDs and admission policies as platform contracts"
+            "Self-managed EKS with Graviton & spot nodes",
+            "Custom operators and CRDs"
           ]
         },
         {
-          "id": "skill-docker",
-          "name": "Docker",
-          "level": 95,
-          "note": "multi-stage, distroless, BuildKit",
-          "fieldBullets": ["Reproducible image builds; SBOM in CI", "Hardening base images and supply chain"]
-        },
-        {
-          "id": "skill-helm",
-          "name": "Helm",
+          "id": "skill-eks-gke-aks",
+          "name": "EKS · GKE · AKS · ECS",
           "level": 92,
-          "note": "chart libraries, umbrella charts"
+          "note": "managed Kubernetes on every major cloud"
         },
         {
-          "id": "skill-ecs-eks",
-          "name": "ECS / EKS / GKE / AKS",
-          "level": 90,
-          "note": "prod across AWS, GCP, Azure"
+          "id": "skill-docker",
+          "name": "Docker · Compose",
+          "level": 94,
+          "note": "image builds and local environments"
+        },
+        {
+          "id": "skill-keda",
+          "name": "KEDA",
+          "level": 86,
+          "note": "autoscaling on Kafka consumer lag"
+        },
+        {
+          "id": "skill-argo-workflows",
+          "name": "Argo Workflows · Airflow",
+          "level": 84,
+          "note": "multi-step operational & data pipelines"
+        },
+        {
+          "id": "skill-litmus",
+          "name": "Litmus Chaos",
+          "level": 80,
+          "note": "chaos experiments in CI/CD"
         }
       ]
     },
@@ -47,97 +96,107 @@
       "id": "observability",
       "label": "Observability",
       "icon": "activity",
-      "accent": "accent2",
+      "accent": "accent",
       "items": [
-        {
-          "id": "skill-prometheus",
-          "name": "Prometheus",
-          "level": 95,
-          "note": "federation, recording rules at PB scale",
-          "fieldNotesLabel": "Operations notes",
-          "fieldBullets": ["Federation and HA pairs for global views", "Recording rules to protect query paths"]
-        },
-        {
-          "id": "skill-thanos",
-          "name": "Thanos",
-          "level": 92,
-          "note": "long-term storage, global querier"
-        },
         {
           "id": "skill-victoriametrics",
           "name": "VictoriaMetrics",
-          "level": 90,
-          "note": "vmagent, vmalert fleet"
+          "level": 92,
+          "note": "running on 90+ Kubernetes clusters"
+        },
+        {
+          "id": "skill-prometheus",
+          "name": "Prometheus · AlertManager",
+          "level": 94,
+          "note": "metrics and alerting from scratch to scale"
+        },
+        {
+          "id": "skill-otel",
+          "name": "OpenTelemetry",
+          "level": 88,
+          "note": "high-throughput telemetry pipeline with Kafka"
+        },
+        {
+          "id": "skill-clickhouse",
+          "name": "ClickHouse",
+          "level": 85,
+          "note": "self-hosted log & trace store on Kubernetes"
         },
         {
           "id": "skill-grafana",
           "name": "Grafana",
-          "level": 94,
-          "note": "SLO dashboards, alerting, provisioning as code"
+          "level": 93,
+          "note": "service and business-metrics dashboards"
         },
         {
-          "id": "skill-loki-elk",
-          "name": "Loki / ELK",
-          "level": 88,
-          "note": "structured logs, cardinality discipline"
+          "id": "skill-apm",
+          "name": "Pinpoint · Dynatrace · AppDynamics",
+          "level": 84,
+          "note": "APM with error-triggered alerting"
         },
         {
-          "id": "skill-dynatrace",
-          "name": "Dynatrace / Pinpoint",
-          "level": 82,
-          "note": "APM, trace-based alerting"
+          "id": "skill-logs",
+          "name": "ELK Stack · Loki",
+          "level": 86,
+          "note": "centralized logging"
         }
       ]
     },
     {
       "id": "gitops",
-      "label": "GitOps & CI/CD",
+      "label": "CI/CD & GitOps",
       "icon": "git-branch",
-      "accent": "accent",
+      "accent": "accent2",
       "items": [
         {
           "id": "skill-argocd",
-          "name": "ArgoCD",
-          "level": 94,
-          "note": "ApplicationSets, multi-cluster, SSO"
+          "name": "Argo CD · Argo Rollouts",
+          "level": 93,
+          "note": "GitOps with canary & blue-green releases"
+        },
+        {
+          "id": "skill-fluxcd",
+          "name": "FluxCD",
+          "level": 84,
+          "note": "GitOps delivery"
         },
         {
           "id": "skill-jenkins",
           "name": "Jenkins",
           "level": 90,
-          "note": "shared libraries, dynamic agents"
+          "note": "pipelines for 50+ microservices"
         },
         {
-          "id": "skill-gitlab-ci",
-          "name": "GitLab CI / Bitbucket",
+          "id": "skill-gitlab",
+          "name": "GitLab CI/CD · Bitbucket",
           "level": 88,
-          "note": "pipelines as code, cache optimizations"
+          "note": "introduced GitLab CI/CD at PayU"
         }
       ]
     },
     {
       "id": "iac",
-      "label": "IaC & Config",
+      "label": "Infrastructure as Code",
       "icon": "file-code",
-      "accent": "accent2",
+      "accent": "accent",
       "items": [
         {
           "id": "skill-terraform",
           "name": "Terraform",
-          "level": 92,
-          "note": "modules, workspaces, policy-as-code"
+          "level": 93,
+          "note": "AWS provisioning and reusable modules"
+        },
+        {
+          "id": "skill-terragrunt",
+          "name": "Terragrunt",
+          "level": 88,
+          "note": "one infra stack across AWS, GCP & Azure"
         },
         {
           "id": "skill-ansible",
           "name": "Ansible",
-          "level": 88,
-          "note": "playbooks, roles, idempotent rollouts"
-        },
-        {
-          "id": "skill-crossplane",
-          "name": "Crossplane",
-          "level": 78,
-          "note": "cluster-as-API"
+          "level": 86,
+          "note": "configuration management"
         }
       ]
     },
@@ -145,25 +204,63 @@
       "id": "cloud",
       "label": "Cloud",
       "icon": "cloud",
-      "accent": "accent",
+      "accent": "accent2",
       "items": [
         {
           "id": "skill-aws",
           "name": "AWS",
           "level": 94,
-          "note": "EKS, VPC, IAM, WAF, KMS, GuardDuty, Lambda, Route53"
+          "note": "EKS, ECS, EC2, Lambda, VPC, S3, Route53, Cost Explorer, OpenSearch"
         },
         {
           "id": "skill-gcp",
           "name": "GCP",
-          "level": 85,
-          "note": "GKE, Apigee, Cloud Monitoring, IAM"
+          "level": 86,
+          "note": "GKE, GCR, VPC, IAM, Cloud Monitoring/Logging, Apigee"
         },
         {
           "id": "skill-azure",
           "name": "Azure",
-          "level": 82,
-          "note": "AKS, Front Door, Arc, Key Vault"
+          "level": 84,
+          "note": "AKS, Compute, VNet, NSG, ACR, Storage, IAM"
+        },
+        {
+          "id": "skill-finops",
+          "name": "Cloud Cost Optimization",
+          "level": 88,
+          "note": "13% spend cut across three clouds"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data & Messaging",
+      "icon": "database",
+      "accent": "accent",
+      "items": [
+        {
+          "id": "skill-kafka",
+          "name": "Kafka · RabbitMQ · SNS",
+          "level": 88,
+          "note": "telemetry and event pipelines"
+        },
+        {
+          "id": "skill-redis",
+          "name": "Redis",
+          "level": 90,
+          "note": "production payment workloads"
+        },
+        {
+          "id": "skill-sql",
+          "name": "PostgreSQL · MySQL · RDS · Cloud SQL",
+          "level": 85,
+          "note": "managed and self-hosted databases"
+        },
+        {
+          "id": "skill-nosql",
+          "name": "MongoDB · DynamoDB · InfluxDB",
+          "level": 80,
+          "note": "document, key-value and time-series stores"
         }
       ]
     },
@@ -174,22 +271,28 @@
       "accent": "accent2",
       "items": [
         {
-          "id": "skill-iam-kms",
-          "name": "IAM / KMS / Secret Manager",
-          "level": 92,
-          "note": "least-privilege, rotation"
+          "id": "skill-iam",
+          "name": "IAM · KMS · Secrets Manager",
+          "level": 90,
+          "note": "least-privilege access and secrets"
         },
         {
-          "id": "skill-sonarqube",
-          "name": "SonarQube / Qualys / Cortex",
-          "level": 86,
-          "note": "shift-left scanning"
-        },
-        {
-          "id": "skill-cloudtrail",
-          "name": "CloudTrail / GuardDuty / WAF",
+          "id": "skill-threat",
+          "name": "GuardDuty · CloudTrail · WAF · Shield",
           "level": 88,
-          "note": "continuous threat monitoring"
+          "note": "threat detection and edge protection"
+        },
+        {
+          "id": "skill-scanning",
+          "name": "SonarQube · Qualys · Cortex",
+          "level": 84,
+          "note": "code and vulnerability scanning"
+        },
+        {
+          "id": "skill-api",
+          "name": "AWS API Gateway · Kong",
+          "level": 82,
+          "note": "API management and rate limiting"
         }
       ]
     },
@@ -200,152 +303,58 @@
       "accent": "accent",
       "items": [
         {
-          "id": "skill-python",
-          "name": "Python",
+          "id": "skill-go",
+          "name": "Go",
           "level": 88,
-          "note": "Flask, Django, operators, tooling"
+          "note": "Cosmic gateway, workflow engine, operators"
         },
         {
-          "id": "skill-js-react",
-          "name": "JavaScript / React",
-          "level": 82,
-          "note": "internal DevOps UIs"
+          "id": "skill-python",
+          "name": "Python (Flask, Django)",
+          "level": 88,
+          "note": "automation and internal tools"
         },
         {
-          "id": "skill-bash-go",
-          "name": "Bash / Go (ops)",
-          "level": 84,
-          "note": "reliability tooling"
-        }
-      ]
-    },
-    {
-      "id": "ai",
-      "label": "AI for DevOps",
-      "icon": "cpu",
-      "accent": "accent2",
-      "items": [
-        {
-          "id": "skill-llm-sre",
-          "name": "LLM-assisted SRE",
-          "level": 84,
-          "note": "alert triage, runbook synthesis"
+          "id": "skill-bash",
+          "name": "Bash",
+          "level": 88,
+          "note": "ops scripting"
         },
         {
-          "id": "skill-langfuse",
-          "name": "Langfuse",
+          "id": "skill-js",
+          "name": "JavaScript (React) · HTML",
           "level": 80,
-          "note": "trace + evaluate prompts in prod"
-        },
-        {
-          "id": "skill-rag",
-          "name": "RAG on runbooks",
-          "level": 78,
-          "note": "searchable institutional memory"
-        }
-      ]
-    },
-    {
-      "id": "databases",
-      "label": "Databases & Data",
-      "icon": "database",
-      "accent": "accent",
-      "items": [
-        {
-          "id": "skill-redis",
-          "name": "Redis (SME)",
-          "level": 90,
-          "note": "replication, persistence, eviction at payments scale",
-          "fieldBullets": [
-            "HA + sentinel/cluster topology hardening",
-            "Client-side patterns and connection pooling discipline"
-          ]
-        },
-        {
-          "id": "skill-rds",
-          "name": "Amazon RDS · Cloud SQL",
-          "level": 85,
-          "note": "managed MySQL/Postgres, backups, parameter groups"
-        },
-        {
-          "id": "skill-postgres-mysql",
-          "name": "PostgreSQL · MySQL",
-          "level": 84,
-          "note": "schema design, slow-query triage, replication"
-        },
-        {
-          "id": "skill-mongo",
-          "name": "MongoDB",
-          "level": 78,
-          "note": "replica sets, indexing, ops"
-        }
-      ]
-    },
-    {
-      "id": "api-mgmt",
-      "label": "API Management",
-      "icon": "plug",
-      "accent": "accent2",
-      "items": [
-        {
-          "id": "skill-api-gateway",
-          "name": "AWS API Gateway",
-          "level": 84,
-          "note": "REST/HTTP APIs, throttling, WAF integration"
-        },
-        {
-          "id": "skill-kong",
-          "name": "Kong",
-          "level": 80,
-          "note": "plugins, auth, rate limiting"
-        },
-        {
-          "id": "skill-apigee",
-          "name": "Apigee (GCP)",
-          "level": 75,
-          "note": "policy chains, dev portal"
+          "note": "internal DevOps portals"
         }
       ]
     },
     {
       "id": "leadership",
-      "label": "Leadership & Delivery",
+      "label": "Leadership",
       "icon": "users",
       "accent": "success",
       "items": [
         {
           "id": "skill-tech-lead",
-          "name": "Tech Leadership",
+          "name": "Team Leadership",
           "level": 90,
-          "note": "leading 6–12 engineer pods across DevOps/SRE",
+          "note": "lead & mentor a 6–10 engineer team",
           "fieldBullets": [
-            "Roadmaps, design reviews, and platform OKRs",
-            "Hiring loops, ramp-up plans, growth ladders"
+            "Code reviews, hiring and technical direction",
+            "End-to-end platform delivery"
           ]
         },
         {
-          "id": "skill-mentoring",
-          "name": "Mentoring & Coaching",
-          "level": 88,
-          "note": "SRE-2 / SRE-3 growth, 1:1 cadence"
-        },
-        {
-          "id": "skill-incident-mgmt",
+          "id": "skill-incident",
           "name": "Incident Management",
           "level": 90,
-          "note": "on-call rotations, IM/comms, blameless postmortems"
+          "note": "triage, diagnosis and faster MTTR"
         },
         {
-          "id": "skill-stakeholder",
-          "name": "Cross-functional Partnership",
+          "id": "skill-stakeholders",
+          "name": "Cross-functional Delivery",
           "level": 88,
-          "note": "product, security, risk, compliance"
-        },
-        {
-          "id": "skill-finops",
-          "name": "FinOps / Cost Optimization",
-          "level": 86,
-          "note": "30% cloud-spend reductions; right-sizing & savings plans"
+          "note": "20% faster project completion at Paytm"
         },
         {
           "id": "skill-collab",

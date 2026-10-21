@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
@@ -142,22 +142,25 @@ function HeadlineReveal({ words }: { words: { text: string; tone: string }[] }) 
   return (
     <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
       {words.map((w, i) => {
-        const isSpace = w.text.trim() === '';
+        // Leading spaces stay outside the inline-block so wrapped lines don't start indented.
+        const lead = w.text.match(/^\s*/)?.[0] ?? '';
+        const word = w.text.slice(lead.length);
         const isAccent = w.tone === 'accent' || w.tone === 'accent2';
         return (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: wordDuration, delay: 0.2 + i * wordStagger, ease: [0.22, 1, 0.36, 1] }}
-            className={cn(
-              'inline-block',
-              isAccent ? (w.tone === 'accent' ? 'text-gradient' : 'text-gradient-accent') : 'text-fg',
-              !isSpace && 'whitespace-pre'
-            )}
-          >
-            {w.text}
-          </motion.span>
+          <Fragment key={i}>
+            {lead && ' '}
+            <motion.span
+              initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: wordDuration, delay: 0.2 + i * wordStagger, ease: [0.22, 1, 0.36, 1] }}
+              className={cn(
+                'inline-block whitespace-pre',
+                isAccent ? (w.tone === 'accent' ? 'text-gradient' : 'text-gradient-accent') : 'text-fg'
+              )}
+            >
+              {word}
+            </motion.span>
+          </Fragment>
         );
       })}
     </h1>
@@ -278,7 +281,7 @@ function StatsStrip() {
           <div className={cn('font-display text-2xl font-semibold tabular-nums sm:text-3xl', toneToClass[s.accent])}>
             <AnimatedNumber value={s.value} suffix={s.suffix} />
           </div>
-          <div className="mt-1 text-[11px] uppercase tracking-[0.15em] text-muted">{s.label}</div>
+          <div className="mt-1.5 text-xs font-medium leading-snug text-muted sm:text-[13px]">{s.label}</div>
           <div className="absolute -right-4 -bottom-6 h-16 w-16 rounded-full bg-gradient-to-tr from-accent/20 to-transparent blur-2xl opacity-60 transition group-hover:opacity-100" />
         </motion.div>
       ))}
@@ -300,7 +303,7 @@ function AnimatedNumber({ value, suffix }: { value: string; suffix: string }) {
       const p = Math.min(1, (t - start) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
       const v = target * eased;
-      setDisplay(v.toFixed(decimals));
+      setDisplay(decimals ? v.toFixed(decimals) : Math.round(v).toLocaleString('en-US'));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);

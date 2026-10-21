@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
 import { SectionHeader } from '@/components/fx/SectionHeader';
@@ -26,11 +25,8 @@ export function Projects() {
 }
 
 function ProjectCard({ p }: { p: (typeof data.projects.items)[number] }) {
-  const [hover, setHover] = useState(false);
   return (
     <motion.article
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 220, damping: 20 }}
       className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 glass p-6 transition hover:border-accent/60 hover:shadow-glow-accent"
@@ -50,12 +46,12 @@ function ProjectCard({ p }: { p: (typeof data.projects.items)[number] }) {
       </div>
 
       <h3 className="mt-5 font-display text-xl font-semibold text-fg">{p.name}</h3>
-      <p className="mt-2 text-sm text-muted">{p.summary}</p>
+      <p className="mt-2 text-sm leading-relaxed text-fg/80">{p.summary}</p>
 
       <ul className="mt-4 space-y-1.5">
         {p.impact.map((i, idx) => (
-          <li key={idx} className="flex items-center gap-2 font-mono text-[11px] text-fg/90">
-            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-accent/15">
+          <li key={idx} className="flex items-center gap-2 text-[13px] font-medium text-fg/90">
+            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent/15">
               <Icon name="check" size={10} className="text-accent" />
             </span>
             {i}
@@ -63,24 +59,17 @@ function ProjectCard({ p }: { p: (typeof data.projects.items)[number] }) {
         ))}
       </ul>
 
-      <motion.div
-        initial={false}
-        animate={{ height: hover ? 'auto' : 0, opacity: hover ? 1 : 0 }}
-        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="overflow-hidden"
-      >
-        <div className="mt-4 border-t border-border/50 pt-4">
-          <div className="text-[10px] uppercase tracking-[0.18em] text-muted">highlights</div>
-          <ul className="mt-2 space-y-1.5">
-            {p.highlights.map((h, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-xs text-muted">
-                <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-accent2" />
-                <span>{h}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </motion.div>
+      <div className="mt-4 border-t border-border/50 pt-4">
+        <div className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">How it works</div>
+        <ul className="mt-2 space-y-1.5">
+          {p.highlights.map((h, idx) => (
+            <li key={idx} className="flex items-start gap-2 text-[13px] leading-relaxed text-muted">
+              <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent2" />
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="mt-auto pt-5">
         <div className="flex flex-wrap gap-1.5">

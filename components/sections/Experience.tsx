@@ -127,12 +127,8 @@ function TimelineRow({
         )}
       >
         <motion.div
-          initial={reduce ? false : { opacity: 0 }}
-          style={
-            reduce
-              ? undefined
-              : { opacity: cardOpacity, x: cardX }
-          }
+          // Always bound: with reduced motion `draw` is set to 1, so the card renders fully visible.
+          style={{ opacity: cardOpacity, x: cardX }}
           className={cn(
             'relative',
             side === 'left'
@@ -345,13 +341,39 @@ function ExperienceCard({
       </div>
 
       <h3 className="relative mt-2 font-display text-lg font-semibold tracking-tight text-fg sm:text-xl">
-        {item.company}
+        {item.role}
       </h3>
-      <p className="relative mt-0.5 text-[13px] font-medium text-fg/80 sm:text-sm">{item.role}</p>
+      <p className={cn('relative mt-0.5 text-sm font-medium', toneToClass[item.tone])}>{item.company}</p>
 
-      <p className="relative mt-3 line-clamp-2 text-[13px] leading-relaxed text-muted">{item.summary}</p>
+      <p className="relative mt-3 text-sm leading-relaxed text-fg/80">{item.summary}</p>
 
-      <div className="relative mt-3 flex items-center justify-between gap-3">
+      {item.metrics && item.metrics.length > 0 && (
+        <div className="relative mt-4 grid grid-cols-3 gap-2">
+          {item.metrics.map((m) => (
+            <div key={m.label} className="rounded-xl border border-border/50 bg-elevated/50 px-2.5 py-2">
+              <div className={cn('font-display text-lg font-semibold leading-none tabular-nums', toneToClass[item.tone])}>
+                {m.value}
+              </div>
+              <div className="mt-1 text-[11px] leading-tight text-muted">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {item.keyWins && item.keyWins.length > 0 && (
+        <ul className="relative mt-4 space-y-2">
+          {item.keyWins.map((w) => (
+            <li key={w} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-muted">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                <Icon name="check" size={10} className="text-accent" />
+              </span>
+              <span>{w}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="relative mt-4 flex items-center justify-between gap-3 border-t border-border/40 pt-3">
         <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
           {item.tags.slice(0, 4).map((t) => (
             <span
@@ -362,8 +384,8 @@ function ExperienceCard({
             </span>
           ))}
         </div>
-        <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-mono text-accent transition-transform group-hover:translate-x-0.5">
-          Open <Icon name="arrow-right" size={12} />
+        <span className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-accent transition-transform group-hover:translate-x-0.5">
+          All {item.bullets.length} achievements <Icon name="arrow-right" size={12} />
         </span>
       </div>
 
@@ -437,9 +459,9 @@ function DetailsModal({
                   {item.start} — {item.end} · {item.location}
                 </p>
                 <h3 className="mt-1.5 font-display text-2xl font-semibold tracking-tight text-fg">
-                  {item.company}
+                  {item.role}
                 </h3>
-                <p className="text-sm text-fg/80">{item.role}</p>
+                <p className="text-sm text-fg/80">{item.company}</p>
               </div>
               <button
                 type="button"
@@ -456,8 +478,8 @@ function DetailsModal({
 
               <ul className="mt-5 space-y-3">
                 {item.bullets.map((b, j) => (
-                  <li key={j} className="flex items-start gap-2.5 text-sm text-muted">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                  <li key={j} className="flex items-start gap-2.5 text-sm text-fg/80">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                     <span className="leading-relaxed">{b}</span>
                   </li>
                 ))}

@@ -20,7 +20,7 @@ export function Certifications() {
       <StaggerGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {certifications.awards.map((a) => (
           <motion.div
-            key={a.title}
+            key={`${a.title}-${a.year}`}
             variants={{
               hidden: { opacity: 0, y: 14 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
@@ -41,12 +41,12 @@ export function Certifications() {
                   <span className="rounded-full bg-accent/15 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.16em] text-accent">
                     Award
                   </span>
-                  <span className="font-mono text-[10px] text-muted">{a.org} · {a.year}</span>
+                  <span className="font-mono text-[11px] text-muted">{a.org} · {a.year}</span>
                 </div>
-                <div className="mt-1.5 text-sm font-semibold text-fg">{a.title}</div>
+                <div className="mt-1.5 text-[15px] font-semibold leading-snug text-fg">{a.title}</div>
               </div>
             </div>
-            <p className="mt-3 text-[13px] leading-relaxed text-muted">{a.body}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">{a.body}</p>
             <div className="pointer-events-none absolute -right-8 -bottom-8 h-24 w-24 rounded-full bg-accent/15 blur-2xl opacity-0 transition group-hover:opacity-100" />
           </motion.div>
         ))}
