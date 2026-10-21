@@ -23,7 +23,7 @@
     "scrollProgress": true,
     "pageTransitions": true,
     "noise": false,
-    "cardTilt": false,
+    "cardTilt": true,
     "sectionReveal": true
   },
   "density": "comfortable",

@@ -125,7 +125,7 @@ function TimelineRow({
   }, [inView, reduce, draw]);
   const pathLength = useTransform(draw, (d) => d);
   const cardOpacity = useTransform(draw, [0.5, 1], [0, 1]);
-  const cardY = useTransform(draw, [0.5, 1], [16, 0]);
+  const cardX = useTransform(draw, [0.5, 1], [side === 'left' ? -28 : 28, 0]);
   const nodeIntensity = useTransform(draw, [0, 0.12, 1], [0, 1, 1]);
 
   return (
@@ -146,7 +146,7 @@ function TimelineRow({
       >
         <motion.div
           // Always bound: with reduced motion `draw` is set to 1, so the card renders fully visible.
-          style={{ opacity: cardOpacity, y: cardY }}
+          style={{ opacity: cardOpacity, x: cardX }}
           className={cn(
             'relative',
             side === 'left'
@@ -327,6 +327,9 @@ function ExperienceCard({
       ref={ref}
       data-exp-card
       type="button"
+      whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ type: 'spring', stiffness: 320, damping: 24 }}
       onClick={onOpen}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}

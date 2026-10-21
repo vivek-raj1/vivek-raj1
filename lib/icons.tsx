@@ -47,6 +47,7 @@ import {
   Database,
   Plug,
   CalendarDays,
+  Video,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -98,6 +99,7 @@ const registry: Record<string, LucideIcon> = {
   database: Database,
   plug: Plug,
   calendar: CalendarDays,
+  video: Video,
 };
 
 export function Icon({
