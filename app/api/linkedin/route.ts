@@ -12,16 +12,55 @@ const BROWSER_HEADERS = {
   'Accept-Language': 'en-US,en;q=0.9',
 };
 
-type Attempt = { source: string; status: string; ids: string[] };
+/** `bytes`, `authwall` and `postLinks` are diagnostics: did we get the real page, and did it contain any post links? */
+type Attempt = { source: string; status: string; ids: string[]; bytes?: number; authwall?: boolean; postLinks?: number };
+
+/**
+ * fetch that follows redirects like a browser: LinkedIn sets a cookie and redirects back to the same URL,
+ * which loops forever for a plain server fetch (it drops the cookie).
+ */
+async function browserFetch(url: string, headers: Record<string, string>): Promise<Response> {
+  const jar = new Map<string, string>();
+  let current = url;
+  for (let hop = 0; hop < 8; hop++) {
+    const cookie = [...jar].map(([k, v]) => `${k}=${v}`).join('; ');
+    const res = await fetch(current, {
+      headers: cookie ? { ...headers, Cookie: cookie } : headers,
+      redirect: 'manual',
+      cache: 'no-store',
+      signal: AbortSignal.timeout(15_000),
+    });
+    for (const c of res.headers.getSetCookie()) {
+      const [pair] = c.split(';');
+      const i = pair.indexOf('=');
+      if (i > 0) jar.set(pair.slice(0, i).trim(), pair.slice(i + 1).trim());
+    }
+    const location = res.headers.get('location');
+    if (res.status >= 300 && res.status < 400 && location) {
+      current = new URL(location, current).toString();
+      continue;
+    }
+    return res;
+  }
+  throw new Error('too many redirects');
+}
 
 async function attempt(source: string, url: string, headers: Record<string, string>, slug: string): Promise<Attempt> {
   try {
-    const res = await fetch(url, { headers, next: { revalidate }, signal: AbortSignal.timeout(15_000) });
+    const res = await browserFetch(url, headers);
     if (!res.ok) return { source, status: `http-${res.status}`, ids: [] };
-    const ids = extractPostIds(await res.text(), slug);
-    return { source, status: ids.length ? 'ok' : 'no-posts-found', ids };
-  } catch {
-    return { source, status: 'fetch-failed', ids: [] };
+    const html = await res.text();
+    const ids = extractPostIds(html, slug);
+    return {
+      source,
+      status: ids.length ? 'ok' : 'no-posts-found',
+      ids,
+      bytes: html.length,
+      authwall: /authwall|sign in to view|join linkedin/i.test(html),
+      postLinks: (html.match(/\/posts\/|urn:li:activity:/g) ?? []).length,
+    };
+  } catch (e) {
+    return { source, status: `fetch-failed: ${e instanceof Error ? e.message : String(e)}`, ids: [] };
   }
 }
 
@@ -40,7 +79,8 @@ export async function GET() {
   const tried: Omit<Attempt, 'ids'>[] = [];
   for (const [source, url, headers] of sources) {
     const r = await attempt(source, url, headers, autoFetch.slug);
-    tried.push({ source: r.source, status: r.status });
+    const { ids: _ids, ...summary } = r;
+    tried.push(summary);
     if (r.ids.length) {
       return NextResponse.json({ status: 'ok', source: r.source, posts: r.ids.slice(0, autoFetch.max), tried });
     }
