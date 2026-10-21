@@ -8,6 +8,7 @@ import { Icon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { BookCallButton } from '@/components/fx/BookCallButton';
+import { SocialLinks } from '@/components/fx/SocialLinks';
 
 export function Navbar() {
   const { nav, person } = data.meta;
@@ -124,6 +125,7 @@ export function Navbar() {
             onOpen={() => setOpen(false)}
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent2 px-4 py-4 text-white"
           />
+          <SocialLinks className="mt-4 justify-center" />
         </div>
       </motion.div>
     </>

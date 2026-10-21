@@ -10,6 +10,7 @@ import { cn, toneToClass } from '@/lib/utils';
 import { MagneticButton } from '@/components/fx/MagneticButton';
 import { ViewCounter } from '@/components/fx/ViewCounter';
 import { BookCallButton, hasBooking } from '@/components/fx/BookCallButton';
+import { SocialLinks } from '@/components/fx/SocialLinks';
 
 const HeroThreeCanvas = dynamic(
   () => import('@/components/fx/HeroThreeCanvas').then((m) => ({ default: m.HeroThreeCanvas })),
@@ -97,10 +98,18 @@ export function Hero() {
           </motion.div>
 
           <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <SocialLinks className="mt-5" />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-10 flex flex-wrap gap-2"
+            className="mt-8 flex flex-wrap gap-2"
           >
             {hero.badges.map((b, i) => (
               <span
