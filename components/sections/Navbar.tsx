@@ -13,7 +13,9 @@ import { SocialLinks } from '@/components/fx/SocialLinks';
 export function Navbar() {
   const { nav, person } = data.meta;
   // The Posts link only shows once LinkedIn posts are configured.
-  const items = nav.items.filter((i) => i.href !== '#linkedin' || data.linkedin.posts.length > 0);
+  const items = nav.items.filter(
+    (i) => i.href !== '#linkedin' || Boolean(data.linkedin.autoFetch?.enabled) || data.linkedin.posts.length > 0
+  );
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
