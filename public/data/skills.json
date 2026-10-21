@@ -54,11 +54,7 @@
           "id": "skill-k8s",
           "name": "Kubernetes",
           "level": 95,
-          "note": "100+ clusters across AWS, GCP & Azure",
-          "fieldBullets": [
-            "Self-managed EKS with Graviton & spot nodes",
-            "Custom operators and CRDs"
-          ]
+          "note": "100+ clusters across AWS, GCP & Azure · self-managed EKS, custom operators"
         },
         {
           "id": "skill-eks-gke-aks",
@@ -338,11 +334,7 @@
           "id": "skill-tech-lead",
           "name": "Team Leadership",
           "level": 90,
-          "note": "lead & mentor a 6–10 engineer team",
-          "fieldBullets": [
-            "Code reviews, hiring and technical direction",
-            "End-to-end platform delivery"
-          ]
+          "note": "lead & mentor a 6–10 engineer team · code reviews, hiring"
         },
         {
           "id": "skill-incident",

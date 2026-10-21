@@ -16,13 +16,25 @@ type Props = {
   onOpen?: () => void;
 };
 
-/** True once meta.json `booking` has a Google Calendar link. */
-export const hasBooking = Boolean(data.meta.booking?.url || data.meta.booking?.embedUrl);
+/** True when meta.json has a `booking` block (the button then always shows). */
+export const hasBooking = Boolean(data.meta.booking);
+
+/** Google Calendar "new event" link that pre-fills the title and invites the owner as a guest. */
+function eventTemplateUrl() {
+  const { booking, person } = data.meta;
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: booking?.eventTitle ?? `Call with ${person.name}`,
+    details: booking?.eventDetails ?? '',
+    add: person.email,
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
 
 /**
- * "Book a call" — opens the Google Calendar appointment page from meta.json `booking`.
- * With `embedUrl` it shows the booking page in a modal; with only `url` it opens a new tab;
- * with neither it falls back to the navbar CTA (email).
+ * "Book a call" — Google Calendar booking from meta.json `booking`.
+ * `embedUrl`: appointment page in a modal. `url`: appointment page in a new tab.
+ * Neither: opens a pre-filled Google Calendar event with the owner as guest.
  */
 export function BookCallButton({ variant = 'primary', size = 'md', className, plain, onOpen }: Props) {
   const { booking, nav } = data.meta;
@@ -36,7 +48,7 @@ export function BookCallButton({ variant = 'primary', size = 'md', className, pl
     ? { href: nav.cta.href }
     : booking!.embedUrl
       ? { onClick: () => { onOpen?.(); setOpen(true); } }
-      : { href: booking!.url, target: '_blank', rel: 'noreferrer' };
+      : { href: booking!.url || eventTemplateUrl(), target: '_blank', rel: 'noreferrer' };
 
   return (
     <>

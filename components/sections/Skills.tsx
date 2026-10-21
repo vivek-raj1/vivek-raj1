@@ -111,7 +111,7 @@ export function Skills() {
           pillVariants={pillFade}
         />
 
-        <ul className="mt-6 grid auto-rows-min grid-cols-1 content-start items-start gap-4 sm:grid-cols-2 lg:mt-0 lg:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-6 grid auto-rows-fr grid-cols-1 content-start gap-4 sm:grid-cols-2 lg:mt-0 lg:grid-cols-2 xl:grid-cols-3">
           <AnimatePresence mode="popLayout" initial={false}>
             {visible.map((s, idx) => (
               <SkillCard
@@ -313,7 +313,7 @@ function SkillCard({
       onBlur={() => onHover(false)}
       tabIndex={0}
       className={cn(
-        'group relative min-h-0 w-full max-w-full self-start overflow-hidden rounded-2xl border border-bg/80 bg-surface/35 p-5 outline-none backdrop-blur-md transition-colors',
+        'group relative h-full min-h-0 w-full max-w-full overflow-hidden rounded-2xl border border-bg/80 bg-surface/35 p-5 outline-none backdrop-blur-md transition-colors',
         'hover:border-accent/55 focus-visible:border-accent/55 focus-visible:ring-2 focus-visible:ring-accent/40'
       )}
     >

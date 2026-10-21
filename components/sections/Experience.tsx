@@ -34,6 +34,24 @@ export function Experience() {
   const [active, setActive] = useState<ExperienceItem | null>(null);
   const isMd = useMediaQuery('(min-width: 768px)');
 
+  // Cards sit in different timeline rows, so CSS can't equalise them: match every card to the tallest one.
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+    const cards = () => Array.from(rail.querySelectorAll<HTMLElement>('[data-exp-card]'));
+    const equalize = () => {
+      const els = cards();
+      els.forEach((el) => (el.style.minHeight = ''));
+      const max = Math.max(0, ...els.map((el) => el.offsetHeight));
+      els.forEach((el) => (el.style.minHeight = `${max}px`));
+    };
+    equalize();
+    const ro = new ResizeObserver(equalize);
+    ro.observe(rail);
+    document.fonts?.ready.then(equalize);
+    return () => ro.disconnect();
+  }, [isMd]);
+
   return (
     <section id="experience" className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6">
       <BackdropTerminal />
@@ -107,7 +125,7 @@ function TimelineRow({
   }, [inView, reduce, draw]);
   const pathLength = useTransform(draw, (d) => d);
   const cardOpacity = useTransform(draw, [0.5, 1], [0, 1]);
-  const cardX = useTransform(draw, [0.5, 1], [side === 'left' ? -28 : 28, 0]);
+  const cardY = useTransform(draw, [0.5, 1], [16, 0]);
   const nodeIntensity = useTransform(draw, [0, 0.12, 1], [0, 1, 1]);
 
   return (
@@ -128,7 +146,7 @@ function TimelineRow({
       >
         <motion.div
           // Always bound: with reduced motion `draw` is set to 1, so the card renders fully visible.
-          style={{ opacity: cardOpacity, x: cardX }}
+          style={{ opacity: cardOpacity, y: cardY }}
           className={cn(
             'relative',
             side === 'left'
@@ -307,16 +325,14 @@ function ExperienceCard({
   return (
     <motion.button
       ref={ref}
+      data-exp-card
       type="button"
       onClick={onOpen}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      whileHover={{ y: -4 }}
-      whileTap={{ scale: 0.99 }}
-      transition={{ type: 'spring', stiffness: 320, damping: 24 }}
       style={tilt ? { rotateX, rotateY, transformPerspective: 1000 } : undefined}
       className={cn(
-        'group relative w-full overflow-hidden rounded-2xl border border-border/55 bg-surface/40 p-5 text-left sm:p-6',
+        'group relative flex w-full flex-col overflow-hidden rounded-2xl border border-border/55 bg-surface/40 p-5 text-left sm:p-6',
         'backdrop-blur-md shadow-sm transition-colors hover:border-accent/55',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg'
       )}
@@ -345,7 +361,7 @@ function ExperienceCard({
       </h3>
       <p className={cn('relative mt-0.5 text-sm font-medium', toneToClass[item.tone])}>{item.company}</p>
 
-      <p className="relative mt-3 text-sm leading-relaxed text-fg/80">{item.summary}</p>
+      <p className="relative mt-3 line-clamp-3 text-sm leading-relaxed text-fg/80">{item.summary}</p>
 
       {item.metrics && item.metrics.length > 0 && (
         <div className="relative mt-4 grid grid-cols-3 gap-2">
@@ -367,13 +383,15 @@ function ExperienceCard({
               <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent/15">
                 <Icon name="check" size={10} className="text-accent" />
               </span>
-              <span>{w}</span>
+              <span className="line-clamp-2">{w}</span>
             </li>
           ))}
         </ul>
       )}
 
-      <div className="relative mt-4 flex items-center justify-between gap-3 border-t border-border/40 pt-3">
+      {/* spacer keeps the footer pinned to the bottom when cards are stretched to equal height */}
+      <div className="min-h-4 flex-1" />
+      <div className="relative flex items-center justify-between gap-3 border-t border-border/40 pt-3">
         <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
           {item.tags.slice(0, 4).map((t) => (
             <span
