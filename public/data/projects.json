@@ -9,7 +9,7 @@
       "category": "AI + Platform",
       "tone": "accent",
       "icon": "bot",
-      "summary": "Sprinklr's internal AIOps platform. One MCP gateway puts 21+ DevOps tools and 100+ clusters behind RBAC, and powers workflows, a Kubernetes lens and AI agents on top.",
+      "summary": "Sprinklr's AIOps platform — one MCP gateway over 21+ DevOps tools that powers workflows, a Kubernetes lens and AI agents.",
       "impact": [
         "21+ DevOps tools behind one MCP gateway",
         "Unlimited multi-tool workflows",
@@ -20,14 +20,12 @@
         "MCP",
         "AI Agents",
         "LLMs",
-        "Kubernetes",
-        "RBAC"
+        "Kubernetes"
       ],
       "highlights": [
-        "MCP gateway — one RBAC-governed endpoint for AWS, Kubernetes, Prometheus, PagerDuty, Jenkins, Graylog, Elasticsearch and more; works with public MCP clients like Claude and Cursor.",
-        "Workflows — build as many as you need, chaining any DevOps tool through its MCP, with approvals, schedules and version history.",
-        "Kubernetes lens — multi-cluster visibility and troubleshooting across 100+ clusters.",
-        "Agents — Cosmic can work for you as an agent: triage incidents, run health checks and execute workflows on request."
+        "MCP gateway — one RBAC endpoint for 21+ tools; works with Claude & Cursor.",
+        "Workflows — chain any DevOps tool through its MCP; Kubernetes lens across 100+ clusters.",
+        "Agents — Cosmic works for you: incident triage, health checks and workflows on request."
       ]
     },
     {

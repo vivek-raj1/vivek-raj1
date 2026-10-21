@@ -17,7 +17,7 @@ export function Certifications() {
         subtitle={certifications.subtitle}
       />
 
-      <StaggerGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <StaggerGroup className="mt-12 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {certifications.awards.map((a) => (
           <motion.div
             key={`${a.title}-${a.year}`}

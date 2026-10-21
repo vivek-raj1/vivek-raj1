@@ -37,6 +37,9 @@ export interface MetaData {
     /** Embed src from Google's "Website embed" option; when set, booking opens in a modal. */
     embedUrl?: string;
     note?: string;
+    /** Used for the pre-filled Google Calendar event when no appointment page is set. */
+    eventTitle?: string;
+    eventDetails?: string;
   };
 }
 

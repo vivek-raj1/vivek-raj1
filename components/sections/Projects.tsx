@@ -13,7 +13,7 @@ export function Projects() {
     <section id="projects" className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6">
       <SectionHeader eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} />
 
-      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.items.map((p, i) => (
           <Reveal key={p.id} kind="slideUp" delay={(i % 3) * 0.08} className="h-full">
             <ProjectCard p={p} />
@@ -46,7 +46,7 @@ function ProjectCard({ p }: { p: (typeof data.projects.items)[number] }) {
       </div>
 
       <h3 className="mt-5 font-display text-xl font-semibold text-fg">{p.name}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-fg/80">{p.summary}</p>
+      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-fg/80">{p.summary}</p>
 
       <ul className="mt-4 space-y-1.5">
         {p.impact.map((i, idx) => (
@@ -62,10 +62,10 @@ function ProjectCard({ p }: { p: (typeof data.projects.items)[number] }) {
       <div className="mt-4 border-t border-border/50 pt-4">
         <div className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">How it works</div>
         <ul className="mt-2 space-y-1.5">
-          {p.highlights.map((h, idx) => (
+          {p.highlights.slice(0, 3).map((h, idx) => (
             <li key={idx} className="flex items-start gap-2 text-[13px] leading-relaxed text-muted">
               <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent2" />
-              <span>{h}</span>
+              <span className="line-clamp-2">{h}</span>
             </li>
           ))}
         </ul>
