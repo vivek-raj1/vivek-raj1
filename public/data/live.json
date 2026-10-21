@@ -1,0 +1,42 @@
+{
+  "eyebrow": "LIVE SYSTEMS",
+  "title": "A day on the platform.",
+  "subtitle": "The kind of signals, commands and pipelines I work with every day — across 100+ Kubernetes clusters.",
+  "note": "Illustrative demo — animated sample data, not a live feed.",
+  "metrics": [
+    { "title": "p99 latency", "unit": "ms", "base": 42, "jitter": 3, "decimals": 0, "kind": "walk", "tone": "accent", "goodWhen": "down" },
+    { "title": "Requests / sec", "unit": "", "base": 18400, "jitter": 650, "decimals": 0, "kind": "walk", "tone": "accent2", "goodWhen": "up" },
+    { "title": "Error budget left", "unit": "%", "base": 98.6, "jitter": 0.04, "decimals": 2, "kind": "walk", "tone": "success", "goodWhen": "up" },
+    { "title": "Alerts auto-triaged today", "unit": "", "base": 212, "jitter": 2, "decimals": 0, "kind": "counter", "tone": "warn", "goodWhen": "up" }
+  ],
+  "terminal": {
+    "title": "vivek@platform: ~",
+    "sessions": [
+      { "prompt": "$", "cmd": "kubectl config get-contexts -o name | wc -l", "out": ["104"] },
+      { "prompt": "$", "cmd": "kubectl argo rollouts get rollout checkout-api -n prod", "out": ["Status:   ✔ Healthy", "Strategy: Canary · Step 8/8 · SetWeight 100"] },
+      { "prompt": "$", "cmd": "terraform plan -out=tfplan", "out": ["Plan: 3 to add, 1 to change, 0 to destroy."] },
+      { "prompt": "$", "cmd": "kubectl get scaledobject -n telemetry", "out": ["otel-ingest   kafka   lag<500   READY  ACTIVE"] },
+      { "prompt": "›", "cmd": "@cosmic why is checkout p99 high on prod-aws?", "out": ["root cause: noisy neighbour on ip-10-0-3-17", "proposed: cordon + drain · waiting for approval"] },
+      { "prompt": "›", "cmd": "@cosmic run workflow os-patching --clusters staging-*", "out": ["12 clusters queued · rollback armed · approval requested"] }
+    ]
+  },
+  "pipeline": {
+    "title": "Release pipeline",
+    "service": "checkout-api",
+    "stages": [
+      { "label": "Commit", "icon": "git-branch" },
+      { "label": "Build", "icon": "boxes" },
+      { "label": "Test & scan", "icon": "shield" },
+      { "label": "Chaos test", "icon": "zap" },
+      { "label": "Canary", "icon": "activity" },
+      { "label": "Production", "icon": "cloud" }
+    ],
+    "stepMs": 1400
+  },
+  "clusters": {
+    "title": "Cluster fleet",
+    "count": 104,
+    "caption": "Each dot is a Kubernetes cluster across AWS, GCP and Azure.",
+    "syncLabel": "Argo CD sync"
+  }
+}

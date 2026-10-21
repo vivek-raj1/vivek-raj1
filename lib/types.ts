@@ -175,6 +175,8 @@ export interface AnimationsData {
     fadeBlur: { duration: number; ease: number[]; blur: number };
     slideUp: { duration: number; ease: number[]; y: number };
     stagger: { each: number; delayChildren: number };
+    /** Whole-section fade + scale as it scrolls into view. */
+    section?: { duration: number; ease: number[]; y: number; scale: number };
   };
   hero: {
     wordStagger: number;
@@ -213,6 +215,9 @@ export interface UIData {
     scrollProgress: boolean;
     pageTransitions: boolean;
     noise: boolean;
+    /** 3D pointer tilt on experience / skill cards. */
+    cardTilt?: boolean;
+    sectionReveal?: boolean;
   };
   density: 'compact' | 'comfortable' | 'spacious';
   corner: 'md' | 'lg' | 'xl' | '2xl';
@@ -223,6 +228,35 @@ export interface UIData {
   viewCounter: { enabled: boolean; storageKey: string; label: string };
 }
 
+export interface LiveData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  note: string;
+  metrics: {
+    title: string;
+    unit: string;
+    base: number;
+    jitter: number;
+    decimals: number;
+    /** `walk` wanders around `base`; `counter` only goes up. */
+    kind: 'walk' | 'counter';
+    tone: Tone;
+    goodWhen: 'up' | 'down';
+  }[];
+  terminal: {
+    title: string;
+    sessions: { prompt: string; cmd: string; out: string[] }[];
+  };
+  pipeline: {
+    title: string;
+    service: string;
+    stages: { label: string; icon: string }[];
+    stepMs: number;
+  };
+  clusters: { title: string; count: number; caption: string; syncLabel: string };
+}
+
 export interface PortfolioData {
   meta: MetaData;
   hero: HeroData;
@@ -231,6 +265,7 @@ export interface PortfolioData {
   experience: ExperienceData;
   projects: ProjectsData;
   certifications: CertificationsData;
+  live: LiveData;
   theme: ThemeData;
   animations: AnimationsData;
   ui: UIData;

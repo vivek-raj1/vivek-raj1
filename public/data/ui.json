@@ -1,5 +1,5 @@
 {
-  "mode": "ultra",
+  "mode": "balanced",
   "background": {
     "kind": "mesh+beams+aurora",
     "grid": false,
@@ -11,23 +11,34 @@
     "scanlines": false,
     "codeRain": false,
     "meshAurora": true,
-    "lightBeams": true,
+    "lightBeams": false,
     "maskRadius": 0.6
   },
   "effects": {
     "glassmorphism": true,
-    "neonGlow": true,
+    "neonGlow": false,
     "animatedBorders": true,
-    "cursorGlow": true,
+    "cursorGlow": false,
     "magneticButtons": true,
     "scrollProgress": true,
     "pageTransitions": true,
-    "noise": true
+    "noise": false,
+    "cardTilt": false,
+    "sectionReveal": true
   },
   "density": "comfortable",
   "corner": "xl",
   "sections": {
-    "order": ["hero", "liveSystems", "about", "skills", "experience", "projects", "certifications", "footer"],
+    "order": [
+      "hero",
+      "liveSystems",
+      "about",
+      "skills",
+      "experience",
+      "projects",
+      "certifications",
+      "footer"
+    ],
     "visible": {
       "hero": true,
       "liveSystems": true,

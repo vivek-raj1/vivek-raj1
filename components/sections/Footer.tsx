@@ -92,7 +92,6 @@ export function Footer() {
       >
         <div className="flex items-center gap-3 font-mono">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success/70 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
           </span>
           <span className="uppercase tracking-[0.18em]">All systems operational</span>

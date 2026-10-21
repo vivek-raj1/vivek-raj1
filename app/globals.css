@@ -98,7 +98,7 @@ body {
     background-size: 180px 180px;
   }
   .shadow-glow-accent {
-    box-shadow: 0 0 32px -4px rgb(var(--accent) / 0.55), 0 0 80px -12px rgb(var(--accent2) / 0.35);
+    box-shadow: 0 8px 28px -12px rgb(var(--accent) / 0.35), 0 0 48px -20px rgb(var(--accent2) / 0.2);
   }
   .border-animated {
     position: relative;

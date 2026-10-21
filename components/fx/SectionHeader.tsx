@@ -20,8 +20,7 @@ export function SectionHeader({
       <Reveal kind="fade">
         <div className="inline-flex items-center gap-2 rounded-full border border-border/60 glass px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.26em] text-muted">
           <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inset-0 animate-ping rounded-full bg-accent/80" />
-            <span className="relative h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_12px] shadow-accent" />
+            <span className="relative h-1.5 w-1.5 rounded-full bg-accent" />
           </span>
           {eyebrow}
         </div>

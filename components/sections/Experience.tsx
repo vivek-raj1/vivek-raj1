@@ -280,7 +280,7 @@ function ExperienceCard({
 }) {
   const reduce = useReducedMotion();
   const isCoarse = useMediaQuery('(pointer: coarse)');
-  const tilt = !reduce && !isCoarse;
+  const tilt = Boolean(data.ui.effects.cardTilt) && !reduce && !isCoarse;
 
   const ref = useRef<HTMLButtonElement>(null);
   const mx = useMotionValue(0.5);

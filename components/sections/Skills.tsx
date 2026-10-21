@@ -259,7 +259,7 @@ function SkillCard({
 }) {
   const reduce = useReducedMotion();
   const isCoarse = useMediaQuery('(pointer: coarse)');
-  const tilt = !reduce && !isCoarse;
+  const tilt = Boolean(data.ui.effects.cardTilt) && !reduce && !isCoarse;
 
   const ref = useRef<HTMLLIElement>(null);
   const mx = useMotionValue(0.5);

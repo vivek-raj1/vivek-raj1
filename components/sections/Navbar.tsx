@@ -36,7 +36,7 @@ export function Navbar() {
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent2 font-display text-sm font-bold text-white shadow-glow-accent">
                 {nav.logo}
               </div>
-              <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-success ring-2 ring-bg animate-pulse" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-success ring-2 ring-bg" />
             </div>
             <div className="hidden leading-tight sm:block">
               <div className="text-sm font-semibold text-fg">{person.name}</div>

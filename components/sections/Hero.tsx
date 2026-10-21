@@ -47,7 +47,6 @@ export function Hero() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-border/60 glass px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.2em] text-muted">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inset-0 animate-ping rounded-full bg-success/80" />
                 <span className="relative h-2 w-2 rounded-full bg-success" />
               </span>
               {meta.person.statusLabel}
@@ -132,8 +131,6 @@ export function Hero() {
 
       <StatsStrip />
 
-      <TerminalCard />
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -142,7 +139,7 @@ export function Hero() {
       >
         <span className="h-px w-10 bg-border" />
         scroll to explore
-        <Icon name="chevron" size={14} className="animate-bounce" />
+        <Icon name="chevron" size={14} />
       </motion.div>
     </section>
   );
@@ -261,7 +258,7 @@ function ProfileOrb() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="absolute left-0 top-12 flex items-center gap-2 rounded-full border border-border/60 glass-strong px-3 py-1.5 shadow-glow-accent"
       >
-        <span className="flex h-2 w-2 rounded-full bg-success animate-pulse" />
+        <span className="flex h-2 w-2 rounded-full bg-success" />
         <span className="font-mono text-[11px] text-fg">{profile.role}</span>
       </motion.div>
       <motion.div
@@ -325,102 +322,5 @@ function AnimatedNumber({ value, suffix }: { value: string; suffix: string }) {
       {display}
       {suffix}
     </span>
-  );
-}
-
-function TerminalCard() {
-  const { terminal } = data.hero;
-  const { terminalTypeMs, terminalLinePauseMs } = data.animations.hero;
-  const [visibleLines, setVisibleLines] = useState<number>(0);
-  const [typedChars, setTypedChars] = useState<number>(0);
-
-  useEffect(() => {
-    let mounted = true;
-    let lineIdx = 0;
-    let charIdx = 0;
-    const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduce) {
-      setVisibleLines(terminal.lines.length);
-      setTypedChars(999);
-      return;
-    }
-    const tick = () => {
-      if (!mounted) return;
-      if (lineIdx >= terminal.lines.length) {
-        setTimeout(() => {
-          if (!mounted) return;
-          lineIdx = 0;
-          charIdx = 0;
-          setVisibleLines(0);
-          setTypedChars(0);
-          setTimeout(tick, 1000);
-        }, 2400);
-        return;
-      }
-      const line = terminal.lines[lineIdx];
-      if (charIdx < line.text.length) {
-        charIdx++;
-        setTypedChars(charIdx);
-        setTimeout(tick, terminalTypeMs);
-      } else {
-        lineIdx++;
-        charIdx = 0;
-        setVisibleLines(lineIdx);
-        setTypedChars(0);
-        setTimeout(tick, terminalLinePauseMs);
-      }
-    };
-    const t = setTimeout(tick, 800);
-    return () => {
-      mounted = false;
-      clearTimeout(t);
-    };
-  }, [terminal.lines, terminalTypeMs, terminalLinePauseMs]);
-
-  return (
-    <motion.div
-      aria-hidden
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.4, delay: 1.0 }}
-      className="pointer-events-none absolute inset-x-0 bottom-0 z-0 hidden text-mask-fade md:block"
-      style={{ opacity: 0.14 }}
-    >
-      <div className="relative mx-auto max-w-3xl px-6 pb-8 font-mono text-[12px] leading-relaxed">
-        <div className="space-y-0.5">
-          {terminal.lines.map((l, i) => {
-            if (i < visibleLines) return <TerminalLine key={i} line={l} text={l.text} />;
-            if (i === visibleLines) return <TerminalLine key={i} line={l} text={l.text.slice(0, typedChars)} active />;
-            return null;
-          })}
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-function TerminalLine({
-  line,
-  text,
-  active,
-}: {
-  line: { type: 'prompt' | 'out'; text: string };
-  text: string;
-  active?: boolean;
-}) {
-  return (
-    <div className="flex items-start gap-2">
-      {line.type === 'prompt' ? (
-        <>
-          <span className="text-accent">$</span>
-          <span className={cn('text-fg', active && 'cursor-blink')}>{text}</span>
-        </>
-      ) : (
-        <>
-          <span className="select-none opacity-0">$</span>
-          <span className="text-muted">{text}</span>
-        </>
-      )}
-    </div>
   );
 }
