@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server';
 import linkedin from '@/public/data/linkedin.json';
 import { extractPostIds } from '@/lib/linkedin';
 
-// Re-fetch at most every 6 hours (Vercel caches the response in between).
-export const revalidate = 21600;
+// Caching is set per response below, so a blocked fetch isn't cached for hours.
+export const dynamic = 'force-dynamic';
+const CACHE_OK = 'public, s-maxage=21600, stale-while-revalidate=86400';
+const CACHE_MISS = 'public, s-maxage=300';
 
 const BROWSER_HEADERS = {
   'User-Agent':
@@ -11,6 +13,16 @@ const BROWSER_HEADERS = {
   Accept: 'text/html,application/xhtml+xml',
   'Accept-Language': 'en-US,en;q=0.9',
 };
+
+/**
+ * LinkedIn answers browsers from servers with 999, but serves the full public profile to link-preview crawlers.
+ * It rate-limits per user agent and host, so a few are tried.
+ */
+const CRAWLER_AGENTS = [
+  'Twitterbot/1.0',
+  'facebookexternalhit/1.1',
+  'Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)',
+];
 
 /** `bytes`, `authwall` and `postLinks` are diagnostics: did we get the real page, and did it contain any post links? */
 type Attempt = { source: string; status: string; ids: string[]; bytes?: number; authwall?: boolean; postLinks?: number };
@@ -28,7 +40,7 @@ async function browserFetch(url: string, headers: Record<string, string>): Promi
       headers: cookie ? { ...headers, Cookie: cookie } : headers,
       redirect: 'manual',
       cache: 'no-store',
-      signal: AbortSignal.timeout(15_000),
+      signal: AbortSignal.timeout(8_000),
     });
     for (const c of res.headers.getSetCookie()) {
       const [pair] = c.split(';');
@@ -66,13 +78,23 @@ async function attempt(source: string, url: string, headers: Record<string, stri
 
 /**
  * Latest posts from the public LinkedIn profile, as activity ids (newest first).
- * LinkedIn often blocks cloud servers, so a reader service is tried next. Never throws; `tried` shows what happened.
+ * Crawler user agents are tried first, then a browser one, then a reader service. Never throws; `tried` shows what happened.
  */
 export async function GET() {
   const { autoFetch } = linkedin;
   if (!autoFetch?.enabled) return NextResponse.json({ status: 'disabled', posts: [] });
 
+  const hosts = [autoFetch.publicProfileUrl, `https://www.linkedin.com/in/${autoFetch.slug}`].filter(
+    (u, i, all) => all.indexOf(u) === i,
+  );
   const sources: [string, string, Record<string, string>][] = [
+    ...CRAWLER_AGENTS.flatMap((ua) =>
+      hosts.map((u): [string, string, Record<string, string>] => [
+        `linkedin (${ua.split(/[/ ]/)[0]}, ${new URL(u).host})`,
+        u,
+        { 'User-Agent': ua },
+      ]),
+    ),
     ['linkedin', autoFetch.publicProfileUrl, BROWSER_HEADERS],
     ['reader', `https://r.jina.ai/${autoFetch.publicProfileUrl}`, { Accept: 'text/plain', 'X-Return-Format': 'html' }],
   ];
@@ -82,8 +104,11 @@ export async function GET() {
     const { ids: _ids, ...summary } = r;
     tried.push(summary);
     if (r.ids.length) {
-      return NextResponse.json({ status: 'ok', source: r.source, posts: r.ids.slice(0, autoFetch.max), tried });
+      return NextResponse.json(
+        { status: 'ok', source: r.source, posts: r.ids.slice(0, autoFetch.max), tried },
+        { headers: { 'Cache-Control': CACHE_OK } },
+      );
     }
   }
-  return NextResponse.json({ status: 'no-posts', posts: [], tried });
+  return NextResponse.json({ status: 'no-posts', posts: [], tried }, { headers: { 'Cache-Control': CACHE_MISS } });
 }

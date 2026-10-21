@@ -4,7 +4,11 @@
   "subtitle": "Notes on DevOps, AIOps and platform engineering.",
   "profileUrl": "https://www.linkedin.com/in/vivek-raj0/recent-activity/all/",
   "followLabel": "See all posts on LinkedIn",
-  "posts": [],
+  "posts": [
+    { "url": "https://www.linkedin.com/posts/vivek-raj0_top-7-frameworks-to-add-mcp-to-your-agents-activity-7373585104801157120" },
+    { "url": "https://www.linkedin.com/posts/vivek-raj0_argo-cd-auto-sync-vs-manual-sync-choosing-activity-7370708976105279489" },
+    { "url": "https://www.linkedin.com/posts/vivek-raj0_kubernetes-132-penelope-whats-new-and-activity-7316817315738578944" }
+  ],
   "autoFetch": {
     "enabled": true,
     "publicProfileUrl": "https://in.linkedin.com/in/vivek-raj0",
