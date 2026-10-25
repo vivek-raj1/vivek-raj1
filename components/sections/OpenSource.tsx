@@ -6,18 +6,32 @@ import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
 import { SectionHeader } from '@/components/fx/SectionHeader';
 import { MagneticButton } from '@/components/fx/MagneticButton';
-import type { OpenSourceRepo } from '@/lib/types';
+import { cn } from '@/lib/utils';
+import type { OpenSourceItem, OpenSourceRepo } from '@/lib/types';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+const ROLE_LABEL: Record<OpenSourceItem['role'], string> = {
+  author: 'Opened',
+  reviewer: 'Reviewed',
+  commenter: 'Commented',
+};
+const STATE_CLASS: Record<OpenSourceItem['state'], string> = {
+  merged: 'text-accent2',
+  open: 'text-success',
+  closed: 'text-muted',
+};
+
 /**
- * Public repositories with my pull requests, found automatically by /api/opensource
+ * Public repositories I contributed to (PRs, issues, reviews, comments), found automatically by /api/opensource
  * (GitHub search, fetched server-side and cached). Nothing is listed by hand.
  */
 export function OpenSource() {
   const { opensource } = data;
   const [repos, setRepos] = useState<OpenSourceRepo[] | null>(null);
-  const allPrsUrl = `https://github.com/pulls?q=${encodeURIComponent(`is:pr author:${opensource.githubUser}`)}`;
+  const allActivityUrl = `https://github.com/search?q=${encodeURIComponent(
+    `involves:${opensource.githubUser} -user:${opensource.githubUser}`,
+  )}&type=issues`;
 
   useEffect(() => {
     let cancelled = false;
@@ -37,7 +51,7 @@ export function OpenSource() {
       <div className="flex flex-wrap items-end justify-between gap-6">
         <SectionHeader eyebrow={opensource.eyebrow} title={opensource.title} subtitle={opensource.subtitle} />
         <MagneticButton
-          href={allPrsUrl}
+          href={allActivityUrl}
           variant="outline"
           target="_blank"
           rel="noreferrer"
@@ -50,7 +64,7 @@ export function OpenSource() {
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {loading &&
           [0, 1, 2].map((i) => (
-            <div key={i} className="h-40 animate-pulse-slow rounded-2xl border border-border/60 bg-surface/40" aria-hidden />
+            <div key={i} className="h-56 animate-pulse-slow rounded-2xl border border-border/60 bg-surface/40" aria-hidden />
           ))}
 
         {repos?.map((r, i) => (
@@ -67,7 +81,7 @@ export function OpenSource() {
 
         {!loading && repos.length === 0 && (
           <a
-            href={allPrsUrl}
+            href={allActivityUrl}
             target="_blank"
             rel="noreferrer"
             className="group flex items-center gap-4 rounded-2xl border border-border/60 glass p-6 transition hover:-translate-y-1 hover:border-accent/50 md:col-span-2 lg:col-span-3"
@@ -87,6 +101,19 @@ export function OpenSource() {
   );
 }
 
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+function summary(r: OpenSourceRepo): string {
+  return [
+    r.prs && `${plural(r.prs, 'PR')}${r.merged ? ` (${r.merged} merged)` : ''}`,
+    r.issues && plural(r.issues, 'issue'),
+    r.reviews && plural(r.reviews, 'review'),
+    r.comments && `${r.comments} discussion${r.comments === 1 ? '' : 's'}`,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+}
+
 function RepoCard({ r }: { r: OpenSourceRepo }) {
   return (
     <article className="group relative flex h-full flex-col rounded-2xl border border-border/60 glass p-5 transition hover:-translate-y-1 hover:border-accent/50">
@@ -98,9 +125,32 @@ function RepoCard({ r }: { r: OpenSourceRepo }) {
       >
         <Icon name="github" size={16} className="shrink-0" />
         <span className="truncate">{r.name}</span>
-        <Icon name="arrow-up-right" size={14} className="shrink-0 text-muted transition group-hover:text-accent" />
+        <Icon name="arrow-up-right" size={14} className="shrink-0 text-muted" />
       </a>
       {r.description && <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">{r.description}</p>}
+
+      <ul className="mt-4 space-y-2 border-t border-border/50 pt-4">
+        {r.items.map((it) => (
+          <li key={it.url}>
+            <a href={it.url} target="_blank" rel="noreferrer" className="group/item flex items-start gap-2">
+              <Icon
+                name={it.kind === 'issue' ? 'dot' : it.state === 'merged' ? 'git-merge' : 'git-pull-request'}
+                size={14}
+                className={cn('mt-0.5 shrink-0', STATE_CLASS[it.state])}
+              />
+              <span className="min-w-0 flex-1">
+                <span className="line-clamp-2 text-[13px] leading-snug text-fg/90 transition group-hover/item:text-accent">
+                  {it.title}
+                </span>
+                <span className="mt-0.5 block text-[11px] text-muted">
+                  {ROLE_LABEL[it.role]} · {it.kind === 'pr' ? 'PR' : 'issue'} #{it.number} ·{' '}
+                  <span className={STATE_CLASS[it.state]}>{it.state}</span>
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4 text-[12px] text-muted">
         {r.language && (
@@ -116,14 +166,12 @@ function RepoCard({ r }: { r: OpenSourceRepo }) {
           </span>
         )}
         <a
-          href={r.prsUrl}
+          href={r.activityUrl}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto flex items-center gap-1 rounded-full border border-border/60 bg-elevated/40 px-2.5 py-0.5 tabular-nums text-fg/80 transition hover:border-accent/50 hover:text-accent"
+          className="ml-auto rounded-full border border-border/60 bg-elevated/40 px-2.5 py-0.5 tabular-nums text-fg/80 transition hover:border-accent/50 hover:text-accent"
         >
-          <Icon name={r.merged ? 'git-merge' : 'git-pull-request'} size={13} />
-          {r.total} PR{r.total === 1 ? '' : 's'}
-          {r.merged > 0 && <span className="text-success">· {r.merged} merged</span>}
+          {summary(r)}
         </a>
       </div>
     </article>

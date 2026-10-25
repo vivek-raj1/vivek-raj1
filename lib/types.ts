@@ -279,32 +279,52 @@ export interface OpenSourceData {
   eyebrow: string;
   title: string;
   subtitle: string;
-  /** Pull requests by this GitHub user are found automatically (app/api/opensource), cached for 6 hours. */
+  /** PRs, issues, reviews and comments by this GitHub user are found automatically (app/api/opensource), cached for 6 hours. */
   githubUser: string;
   /** `owner/repo` names never shown. */
   excludeRepos: string[];
   /** Also hide every repo owned by `githubUser`, so only other people's projects are listed. */
   excludeOwnRepos: boolean;
   max: number;
+  /** Threads (PRs / issues) listed on each repo card. */
+  maxItemsPerRepo: number;
   profileLabel: string;
   /** Card shown when no contributions could be loaded. */
   fallbackTitle: string;
   fallbackBody: string;
 }
 
+/** One PR or issue the user opened, reviewed or commented on. */
+export interface OpenSourceItem {
+  title: string;
+  url: string;
+  number: number;
+  kind: 'pr' | 'issue';
+  role: 'author' | 'reviewer' | 'commenter';
+  state: 'open' | 'closed' | 'merged';
+  updatedAt: string;
+}
+
 /** One repo from /api/opensource. */
 export interface OpenSourceRepo {
   name: string;
   url: string;
-  /** The user's pull requests in this repo. */
-  prsUrl: string;
+  /** All of the user's activity in this repo, as a GitHub search. */
+  activityUrl: string;
   description: string;
   stars: number;
   language: string;
-  merged: number;
-  open: number;
-  total: number;
   updatedAt: string;
+  /** PRs the user opened, and how many of them were merged. */
+  prs: number;
+  merged: number;
+  /** Issues the user opened. */
+  issues: number;
+  /** Others' PRs reviewed, and others' threads commented on. */
+  reviews: number;
+  comments: number;
+  /** Latest threads, newest first. */
+  items: OpenSourceItem[];
 }
 
 export interface PortfolioData {

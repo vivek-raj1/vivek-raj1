@@ -1,12 +1,13 @@
 {
   "eyebrow": "OPEN SOURCE",
   "title": "Contributions to public projects.",
-  "subtitle": "Repositories I've opened pull requests against, found automatically from GitHub.",
+  "subtitle": "Pull requests, reviews and issue discussions across public repositories, found automatically from GitHub.",
   "githubUser": "vivek-raj1",
   "excludeRepos": ["vivek-raj1/vivek-raj1"],
   "excludeOwnRepos": true,
   "max": 12,
-  "profileLabel": "See all my pull requests",
-  "fallbackTitle": "My pull requests on GitHub",
-  "fallbackBody": "Open-source contributions across public repositories."
+  "maxItemsPerRepo": 3,
+  "profileLabel": "See all my activity",
+  "fallbackTitle": "My open-source activity on GitHub",
+  "fallbackBody": "Pull requests, reviews and discussions across public repositories."
 }
