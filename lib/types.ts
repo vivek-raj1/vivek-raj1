@@ -275,6 +275,38 @@ export interface LinkedInData {
   fallbackBody: string;
 }
 
+export interface OpenSourceData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  /** Pull requests by this GitHub user are found automatically (app/api/opensource), cached for 6 hours. */
+  githubUser: string;
+  /** `owner/repo` names never shown. */
+  excludeRepos: string[];
+  /** Also hide every repo owned by `githubUser`, so only other people's projects are listed. */
+  excludeOwnRepos: boolean;
+  max: number;
+  profileLabel: string;
+  /** Card shown when no contributions could be loaded. */
+  fallbackTitle: string;
+  fallbackBody: string;
+}
+
+/** One repo from /api/opensource. */
+export interface OpenSourceRepo {
+  name: string;
+  url: string;
+  /** The user's pull requests in this repo. */
+  prsUrl: string;
+  description: string;
+  stars: number;
+  language: string;
+  merged: number;
+  open: number;
+  total: number;
+  updatedAt: string;
+}
+
 export interface PortfolioData {
   meta: MetaData;
   hero: HeroData;
@@ -285,6 +317,7 @@ export interface PortfolioData {
   certifications: CertificationsData;
   live: LiveData;
   linkedin: LinkedInData;
+  opensource: OpenSourceData;
   theme: ThemeData;
   animations: AnimationsData;
   ui: UIData;
