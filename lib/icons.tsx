@@ -48,6 +48,9 @@ import {
   Plug,
   CalendarDays,
   Video,
+  Star,
+  GitPullRequest,
+  GitMerge,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -100,6 +103,9 @@ const registry: Record<string, LucideIcon> = {
   plug: Plug,
   calendar: CalendarDays,
   video: Video,
+  star: Star,
+  'git-pull-request': GitPullRequest,
+  'git-merge': GitMerge,
 };
 
 export function Icon({

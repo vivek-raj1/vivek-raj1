@@ -37,6 +37,7 @@
       "experience",
       "projects",
       "certifications",
+      "opensource",
       "linkedin",
       "footer"
     ],
@@ -47,6 +48,7 @@
       "skills": true,
       "experience": true,
       "projects": true,
+      "opensource": true,
       "certifications": true,
       "footer": true,
       "linkedin": true

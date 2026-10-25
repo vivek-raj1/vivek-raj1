@@ -10,6 +10,7 @@ import { GsapSmooth } from '@/components/fx/GsapSmooth';
 import { SectionReveal } from '@/components/fx/SectionReveal';
 import { LiveSystems } from '@/components/sections/LiveSystems';
 import { LinkedInPosts } from '@/components/sections/LinkedInPosts';
+import { OpenSource } from '@/components/sections/OpenSource';
 import { data } from '@/lib/data';
 
 const registry = {
@@ -20,6 +21,7 @@ const registry = {
   skills: Skills,
   experience: Experience,
   projects: Projects,
+  opensource: OpenSource,
   certifications: Certifications,
   footer: Footer,
 } as const;
