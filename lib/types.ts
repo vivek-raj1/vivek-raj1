@@ -181,8 +181,7 @@ export interface ThemeData {
     dark: Record<string, string>;
     light: Record<string, string>;
   };
-  /** `light` overrides the accents in light mode, where the dark-mode shades would be too pale to read. */
-  palettes: Record<string, { accent: string; accent2: string; light?: { accent: string; accent2: string } }>;
+  palettes: Record<string, { accent: string; accent2: string }>;
 }
 
 export interface AnimationsData {

@@ -7,9 +7,9 @@
 - **Variable card heights**: Grid uses **`auto-rows-min`**, **`items-start`**, **`self-start`** on cards so different content heights do not stretch the row unnaturally.
 - **Removed “DevOps console” types**: Dropped optional `toolbox` / `ToolboxCardData` from `lib/types.ts` (no interactive copy/link/scroll cards in UI). Extend skills only via **`categories[].items`**.
 
-## Enterprise theme, research reading list, IndexNow (latest)
+## Research reading list, IndexNow (latest)
 
-- **Theme**: graphite neutrals and one solid signature accent (`signal` orange, close to Grafana/Prometheus) instead of violet→cyan gradients. Palettes in `theme.json` take an optional `light` override so each mode gets readable shades; `signal`, `blue` and `emerald` are offered in the theme menu (swatches come from the data). The accent is stored under `vr_accent_v2`, so returning visitors get the new default once. `.text-gradient` / `.text-gradient-accent` are now solid accent colour. Display font is Inter (Space Grotesk dropped). Background is a faint grid + soft gradient (no aurora/beams); card tilt, magnetic buttons and the per-browser view counter are off. `globals.css` carries both modes' default tokens so there is no colour flash before hydration.
+- **Theme**: unchanged (violet→cyan). A graphite + orange "enterprise" theme was tried and rolled back at the owner's request; the Research cards use the same glass style as the other sections.
 - **Research**: `public/data/research.json` → `components/sections/Research.tsx` (section `research`, nav "Research"). Topic chips are built from the papers. Every URL was checked to resolve to the paper or its official page.
 - **IndexNow**: `site.indexNowKey` in `meta.json` must match `public/<key>.txt`. After each production deploy the workflow pings IndexNow (Bing, and through it ChatGPT search, Copilot, DuckDuckGo). Google does not use IndexNow; Search Console covers Google.
 - **llms.txt** also lists the reading list.

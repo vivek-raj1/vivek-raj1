@@ -44,20 +44,20 @@ export function Research() {
                 aria-selected={topic === id}
                 onClick={() => setTopic(id)}
                 className={cn(
-                  'relative rounded-md border px-3 py-1.5 text-[13px] transition',
-                  topic === id ? 'border-accent/60 text-fg' : 'border-border/70 text-muted hover:text-fg',
+                  'relative rounded-full border px-3.5 py-1.5 text-[13px] transition',
+                  topic === id ? 'border-accent/50 text-fg' : 'border-border/60 text-muted hover:text-fg',
                 )}
               >
                 {topic === id && (
                   <motion.span
                     layoutId="research-pill"
                     transition={{ type: 'spring', stiffness: 380, damping: 34 }}
-                    className="absolute inset-0 rounded-md bg-accent/10"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/20 to-accent2/20"
                   />
                 )}
                 <span className="relative z-10 flex items-center gap-1.5">
                   {id === ALL ? research.allLabel : id}
-                  <span className="tabular-nums text-[11px] text-muted">{count}</span>
+                  <span className="rounded-full bg-elevated/80 px-1.5 text-[11px] tabular-nums text-muted">{count}</span>
                 </span>
               </button>
             ))}
@@ -92,14 +92,14 @@ function PaperCard({ p }: { p: ResearchPaper }) {
     <motion.article
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-      className="group relative flex h-full flex-col rounded-xl border border-border/70 bg-surface/80 p-6 transition-colors hover:border-accent/50"
+      className="group relative flex h-full flex-col rounded-2xl border border-border/60 glass p-6 transition-colors hover:border-accent/50"
     >
       <span
         aria-hidden
-        className="absolute inset-x-6 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100"
+        className="absolute inset-x-6 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-accent to-accent2 transition-transform duration-500 group-hover:scale-x-100"
       />
       <div className="flex items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
-        <span className="rounded border border-border/70 bg-elevated/60 px-2 py-0.5 font-semibold text-fg">{p.org}</span>
+        <span className="rounded-full border border-border/60 bg-elevated/60 px-2.5 py-0.5 font-semibold text-fg">{p.org}</span>
         <span className="truncate">
           {p.venue} · {p.year}
         </span>
@@ -113,11 +113,11 @@ function PaperCard({ p }: { p: ResearchPaper }) {
       </h3>
       <p className="mt-1 text-[13px] text-muted">{p.authors}</p>
 
-      <p className="mt-4 border-l-2 border-accent/60 pl-3 text-sm leading-relaxed text-fg/85">{p.relevance}</p>
+      <p className="mt-4 border-l-2 border-accent2/60 pl-3 text-sm leading-relaxed text-fg/85">{p.relevance}</p>
 
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
         {p.tags.map((t) => (
-          <span key={t} className="rounded border border-border/70 px-2 py-0.5 text-[11px] text-muted">
+          <span key={t} className="rounded-full border border-border/60 bg-elevated/40 px-2.5 py-0.5 text-[11px] text-muted">
             {t}
           </span>
         ))}

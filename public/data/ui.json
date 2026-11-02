@@ -1,29 +1,29 @@
 {
   "mode": "balanced",
   "background": {
-    "kind": "grid+gradient",
-    "grid": true,
+    "kind": "mesh+beams+aurora",
+    "grid": false,
     "gradient": true,
     "particles": false,
     "particleCount": 28,
-    "gridOpacity": 0.14,
-    "gradientOpacity": 0.22,
+    "gridOpacity": 0.22,
+    "gradientOpacity": 0.55,
     "scanlines": false,
     "codeRain": false,
-    "meshAurora": false,
+    "meshAurora": true,
     "lightBeams": false,
     "maskRadius": 0.6
   },
   "effects": {
     "glassmorphism": true,
     "neonGlow": false,
-    "animatedBorders": false,
+    "animatedBorders": true,
     "cursorGlow": false,
-    "magneticButtons": false,
+    "magneticButtons": true,
     "scrollProgress": true,
     "pageTransitions": true,
     "noise": false,
-    "cardTilt": false,
+    "cardTilt": true,
     "sectionReveal": true
   },
   "density": "comfortable",
@@ -57,7 +57,7 @@
     }
   },
   "viewCounter": {
-    "enabled": false,
+    "enabled": true,
     "storageKey": "vr_portfolio_views",
     "label": "Views"
   }

@@ -19,8 +19,7 @@ interface ThemeCtx {
 
 const Ctx = createContext<ThemeCtx | null>(null);
 const STORAGE_KEY = 'vr_theme';
-// v2: the default palette changed to `signal`; a new key lets returning visitors pick it up once.
-const ACCENT_KEY = 'vr_accent_v2';
+const ACCENT_KEY = 'vr_accent';
 
 function applyVars(theme: ThemeData, resolved: Resolved, accentName: string) {
   const root = document.documentElement;
@@ -28,9 +27,8 @@ function applyVars(theme: ThemeData, resolved: Resolved, accentName: string) {
   Object.entries(modeVars).forEach(([k, v]) => root.style.setProperty(`--${k}`, v));
   const palette = theme.palettes[accentName];
   if (palette) {
-    const shades = (resolved === 'light' && palette.light) || palette;
-    root.style.setProperty('--accent', shades.accent);
-    root.style.setProperty('--accent2', shades.accent2);
+    root.style.setProperty('--accent', palette.accent);
+    root.style.setProperty('--accent2', palette.accent2);
   }
   root.classList.toggle('dark', resolved === 'dark');
   root.dataset.theme = resolved;

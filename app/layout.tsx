@@ -108,7 +108,7 @@ const structuredData = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0b0b0c',
+  themeColor: '#0a0c14',
   width: 'device-width',
   initialScale: 1,
 };
@@ -135,7 +135,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         />
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
         <script
