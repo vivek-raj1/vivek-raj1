@@ -149,6 +149,8 @@ function HeadlineReveal({ words }: { words: { text: string; tone: string }[] }) 
   const { wordStagger, wordDuration } = data.animations.hero;
   return (
     <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+      {/* The name is shown in the navbar and hero card; this puts it in the page's main heading for search engines and screen readers. */}
+      <span className="sr-only">{data.meta.person.name} — </span>
       {words.map((w, i) => {
         // Leading spaces stay outside the inline-block so wrapped lines don't start indented.
         const lead = w.text.match(/^\s*/)?.[0] ?? '';

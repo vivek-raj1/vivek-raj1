@@ -51,6 +51,8 @@ import {
   Star,
   GitPullRequest,
   GitMerge,
+  History,
+  MessageSquare,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -106,6 +108,8 @@ const registry: Record<string, LucideIcon> = {
   star: Star,
   'git-pull-request': GitPullRequest,
   'git-merge': GitMerge,
+  history: History,
+  'message-square': MessageSquare,
 };
 
 export function Icon({

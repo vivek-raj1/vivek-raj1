@@ -5,8 +5,11 @@
   "githubUser": "vivek-raj1",
   "excludeRepos": ["vivek-raj1/vivek-raj1"],
   "excludeOwnRepos": true,
-  "max": 12,
+  "max": 100,
+  "maxPages": 5,
+  "pageSize": 6,
   "maxItemsPerRepo": 3,
+  "historyPageSize": 10,
   "profileLabel": "See all my activity",
   "fallbackTitle": "My open-source activity on GitHub",
   "fallbackBody": "Pull requests, reviews and discussions across public repositories."

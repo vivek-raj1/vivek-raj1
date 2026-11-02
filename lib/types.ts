@@ -8,6 +8,8 @@ export interface MetaData {
     keywords: string[];
     ogImage: string;
     locale: string;
+    /** Google Search Console "HTML tag" verification code; left empty, no tag is emitted. */
+    googleVerification?: string;
   };
   person: {
     name: string;
@@ -18,6 +20,12 @@ export interface MetaData {
     phone: string;
     initials: string;
     image?: string;
+    /** Small square crop of `image`, used as the navbar logo. */
+    avatar?: string;
+    /** Used in the structured data search engines read (schema.org Person). */
+    jobTitle?: string;
+    alumniOf?: string;
+    address?: { locality: string; region: string; country: string };
     resume?: string;
     statusLabel: string;
     statusTone: Tone;
@@ -285,9 +293,16 @@ export interface OpenSourceData {
   excludeRepos: string[];
   /** Also hide every repo owned by `githubUser`, so only other people's projects are listed. */
   excludeOwnRepos: boolean;
+  /** Upper bound on repos listed; each costs one GitHub API call for its details. */
   max: number;
-  /** Threads (PRs / issues) listed on each repo card. */
+  /** Search result pages read per kind of activity (100 results each; GitHub stops at 10 pages). */
+  maxPages: number;
+  /** Repo cards shown at first; "Show more" adds this many each time. */
+  pageSize: number;
+  /** Threads (PRs / issues) listed on each repo card before it is expanded. */
   maxItemsPerRepo: number;
+  /** Entries the History view adds each time. */
+  historyPageSize: number;
   profileLabel: string;
   /** Card shown when no contributions could be loaded. */
   fallbackTitle: string;
@@ -302,6 +317,8 @@ export interface OpenSourceItem {
   kind: 'pr' | 'issue';
   role: 'author' | 'reviewer' | 'commenter';
   state: 'open' | 'closed' | 'merged';
+  /** When the thread was opened; the History timeline is ordered by this. */
+  createdAt: string;
   updatedAt: string;
 }
 
@@ -323,7 +340,7 @@ export interface OpenSourceRepo {
   /** Others' PRs reviewed, and others' threads commented on. */
   reviews: number;
   comments: number;
-  /** Latest threads, newest first. */
+  /** Every thread, newest first. */
   items: OpenSourceItem[];
 }
 

@@ -93,7 +93,8 @@
       "Hybrid"
     ],
     "ogImage": "/og.png",
-    "locale": "en-US"
+    "locale": "en-US",
+    "googleVerification": ""
   },
   "person": {
     "name": "Vivek Raj",
@@ -104,6 +105,14 @@
     "phone": "+91-7779994411",
     "initials": "VR",
     "image": "/image.jpg",
+    "avatar": "/avatar.jpg",
+    "jobTitle": "Lead Cloud Engineer",
+    "alumniOf": "Greater Noida Institute of Technology",
+    "address": {
+      "locality": "Gurgaon",
+      "region": "Haryana",
+      "country": "IN"
+    },
     "resume": "/Vivek-Raj's-Resume.pdf",
     "statusLabel": "Open to Lead / Staff roles · DevOps · AIOps · Platform",
     "statusTone": "success"
@@ -141,6 +150,11 @@
         "label": "Awards",
         "href": "#certifications",
         "icon": "award"
+      },
+      {
+        "label": "Open Source",
+        "href": "#opensource",
+        "icon": "git-merge"
       },
       {
         "label": "Posts",
