@@ -167,14 +167,14 @@
         "icon": "git-merge"
       },
       {
-        "label": "Research",
-        "href": "#research",
-        "icon": "book-open"
-      },
-      {
         "label": "Posts",
         "href": "#linkedin",
         "icon": "linkedin"
+      },
+      {
+        "label": "Research",
+        "href": "#research",
+        "icon": "book-open"
       }
     ],
     "cta": {
