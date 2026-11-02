@@ -149,6 +149,8 @@ function HeadlineReveal({ words }: { words: { text: string; tone: string }[] }) 
   const { wordStagger, wordDuration } = data.animations.hero;
   return (
     <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+      {/* The name is shown in the navbar and hero card; this puts it in the page's main heading for search engines and screen readers. */}
+      <span className="sr-only">{data.meta.person.name} — </span>
       {words.map((w, i) => {
         // Leading spaces stay outside the inline-block so wrapped lines don't start indented.
         const lead = w.text.match(/^\s*/)?.[0] ?? '';
@@ -241,7 +243,7 @@ function ProfileOrb() {
       <div className="absolute inset-[14%] overflow-hidden rounded-full border border-border/60 glass-strong shadow-glow-accent">
         <Image
           src={profile.image}
-          alt={meta.person.name}
+          alt={`${meta.person.name} — ${meta.person.jobTitle ?? meta.person.role} at ${meta.person.company}`}
           fill
           sizes="(max-width: 1024px) 60vw, 30vw"
           priority

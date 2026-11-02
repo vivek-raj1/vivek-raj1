@@ -26,6 +26,7 @@ type SearchItem = {
   title: string;
   repository_url: string;
   state: 'open' | 'closed';
+  created_at: string;
   updated_at: string;
   pull_request?: { merged_at: string | null };
 };
@@ -51,21 +52,44 @@ function queries(user: string): [OpenSourceItem['role'], string][] {
 
 const searchUrl = (q: string) => `https://github.com/search?q=${encodeURIComponent(q)}&type=issues`;
 
+const PER_PAGE = 100;
+
+/** Every page of one search, up to `maxPages`; a short page means there are no more. A later page that fails keeps the earlier ones. */
+async function searchAll(q: string, maxPages: number): Promise<SearchItem[]> {
+  const all: SearchItem[] = [];
+  for (let page = 1; page <= maxPages; page++) {
+    try {
+      const { items } = await gh<{ items: SearchItem[] }>(
+        `https://api.github.com/search/issues?q=${encodeURIComponent(q)}&sort=updated&order=desc&per_page=${PER_PAGE}&page=${page}`,
+      );
+      all.push(...items);
+      if (items.length < PER_PAGE) break;
+    } catch (e) {
+      if (page === 1) throw e;
+      break;
+    }
+  }
+  return all;
+}
+
+/** Runs `fn` over `list` a few at a time, so many repos don't fire hundreds of requests at once. */
+async function inBatches<T, R>(list: T[], size: number, fn: (t: T) => Promise<R>): Promise<R[]> {
+  const out: R[] = [];
+  for (let i = 0; i < list.length; i += size) out.push(...(await Promise.all(list.slice(i, i + size).map(fn))));
+  return out;
+}
+
 /**
  * Public repositories the user took part in (opened PRs or issues, reviewed, or commented), most recently active first.
- * Found with GitHub's search API (100 results per kind), then enriched with each repo's details. Never throws.
+ * Found with GitHub's search API (every page, up to `maxPages` per kind), then enriched with each repo's details. Never throws.
  */
 export async function GET() {
-  const { githubUser, excludeRepos, excludeOwnRepos, max, maxItemsPerRepo } = opensource;
+  const { githubUser, excludeRepos, excludeOwnRepos, max, maxPages } = opensource;
   const user = githubUser.toLowerCase();
   const excluded = new Set(excludeRepos.map((r) => r.toLowerCase()));
 
   const results = await Promise.allSettled(
-    queries(githubUser).map(([role, q]) =>
-      gh<{ items: SearchItem[] }>(
-        `https://api.github.com/search/issues?q=${encodeURIComponent(q)}&sort=updated&order=desc&per_page=100`,
-      ).then(({ items }) => items.map((it) => ({ it, role }))),
-    ),
+    queries(githubUser).map(([role, q]) => searchAll(q, maxPages).then((items) => items.map((it) => ({ it, role })))),
   );
   // Partial results are still shown; only a total failure is reported as one.
   if (results.every((r) => r.status === 'rejected')) {
@@ -90,6 +114,7 @@ export async function GET() {
         kind: it.pull_request ? 'pr' : 'issue',
         role,
         state: it.pull_request?.merged_at ? 'merged' : it.state,
+        createdAt: it.created_at,
         updatedAt: it.updated_at,
       });
     }
@@ -102,29 +127,27 @@ export async function GET() {
   }
 
   const repos = (
-    await Promise.all(
-      [...byRepo].slice(0, max).map(async ([name, items]): Promise<OpenSourceRepo | null> => {
-        // A repo that fails to load is still listed, just without its details.
-        const repo = await gh<Repo>(`https://api.github.com/repos/${name}`).catch(() => null);
-        if (repo?.private) return null;
-        const authoredPrs = items.filter((i) => i.kind === 'pr' && i.role === 'author');
-        return {
-          name: repo?.full_name ?? name,
-          url: repo?.html_url ?? `https://github.com/${name}`,
-          activityUrl: searchUrl(`repo:${name} involves:${githubUser}`),
-          description: repo?.description ?? '',
-          stars: repo?.stargazers_count ?? 0,
-          language: repo?.language ?? '',
-          updatedAt: items[0].updatedAt,
-          prs: authoredPrs.length,
-          merged: authoredPrs.filter((i) => i.state === 'merged').length,
-          issues: items.filter((i) => i.kind === 'issue' && i.role === 'author').length,
-          reviews: items.filter((i) => i.role === 'reviewer').length,
-          comments: items.filter((i) => i.role === 'commenter').length,
-          items: items.slice(0, maxItemsPerRepo),
-        };
-      }),
-    )
+    await inBatches([...byRepo].slice(0, max), 10, async ([name, items]): Promise<OpenSourceRepo | null> => {
+      // A repo that fails to load is still listed, just without its details.
+      const repo = await gh<Repo>(`https://api.github.com/repos/${name}`).catch(() => null);
+      if (repo?.private) return null;
+      const authoredPrs = items.filter((i) => i.kind === 'pr' && i.role === 'author');
+      return {
+        name: repo?.full_name ?? name,
+        url: repo?.html_url ?? `https://github.com/${name}`,
+        activityUrl: searchUrl(`repo:${name} involves:${githubUser}`),
+        description: repo?.description ?? '',
+        stars: repo?.stargazers_count ?? 0,
+        language: repo?.language ?? '',
+        updatedAt: items[0].updatedAt,
+        prs: authoredPrs.length,
+        merged: authoredPrs.filter((i) => i.state === 'merged').length,
+        issues: items.filter((i) => i.kind === 'issue' && i.role === 'author').length,
+        reviews: items.filter((i) => i.role === 'reviewer').length,
+        comments: items.filter((i) => i.role === 'commenter').length,
+        items,
+      };
+    })
   ).filter((r): r is OpenSourceRepo => r !== null);
 
   return NextResponse.json(

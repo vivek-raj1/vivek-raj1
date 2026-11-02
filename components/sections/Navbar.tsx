@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
@@ -37,9 +38,22 @@ export function Navbar() {
         >
           <Link href="#hero" className="flex items-center gap-2 pl-2" data-cursor="hover">
             <div className="relative">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent2 font-display text-sm font-bold text-white shadow-glow-accent">
-                {nav.logo}
-              </div>
+              {person.avatar ? (
+                <div className="rounded-xl bg-gradient-to-br from-accent to-accent2 p-[2px] shadow-glow-accent">
+                  <Image
+                    src={person.avatar}
+                    alt={person.name}
+                    width={36}
+                    height={36}
+                    priority
+                    className="h-9 w-9 rounded-[10px] object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent2 font-display text-sm font-bold text-white shadow-glow-accent">
+                  {nav.logo}
+                </div>
+              )}
               <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-success ring-2 ring-bg" />
             </div>
             <div className="hidden leading-tight sm:block">
@@ -48,7 +62,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {items.map((i) => (
               <a
                 key={i.href}
@@ -65,14 +79,14 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <BookCallButton size="sm" />
             </div>
             <button
               type="button"
               aria-label="Menu"
               onClick={() => setOpen((v) => !v)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl glass md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl glass lg:hidden"
             >
               <span className="relative block h-3 w-4">
                 <span
@@ -104,7 +118,7 @@ export function Navbar() {
         initial={false}
         animate={{ opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-40 flex flex-col items-stretch bg-bg/90 backdrop-blur-xl md:hidden"
+        className="fixed inset-0 z-40 flex flex-col items-stretch bg-bg/90 backdrop-blur-xl lg:hidden"
       >
         <div className="mt-24 flex flex-col gap-3 px-6">
           {items.map((i, idx) => (

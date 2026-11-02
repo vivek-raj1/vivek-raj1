@@ -6,29 +6,105 @@ import { CursorGlow } from '@/components/fx/CursorGlow';
 import { ScrollProgress } from '@/components/fx/ScrollProgress';
 import { AnimatedBackground } from '@/components/fx/AnimatedBackground';
 
-const { meta } = data;
+const { meta, skills, experience } = data;
+const [firstName, ...rest] = meta.person.name.split(' ');
+const ogImage = { url: meta.site.ogImage, width: 1200, height: 630, alt: meta.site.title };
 
+// Favicon, Apple touch icon and manifest come from the app/ file conventions (icon.png, apple-icon.png, favicon.ico, manifest.ts).
 export const metadata: Metadata = {
+  metadataBase: new URL(meta.site.url),
   title: meta.site.title,
   description: meta.site.description,
   keywords: meta.site.keywords,
-  authors: [{ name: meta.person.name }],
+  authors: [{ name: meta.person.name, url: meta.site.url }],
+  creator: meta.person.name,
+  alternates: { canonical: '/' },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
   openGraph: {
     title: meta.site.title,
     description: meta.site.description,
-    url: meta.site.url,
-    siteName: meta.site.title,
-    locale: meta.site.locale,
-    type: 'website',
+    url: '/',
+    siteName: meta.person.name,
+    locale: meta.site.locale.replace('-', '_'),
+    type: 'profile',
+    firstName,
+    lastName: rest.join(' '),
+    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: meta.site.title,
     description: meta.site.description,
+    images: [ogImage],
   },
-  icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-  },
+  ...(meta.site.googleVerification && { verification: { google: meta.site.googleVerification } }),
+};
+
+const org = (name: string) => ({ '@type': 'Organization', name });
+const current = experience.items.filter((i) => i.end === 'Present');
+const past = experience.items.filter((i) => i.end !== 'Present');
+
+/**
+ * schema.org ProfilePage + Person + WebSite, so search engines can tie the name (and its alternate spellings) to this
+ * site, the photo, the linked profiles and every employer in experience.json.
+ */
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': `${meta.site.url}/#profile`,
+      url: `${meta.site.url}/`,
+      name: meta.site.title,
+      dateModified: new Date().toISOString(),
+      mainEntity: { '@id': `${meta.site.url}/#person` },
+      isPartOf: { '@id': `${meta.site.url}/#website` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${meta.site.url}/#person`,
+      name: meta.person.name,
+      ...(meta.person.alternateNames?.length && { alternateName: meta.person.alternateNames }),
+      url: meta.site.url,
+      image: new URL(meta.person.image ?? meta.site.ogImage, meta.site.url).toString(),
+      email: `mailto:${meta.person.email}`,
+      jobTitle: meta.person.jobTitle ?? meta.person.role,
+      description: meta.site.description,
+      worksFor: current.length ? current.map((i) => org(i.company)) : org(meta.person.company),
+      hasOccupation: experience.items.map((i) => ({
+        '@type': 'Occupation',
+        name: i.role,
+        description: `${i.role} at ${i.company} (${i.start} – ${i.end})`,
+      })),
+      alumniOf: [
+        ...(meta.person.alumniOf ? [{ '@type': 'CollegeOrUniversity', name: meta.person.alumniOf }] : []),
+        ...past.map((i) => org(i.company)),
+      ],
+      ...(meta.person.address && {
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: meta.person.address.locality,
+          addressRegion: meta.person.address.region,
+          addressCountry: meta.person.address.country,
+        },
+      }),
+      sameAs: meta.socials.map((s) => s.href).filter((h) => h.startsWith('http')),
+      knowsAbout: skills.categories.flatMap((c) => c.items.map((i) => i.name)),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${meta.site.url}/#website`,
+      url: meta.site.url,
+      name: meta.person.name,
+      description: meta.site.description,
+      publisher: { '@id': `${meta.site.url}/#person` },
+      inLanguage: meta.site.locale,
+    },
+  ],
 };
 
 export const viewport: Viewport = {
@@ -62,6 +138,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
         />
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
+        />
       </head>
       <body className="relative min-h-screen bg-bg text-fg antialiased" suppressHydrationWarning>
         <ThemeProvider>
