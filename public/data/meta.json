@@ -2,7 +2,7 @@
   "site": {
     "title": "Vivek Raj — Lead DevOps Engineer at Sprinklr | Ex-Paytm, Airtel, PayU",
     "description": "Vivek Raj (Raj Vivek) — Lead DevOps & Cloud Engineer at Sprinklr, ex-Paytm, Airtel and PayU. 8+ years in Kubernetes, AWS, GCP, Azure, observability and AIOps.",
-    "url": "https://raj-vivek.com",
+    "url": "https://www.raj-vivek.com",
     "keywords": [
       "Vivek Raj",
       "Raj Vivek",
@@ -102,7 +102,7 @@
     ],
     "ogImage": "/og.png",
     "locale": "en-US",
-    "googleVerification": ""
+    "googleVerification": "1Cuux3FiR6RNv2s4MOQlpjZamHFkmO_oenGhEmJsPzM"
   },
   "person": {
     "name": "Vivek Raj",
@@ -184,7 +184,7 @@
     },
     {
       "label": "LinkedIn",
-      "href": "https://linkedin.com/in/vivek-raj0",
+      "href": "https://www.linkedin.com/in/vivek-raj0",
       "icon": "linkedin"
     },
     {
