@@ -1,15 +1,15 @@
 {
   "defaultMode": "system",
-  "accent": "violet",
-  "glow": "high",
+  "accent": "signal",
+  "glow": "low",
   "modes": {
     "dark": {
-      "bg": "8 10 16",
-      "surface": "14 17 26",
-      "elevated": "20 24 36",
-      "border": "46 52 70",
-      "fg": "232 236 245",
-      "muted": "150 158 178",
+      "bg": "11 11 12",
+      "surface": "19 19 21",
+      "elevated": "27 27 30",
+      "border": "42 42 46",
+      "fg": "237 237 239",
+      "muted": "156 156 163",
       "accent": "139 92 246",
       "accent2": "34 211 238",
       "success": "52 211 153",
@@ -17,12 +17,12 @@
       "danger": "248 113 113"
     },
     "light": {
-      "bg": "248 250 252",
+      "bg": "250 250 249",
       "surface": "255 255 255",
-      "elevated": "241 245 249",
-      "border": "203 213 225",
-      "fg": "15 23 42",
-      "muted": "71 85 105",
+      "elevated": "244 244 245",
+      "border": "228 228 231",
+      "fg": "24 24 27",
+      "muted": "82 82 91",
       "accent": "124 58 237",
       "accent2": "8 145 178",
       "success": "5 150 105",
@@ -31,9 +31,29 @@
     }
   },
   "palettes": {
-    "violet": { "accent": "139 92 246", "accent2": "34 211 238" },
-    "emerald": { "accent": "16 185 129", "accent2": "59 130 246" },
-    "rose": { "accent": "244 63 94", "accent2": "251 146 60" },
-    "sunset": { "accent": "249 115 22", "accent2": "236 72 153" }
+    "signal": {
+      "accent": "244 104 0",
+      "accent2": "251 140 60",
+      "light": {
+        "accent": "194 65 12",
+        "accent2": "234 88 12"
+      }
+    },
+    "blue": {
+      "accent": "69 137 255",
+      "accent2": "120 169 255",
+      "light": {
+        "accent": "15 98 254",
+        "accent2": "0 67 206"
+      }
+    },
+    "emerald": {
+      "accent": "16 185 129",
+      "accent2": "52 211 153",
+      "light": {
+        "accent": "4 120 87",
+        "accent2": "5 150 105"
+      }
+    }
   }
 }

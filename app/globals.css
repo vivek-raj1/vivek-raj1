@@ -3,20 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --bg: 8 10 16;
-  --surface: 14 17 26;
-  --elevated: 20 24 36;
-  --border: 46 52 70;
-  --fg: 232 236 245;
-  --muted: 150 158 178;
-  --accent: 139 92 246;
-  --accent2: 34 211 238;
+  --bg: 11 11 12;
+  --surface: 19 19 21;
+  --elevated: 27 27 30;
+  --border: 42 42 46;
+  --fg: 237 237 239;
+  --muted: 156 156 163;
+  --accent: 244 104 0;
+  --accent2: 251 140 60;
   --success: 52 211 153;
   --warn: 251 191 36;
   --danger: 248 113 113;
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Light-mode defaults (theme.json → modes.light + the signal palette); the inline script in layout.tsx sets data-theme before paint. */
+:root[data-theme='light'] {
+  --bg: 250 250 249;
+  --surface: 255 255 255;
+  --elevated: 244 244 245;
+  --border: 228 228 231;
+  --fg: 24 24 27;
+  --muted: 82 82 91;
+  --accent: 194 65 12;
+  --accent2: 234 88 12;
+  --success: 5 150 105;
+  --warn: 217 119 6;
+  --danger: 220 38 38;
 }
 
 html,
@@ -67,24 +82,12 @@ body {
     -webkit-backdrop-filter: blur(24px) saturate(160%);
     border: 1px solid rgb(var(--border) / 0.7);
   }
+  /* Kept as class names for existing markup; solid colour on purpose (gradient text reads as a template, not a brand). */
   .text-gradient {
-    background: linear-gradient(
-      120deg,
-      rgb(var(--fg)) 0%,
-      rgb(var(--accent)) 50%,
-      rgb(var(--accent2)) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: rgb(var(--accent));
   }
   .text-gradient-accent {
-    background: linear-gradient(120deg, rgb(var(--accent)) 0%, rgb(var(--accent2)) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: rgb(var(--accent));
   }
   .grid-bg {
     background-image: linear-gradient(rgb(var(--border) / 0.35) 1px, transparent 1px),
@@ -98,7 +101,7 @@ body {
     background-size: 180px 180px;
   }
   .shadow-glow-accent {
-    box-shadow: 0 8px 28px -12px rgb(var(--accent) / 0.35), 0 0 48px -20px rgb(var(--accent2) / 0.2);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -14px rgb(var(--accent) / 0.35);
   }
   .border-animated {
     position: relative;

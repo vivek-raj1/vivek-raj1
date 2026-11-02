@@ -48,3 +48,18 @@ jobs:
 
       - name: Deploy to Vercel
         run: npx --yes vercel@latest deploy --yes --prod --token "$VERCEL_TOKEN"
+
+      # Tells Bing (and through it ChatGPT search, Copilot, DuckDuckGo, Yandex) that the site changed. Non-fatal.
+      - name: Notify search engines (IndexNow)
+        run: |
+          SITE=$(jq -r '.site.url' public/data/meta.json)
+          KEY=$(jq -r '.site.indexNowKey // empty' public/data/meta.json)
+          [ -n "$KEY" ] || { echo "No indexNowKey in meta.json; skipping"; exit 0; }
+          jq -n --arg site "$SITE" --arg key "$KEY" '{
+            host: ($site | sub("^https?://"; "")),
+            key: $key,
+            keyLocation: "\($site)/\($key).txt",
+            urlList: ["\($site)/", "\($site)/llms.txt", "\($site)/sitemap.xml"]
+          }' > indexnow.json
+          curl -sS -o /dev/null -w "IndexNow HTTP %{http_code}\n" -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' --data @indexnow.json || echo "IndexNow ping failed (non-fatal)"

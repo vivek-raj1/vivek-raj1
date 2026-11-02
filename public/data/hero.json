@@ -200,27 +200,27 @@
     },
     {
       "label": "AIOps · MCP · AI agents",
-      "tone": "accent2"
+      "tone": "fg"
     },
     {
       "label": "Go · Python · React",
-      "tone": "success"
+      "tone": "fg"
     },
     {
       "label": "GitOps · Argo CD · Rollouts",
-      "tone": "accent"
+      "tone": "fg"
     },
     {
       "label": "VictoriaMetrics · OTel · ClickHouse",
-      "tone": "accent2"
+      "tone": "fg"
     },
     {
       "label": "Terraform · AWS · GCP · Azure",
-      "tone": "accent"
+      "tone": "fg"
     },
     {
       "label": "Team Lead · Mentor",
-      "tone": "warn"
+      "tone": "fg"
     }
   ]
 }

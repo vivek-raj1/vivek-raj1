@@ -7,7 +7,7 @@ import { Icon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 
 export function ThemeToggle() {
-  const { mode, setMode, accent, palettes, setAccent } = useTheme();
+  const { mode, setMode, accent, palettes, setAccent, theme } = useTheme();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const close = useCallback(() => setOpen(false), []);
@@ -115,14 +115,7 @@ export function ThemeToggle() {
                     <span
                       className="absolute inset-0"
                       style={{
-                        background:
-                          p === 'violet'
-                            ? 'linear-gradient(135deg,#8b5cf6,#22d3ee)'
-                            : p === 'emerald'
-                              ? 'linear-gradient(135deg,#10b981,#3b82f6)'
-                              : p === 'rose'
-                                ? 'linear-gradient(135deg,#f43f5e,#fb923c)'
-                                : 'linear-gradient(135deg,#f97316,#ec4899)',
+                        background: `linear-gradient(135deg, rgb(${theme.palettes[p].accent}), rgb(${theme.palettes[p].accent2}))`,
                       }}
                     />
                   </button>

@@ -28,8 +28,8 @@ const config: Config = {
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        glow: '0 0 40px -10px rgb(var(--accent) / 0.6)',
-        'glow-lg': '0 0 80px -10px rgb(var(--accent) / 0.7)',
+        glow: '0 1px 2px rgb(0 0 0 / 0.12), 0 12px 32px -16px rgb(var(--accent) / 0.4)',
+        'glow-lg': '0 2px 4px rgb(0 0 0 / 0.12), 0 24px 48px -20px rgb(var(--accent) / 0.45)',
         inner: 'inset 0 1px 0 0 rgb(255 255 255 / 0.04)',
       },
       backgroundImage: {

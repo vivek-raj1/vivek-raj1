@@ -10,6 +10,8 @@ export interface MetaData {
     locale: string;
     /** Google Search Console "HTML tag" verification code; left empty, no tag is emitted. */
     googleVerification?: string;
+    /** IndexNow key; public/<key>.txt must contain it. The deploy workflow pings Bing (and through it ChatGPT search, Copilot, DuckDuckGo). */
+    indexNowKey?: string;
   };
   person: {
     name: string;
@@ -179,7 +181,8 @@ export interface ThemeData {
     dark: Record<string, string>;
     light: Record<string, string>;
   };
-  palettes: Record<string, { accent: string; accent2: string }>;
+  /** `light` overrides the accents in light mode, where the dark-mode shades would be too pale to read. */
+  palettes: Record<string, { accent: string; accent2: string; light?: { accent: string; accent2: string } }>;
 }
 
 export interface AnimationsData {
@@ -346,6 +349,31 @@ export interface OpenSourceRepo {
   items: OpenSourceItem[];
 }
 
+/** One paper on the reading list (public/data/research.json). */
+export interface ResearchPaper {
+  id: string;
+  title: string;
+  authors: string;
+  /** Organisation behind the work, shown as the card's badge (e.g. "Uber", "Google"). */
+  org: string;
+  venue: string;
+  year: number;
+  /** Filter group; any string works, chips are built from the items. */
+  topic: string;
+  url: string;
+  /** One line on why it matters to my work. */
+  relevance: string;
+  tags: string[];
+}
+
+export interface ResearchData {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  allLabel: string;
+  items: ResearchPaper[];
+}
+
 export interface PortfolioData {
   meta: MetaData;
   hero: HeroData;
@@ -357,6 +385,7 @@ export interface PortfolioData {
   live: LiveData;
   linkedin: LinkedInData;
   opensource: OpenSourceData;
+  research: ResearchData;
   theme: ThemeData;
   animations: AnimationsData;
   ui: UIData;

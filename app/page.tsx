@@ -11,6 +11,7 @@ import { SectionReveal } from '@/components/fx/SectionReveal';
 import { LiveSystems } from '@/components/sections/LiveSystems';
 import { LinkedInPosts } from '@/components/sections/LinkedInPosts';
 import { OpenSource } from '@/components/sections/OpenSource';
+import { Research } from '@/components/sections/Research';
 import { data } from '@/lib/data';
 
 const registry = {
@@ -22,6 +23,7 @@ const registry = {
   experience: Experience,
   projects: Projects,
   opensource: OpenSource,
+  research: Research,
   certifications: Certifications,
   footer: Footer,
 } as const;
