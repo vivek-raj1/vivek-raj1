@@ -6,7 +6,7 @@ import { CursorGlow } from '@/components/fx/CursorGlow';
 import { ScrollProgress } from '@/components/fx/ScrollProgress';
 import { AnimatedBackground } from '@/components/fx/AnimatedBackground';
 
-const { meta, skills } = data;
+const { meta, skills, experience } = data;
 const [firstName, ...rest] = meta.person.name.split(' ');
 const ogImage = { url: meta.site.ogImage, width: 1200, height: 630, alt: meta.site.title };
 
@@ -44,21 +44,46 @@ export const metadata: Metadata = {
   ...(meta.site.googleVerification && { verification: { google: meta.site.googleVerification } }),
 };
 
-/** schema.org Person + WebSite, so search engines can tie the name to this site, the photo and the linked profiles. */
+const org = (name: string) => ({ '@type': 'Organization', name });
+const current = experience.items.filter((i) => i.end === 'Present');
+const past = experience.items.filter((i) => i.end !== 'Present');
+
+/**
+ * schema.org ProfilePage + Person + WebSite, so search engines can tie the name (and its alternate spellings) to this
+ * site, the photo, the linked profiles and every employer in experience.json.
+ */
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'ProfilePage',
+      '@id': `${meta.site.url}/#profile`,
+      url: `${meta.site.url}/`,
+      name: meta.site.title,
+      dateModified: new Date().toISOString(),
+      mainEntity: { '@id': `${meta.site.url}/#person` },
+      isPartOf: { '@id': `${meta.site.url}/#website` },
+    },
+    {
       '@type': 'Person',
       '@id': `${meta.site.url}/#person`,
       name: meta.person.name,
+      ...(meta.person.alternateNames?.length && { alternateName: meta.person.alternateNames }),
       url: meta.site.url,
       image: new URL(meta.person.image ?? meta.site.ogImage, meta.site.url).toString(),
       email: `mailto:${meta.person.email}`,
       jobTitle: meta.person.jobTitle ?? meta.person.role,
       description: meta.site.description,
-      worksFor: { '@type': 'Organization', name: meta.person.company },
-      ...(meta.person.alumniOf && { alumniOf: { '@type': 'CollegeOrUniversity', name: meta.person.alumniOf } }),
+      worksFor: current.length ? current.map((i) => org(i.company)) : org(meta.person.company),
+      hasOccupation: experience.items.map((i) => ({
+        '@type': 'Occupation',
+        name: i.role,
+        description: `${i.role} at ${i.company} (${i.start} – ${i.end})`,
+      })),
+      alumniOf: [
+        ...(meta.person.alumniOf ? [{ '@type': 'CollegeOrUniversity', name: meta.person.alumniOf }] : []),
+        ...past.map((i) => org(i.company)),
+      ],
       ...(meta.person.address && {
         address: {
           '@type': 'PostalAddress',

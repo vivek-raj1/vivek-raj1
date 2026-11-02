@@ -13,6 +13,8 @@ export interface MetaData {
   };
   person: {
     name: string;
+    /** Other ways people search for the name; listed as schema.org `alternateName`. */
+    alternateNames?: string[];
     role: string;
     company: string;
     location: string;

@@ -243,7 +243,7 @@ function ProfileOrb() {
       <div className="absolute inset-[14%] overflow-hidden rounded-full border border-border/60 glass-strong shadow-glow-accent">
         <Image
           src={profile.image}
-          alt={meta.person.name}
+          alt={`${meta.person.name} — ${meta.person.jobTitle ?? meta.person.role} at ${meta.person.company}`}
           fill
           sizes="(max-width: 1024px) 60vw, 30vw"
           priority

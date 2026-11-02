@@ -1,10 +1,18 @@
 {
   "site": {
-    "title": "Vivek Raj — DevOps · AIOps · Software Engineer",
-    "description": "DevOps, AIOps and software engineer with 8+ years across payments, telecom and SaaS. Lead Cloud Engineer at Sprinklr running 100+ Kubernetes clusters on AWS, GCP and Azure; builds MCP gateways, AI agents and workflow automation in Go and Python.",
+    "title": "Vivek Raj — Lead DevOps Engineer at Sprinklr | Ex-Paytm, Airtel, PayU",
+    "description": "Vivek Raj (Raj Vivek) — Lead DevOps & Cloud Engineer at Sprinklr, ex-Paytm, Airtel and PayU. 8+ years in Kubernetes, AWS, GCP, Azure, observability and AIOps.",
     "url": "https://raj-vivek.com",
     "keywords": [
       "Vivek Raj",
+      "Raj Vivek",
+      "Vivek Raj DevOps",
+      "Vivek Raj Sprinklr",
+      "Vivek Raj Paytm",
+      "Vivek Raj Airtel",
+      "Vivek Raj PayU",
+      "Vivek Raj SRE",
+      "Vivek Raj Cloud Engineer",
       "Lead DevOps Engineer",
       "Platform Engineer",
       "SDE",
@@ -98,6 +106,7 @@
   },
   "person": {
     "name": "Vivek Raj",
+    "alternateNames": ["Raj Vivek"],
     "role": "DevOps · AIOps · Software Engineer",
     "company": "Sprinklr",
     "location": "Gurgaon, India · Open to Remote / Hybrid",
