@@ -15,8 +15,8 @@ export function SocialLinks({ className }: { className?: string }) {
             key={s.label}
             href={s.href}
             target={external ? '_blank' : undefined}
-            rel={external ? 'noreferrer' : undefined}
-            aria-label={s.label}
+            rel={external ? 'me noreferrer' : undefined}
+            aria-label={external ? `${data.meta.person.name} on ${s.label}` : s.label}
             data-cursor="hover"
             className="group inline-flex items-center gap-2 rounded-full border border-border/60 glass px-3.5 py-2 text-sm text-muted transition hover:-translate-y-0.5 hover:border-accent/50 hover:text-fg"
           >

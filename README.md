@@ -4,7 +4,7 @@ Hey there 👋,
 
 I'm <b>Vivek Raj</b> — a <b>DevOps · AIOps · Software Engineer</b> with <b>8+ years</b> across Sprinklr, Paytm, Airtel and PayU. As <b>Lead Cloud Engineer at Sprinklr</b> I lead the team running <b>100+ Kubernetes clusters</b> on AWS, GCP and Azure, and I built <b>Cosmic</b> — an MCP gateway over 21+ DevOps tools that powers multi-tool workflows, a Kubernetes lens and AI agents. Earlier I led the migration of 50+ payment microservices from Ali Cloud to AWS at Paytm (25% lower operating cost).
 
-🌐 Portfolio: <a href="https://raj-vivek.com">raj-vivek.com</a>
+🌐 Portfolio: <a href="https://www.raj-vivek.com/">Vivek Raj — raj-vivek.com</a> · <a href="https://www.linkedin.com/in/vivek-raj0">LinkedIn</a>
 </p>
 
  ---

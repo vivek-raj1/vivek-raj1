@@ -65,7 +65,7 @@ export function Footer() {
                     key={s.label}
                     href={s.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel={s.href.startsWith('http') ? 'me noreferrer' : 'noreferrer'}
                     data-cursor="hover"
                     className="group flex items-center justify-between rounded-xl border border-transparent bg-elevated/40 px-4 py-3 transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-elevated/70"
                   >
@@ -73,7 +73,7 @@ export function Footer() {
                       <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/15 text-accent">
                         <Icon name={s.icon} size={14} />
                       </span>
-                      {s.label}
+                      {s.href.startsWith('http') ? `${meta.person.name} on ${s.label}` : s.label}
                     </span>
                     <Icon name="arrow-up-right" size={14} className="text-muted transition group-hover:text-accent" />
                   </a>
