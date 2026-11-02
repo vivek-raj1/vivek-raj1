@@ -8,6 +8,7 @@ import certifications from '@/public/data/certifications.json';
 import live from '@/public/data/live.json';
 import linkedin from '@/public/data/linkedin.json';
 import opensource from '@/public/data/opensource.json';
+import research from '@/public/data/research.json';
 import theme from '@/public/data/theme.json';
 import animations from '@/public/data/animations.json';
 import ui from '@/public/data/ui.json';
@@ -24,6 +25,7 @@ export const data: PortfolioData = {
   live,
   linkedin,
   opensource,
+  research,
   theme,
   animations,
   ui,

@@ -1,0 +1,128 @@
+{
+  "eyebrow": "RESEARCH",
+  "title": "Research papers I've read.",
+  "subtitle": "Research from Uber, Google, Meta, Microsoft and Stanford that shapes how I build observability, Kubernetes platforms and AIOps.",
+  "allLabel": "All papers",
+  "items": [
+    {
+      "id": "crisp",
+      "title": "CRISP: Critical Path Analysis of Large-Scale Microservice Architectures",
+      "authors": "Zhang, Ramanathan, Raj, Parwal, Sherwood, Chabbi",
+      "org": "Uber",
+      "venue": "USENIX ATC",
+      "year": 2022,
+      "topic": "Observability",
+      "url": "https://www.usenix.org/conference/atc22/presentation/zhang-zhizhou",
+      "relevance": "Critical-path analysis over Jaeger traces across Uber's ~40K endpoints — the model for turning traces into latency root causes in incident triage.",
+      "tags": ["Tracing", "Jaeger", "Microservices"]
+    },
+    {
+      "id": "m3",
+      "title": "M3: Uber's Open Source, Large-scale Metrics Platform for Prometheus",
+      "authors": "Uber Engineering",
+      "org": "Uber",
+      "venue": "Uber Engineering",
+      "year": 2018,
+      "topic": "Observability",
+      "url": "https://www.uber.com/blog/m3/",
+      "relevance": "Remote storage for Prometheus at billions of series — the same problem VictoriaMetrics solves across my 90+ clusters.",
+      "tags": ["Metrics", "Prometheus", "TSDB"]
+    },
+    {
+      "id": "dapper",
+      "title": "Dapper, a Large-Scale Distributed Systems Tracing Infrastructure",
+      "authors": "Sigelman, Barroso, Burrows, et al.",
+      "org": "Google",
+      "venue": "Google Technical Report",
+      "year": 2010,
+      "topic": "Observability",
+      "url": "https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/",
+      "relevance": "The origin of distributed tracing — sampling and library-level instrumentation that Zipkin, Jaeger and OpenTelemetry descend from.",
+      "tags": ["Tracing", "OpenTelemetry"]
+    },
+    {
+      "id": "gorilla",
+      "title": "Gorilla: A Fast, Scalable, In-Memory Time Series Database",
+      "authors": "Pelkonen, Franklin, Teller, et al.",
+      "org": "Meta",
+      "venue": "VLDB",
+      "year": 2015,
+      "topic": "Observability",
+      "url": "https://doi.org/10.14778/2824032.2824078",
+      "relevance": "Delta-of-delta timestamps and XOR float compression — the encoding behind the Prometheus TSDB and why metrics storage is cheap.",
+      "tags": ["TSDB", "Compression"]
+    },
+    {
+      "id": "monarch",
+      "title": "Monarch: Google's Planet-Scale In-Memory Time Series Database",
+      "authors": "Adams, Alonso, Atkin, et al.",
+      "org": "Google",
+      "venue": "VLDB",
+      "year": 2020,
+      "topic": "Observability",
+      "url": "https://www.vldb.org/pvldb/vol13/p3181-adams.pdf",
+      "relevance": "Regional ingestion with a global query plane — a reference design for multi-cluster, multi-cloud monitoring.",
+      "tags": ["Metrics", "Multi-region"]
+    },
+    {
+      "id": "borg",
+      "title": "Large-scale cluster management at Google with Borg",
+      "authors": "Verma, Pedrosa, Korupolu, Oppenheimer, Tune, Wilkes",
+      "org": "Google",
+      "venue": "EuroSys",
+      "year": 2015,
+      "topic": "Orchestration",
+      "url": "https://research.google/pubs/large-scale-cluster-management-at-google-with-borg/",
+      "relevance": "Bin-packing, over-commitment and failure-domain spreading — the ideas behind right-sizing, spot and Graviton node pools.",
+      "tags": ["Scheduling", "Utilization"]
+    },
+    {
+      "id": "borg-omega-k8s",
+      "title": "Borg, Omega, and Kubernetes",
+      "authors": "Burns, Grant, Oppenheimer, Brewer, Wilkes",
+      "org": "Google",
+      "venue": "ACM Queue",
+      "year": 2016,
+      "topic": "Orchestration",
+      "url": "https://research.google/pubs/pub44843/",
+      "relevance": "Why Kubernetes is built around a watched API store and reconciliation — the pattern every operator and GitOps controller I run relies on.",
+      "tags": ["Kubernetes", "Control loops"]
+    },
+    {
+      "id": "raft",
+      "title": "In Search of an Understandable Consensus Algorithm (Raft)",
+      "authors": "Ongaro, Ousterhout",
+      "org": "Stanford",
+      "venue": "USENIX ATC",
+      "year": 2014,
+      "topic": "Distributed systems",
+      "url": "https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro",
+      "relevance": "The consensus protocol inside etcd — essential for reasoning about control-plane quorum, latency and recovery.",
+      "tags": ["Consensus", "etcd"]
+    },
+    {
+      "id": "tail-at-scale",
+      "title": "The Tail at Scale",
+      "authors": "Dean, Barroso",
+      "org": "Google",
+      "venue": "Communications of the ACM",
+      "year": 2013,
+      "topic": "Reliability",
+      "url": "https://research.google/pubs/pub40801/",
+      "relevance": "Why p99 dominates user experience at fan-out, and how hedged requests tame it — the lens for every latency SLO.",
+      "tags": ["Latency", "SLOs"]
+    },
+    {
+      "id": "rcacopilot",
+      "title": "Automatic Root Cause Analysis via Large Language Models for Cloud Incidents",
+      "authors": "Chen, Xie, Ma, et al.",
+      "org": "Microsoft",
+      "venue": "arXiv",
+      "year": 2023,
+      "topic": "AIOps",
+      "url": "https://arxiv.org/abs/2305.15778",
+      "relevance": "LLM-driven incident diagnosis grounded in collected signals and past incidents — the approach behind the triage agents in Cosmic.",
+      "tags": ["LLM", "Incident RCA"]
+    }
+  ]
+}

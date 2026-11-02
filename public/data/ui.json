@@ -39,6 +39,7 @@
       "certifications",
       "opensource",
       "linkedin",
+      "research",
       "footer"
     ],
     "visible": {
@@ -51,7 +52,8 @@
       "opensource": true,
       "certifications": true,
       "footer": true,
-      "linkedin": true
+      "linkedin": true,
+      "research": true
     }
   },
   "viewCounter": {

@@ -53,6 +53,7 @@ import {
   GitMerge,
   History,
   MessageSquare,
+  BookOpen,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -110,6 +111,7 @@ const registry: Record<string, LucideIcon> = {
   'git-merge': GitMerge,
   history: History,
   'message-square': MessageSquare,
+  'book-open': BookOpen,
 };
 
 export function Icon({

@@ -62,7 +62,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-1 xl:flex">
             {items.map((i) => (
               <a
                 key={i.href}
@@ -79,14 +79,14 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <BookCallButton size="sm" />
             </div>
             <button
               type="button"
               aria-label="Menu"
               onClick={() => setOpen((v) => !v)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl glass lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl glass xl:hidden"
             >
               <span className="relative block h-3 w-4">
                 <span
@@ -118,7 +118,7 @@ export function Navbar() {
         initial={false}
         animate={{ opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
         transition={{ duration: 0.25 }}
-        className="fixed inset-0 z-40 flex flex-col items-stretch bg-bg/90 backdrop-blur-xl lg:hidden"
+        className="fixed inset-0 z-40 flex flex-col items-stretch bg-bg/90 backdrop-blur-xl xl:hidden"
       >
         <div className="mt-24 flex flex-col gap-3 px-6">
           {items.map((i, idx) => (
