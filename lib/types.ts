@@ -240,7 +240,7 @@ export interface UIData {
     order: string[];
     visible: Record<string, boolean>;
   };
-  viewCounter: { enabled: boolean; storageKey: string; label: string };
+  viewCounter: { enabled: boolean; label: string };
 }
 
 export interface LiveData {
