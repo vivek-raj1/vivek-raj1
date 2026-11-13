@@ -19,7 +19,11 @@ export function GET() {
     '## Research reading list',
     research.items.map((p) => `- [${p.title}](${p.url}) — ${p.org}, ${p.venue} ${p.year}. ${p.relevance}`).join('\n'),
     '## Links',
-    [`- [Website](${meta.site.url}/)`, ...socials.map((s) => `- [${s.label}](${s.href})`)].join('\n'),
+    [
+      `- [Website](${meta.site.url}/)`,
+      ...socials.map((s) => `- [${s.label}](${s.href})`),
+      ...(meta.booking?.url ? [`- [${meta.booking.label}](${meta.booking.url})`] : []),
+    ].join('\n'),
   ].join('\n\n');
 
   return new Response(`${body}\n`, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
