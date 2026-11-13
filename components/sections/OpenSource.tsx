@@ -53,17 +53,23 @@ const LANGUAGE_COLOR: Record<string, string> = {
 };
 
 type View = 'repos' | 'history';
-type Filter = 'all' | 'merged' | 'open' | 'discussions';
+type Filter = 'all' | 'merged' | 'open' | 'reviews' | 'issues' | 'discussions';
 
 const VIEWS: { id: View; label: string; icon: string }[] = [
   { id: 'repos', label: 'Repositories', icon: 'layers' },
   { id: 'history', label: 'History', icon: 'history' },
 ];
-const FILTERS: { id: Filter; label: string; match: (i: OpenSourceItem) => boolean }[] = [
-  { id: 'all', label: 'All', match: () => true },
-  { id: 'merged', label: 'Merged', match: (i) => i.state === 'merged' },
-  { id: 'open', label: 'In review', match: (i) => i.kind === 'pr' && i.state === 'open' },
-  { id: 'discussions', label: 'Issues & reviews', match: (i) => i.kind === 'issue' || i.role !== 'author' },
+/**
+ * Every thread lands in exactly one bucket (besides All): my own PRs split by whether they're finished,
+ * PRs I reviewed, issues I opened, and threads I only commented on.
+ */
+const FILTERS: { id: Filter; label: string; icon: string; match: (i: OpenSourceItem) => boolean }[] = [
+  { id: 'all', label: 'All', icon: 'layers', match: () => true },
+  { id: 'merged', label: 'PRs merged / closed', icon: 'git-merge', match: (i) => i.kind === 'pr' && i.role === 'author' && i.state !== 'open' },
+  { id: 'open', label: 'Open PRs', icon: 'git-pull-request', match: (i) => i.kind === 'pr' && i.role === 'author' && i.state === 'open' },
+  { id: 'reviews', label: 'Reviews', icon: 'eye', match: (i) => i.role === 'reviewer' },
+  { id: 'issues', label: 'Issues', icon: 'dot', match: (i) => i.kind === 'issue' && i.role === 'author' },
+  { id: 'discussions', label: 'Discussions', icon: 'message-square', match: (i) => i.role === 'commenter' },
 ];
 
 const cardVariants: Variants = {
@@ -108,20 +114,35 @@ export function OpenSource() {
   const loading = repos === null;
   const match = FILTERS.find((f) => f.id === filter)!.match;
 
-  const stats = useMemo(() => {
-    const list = repos ?? [];
-    return [
-      { label: 'Projects', value: list.length, icon: 'layers' },
-      { label: 'Pull requests', value: list.reduce((n, r) => n + r.prs, 0), icon: 'git-pull-request' },
-      { label: 'Merged', value: list.reduce((n, r) => n + r.merged, 0), icon: 'git-merge' },
-      { label: 'Combined stars', value: list.reduce((n, r) => n + r.stars, 0), icon: 'star' },
-    ].filter((s) => loading || s.value > 0);
-  }, [repos, loading]);
-
   const counts = useMemo(() => {
     const items = (repos ?? []).flatMap((r) => r.items);
     return Object.fromEntries(FILTERS.map((f) => [f.id, items.filter(f.match).length])) as Record<Filter, number>;
   }, [repos]);
+
+  // One tile per bucket, so the headline numbers and the filters always agree. Clicking a tile filters by it.
+  const stats = useMemo(() => {
+    const list = repos ?? [];
+    const items = list.flatMap((r) => r.items);
+    const mine = items.filter((i) => i.kind === 'pr' && i.role === 'author');
+    const merged = mine.filter((i) => i.state === 'merged').length;
+    const closed = mine.filter((i) => i.state === 'closed').length;
+    const stars = list.reduce((n, r) => n + r.stars, 0);
+    const tile = (id: Filter, label: string, note?: string) => ({
+      id,
+      label,
+      icon: FILTERS.find((f) => f.id === id)!.icon,
+      value: id === 'all' ? list.length : counts[id],
+      note,
+    });
+    return [
+      tile('all', 'Repositories', stars ? `${formatCount(stars)} stars combined` : undefined),
+      tile('merged', 'PRs merged / closed', `${merged} merged · ${closed} closed`),
+      tile('open', 'Open PRs', 'awaiting merge'),
+      tile('reviews', 'Reviews', 'PRs reviewed'),
+      tile('issues', 'Issues', 'opened'),
+      tile('discussions', 'Discussions', 'issue & PR threads'),
+    ];
+  }, [repos, counts]);
 
   // Repos with at least one thread matching the filter, each card showing only the matching threads.
   const filteredRepos = useMemo(
@@ -166,26 +187,36 @@ export function OpenSource() {
         </div>
 
         {(loading || repos.length > 0) && (
-          <div className={cn('mt-12 grid grid-cols-2 gap-3', stats.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3')}>
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
-                className="relative overflow-hidden rounded-2xl border border-border/60 glass px-5 py-4"
-              >
-                <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-muted">
-                  <Icon name={s.icon} size={13} className="text-accent" />
-                  {s.label}
-                </div>
-                <div className="mt-2 font-display text-3xl font-semibold text-fg sm:text-4xl">
-                  {loading ? <span className="inline-block h-9 w-16 animate-pulse-slow rounded-lg bg-elevated/70" /> : <CountUp value={s.value} />}
-                </div>
-                <span className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-accent/20 to-accent2/10 blur-2xl" />
-              </motion.div>
-            ))}
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
+            {stats.map((s, i) => {
+              const selected = !loading && filter === s.id;
+              return (
+                <motion.button
+                  key={s.id}
+                  type="button"
+                  onClick={() => pickFilter(s.id)}
+                  disabled={loading || (s.value === 0 && s.id !== 'all')}
+                  aria-pressed={selected}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
+                  className={cn(
+                    'relative overflow-hidden rounded-2xl border px-4 py-4 text-left transition-colors disabled:cursor-default',
+                    selected ? 'border-accent/60 bg-accent/10' : 'border-border/60 glass enabled:hover:border-accent/40'
+                  )}
+                >
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-muted">
+                    <Icon name={s.icon} size={13} className={s.value > 0 ? 'text-accent' : 'text-muted'} />
+                    <span className="truncate">{s.label}</span>
+                  </div>
+                  <div className={cn('mt-2 font-display text-3xl font-semibold', s.value > 0 ? 'text-fg' : 'text-muted')}>
+                    {loading ? <span className="inline-block h-9 w-14 animate-pulse-slow rounded-lg bg-elevated/70" /> : <CountUp value={s.value} />}
+                  </div>
+                  {s.note && !loading && <div className="mt-1 truncate text-[11px] tabular-nums text-muted">{s.note}</div>}
+                </motion.button>
+              );
+            })}
           </div>
         )}
 
