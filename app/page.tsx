@@ -7,6 +7,7 @@ import { Projects } from '@/components/sections/Projects';
 import { Certifications } from '@/components/sections/Certifications';
 import { Footer } from '@/components/sections/Footer';
 import { GsapSmooth } from '@/components/fx/GsapSmooth';
+import { AnchorScroll } from '@/components/fx/AnchorScroll';
 import { SectionReveal } from '@/components/fx/SectionReveal';
 import { LiveSystems } from '@/components/sections/LiveSystems';
 import { LinkedInPosts } from '@/components/sections/LinkedInPosts';
@@ -34,6 +35,7 @@ export default function Page() {
     <main className="relative">
       <Navbar />
       <GsapSmooth />
+      <AnchorScroll />
       {ui.sections.order.map((key) => {
         const Comp = registry[key as keyof typeof registry];
         if (!Comp || !ui.sections.visible[key]) return null;
