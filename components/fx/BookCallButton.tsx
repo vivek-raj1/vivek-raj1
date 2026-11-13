@@ -149,12 +149,24 @@ function BookingDialog({ open, onClose }: { open: boolean; onClose: () => void }
   const [topic, setTopic] = useState('');
   const [copied, setCopied] = useState(false);
   const [showSlots, setShowSlots] = useState(false);
+  const [booked, setBooked] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // Calendly's embed posts `calendly.event_scheduled` to the page once someone books (free on all plans).
+  useEffect(() => {
+    if (!open) return;
+    const onMessage = (e: MessageEvent) => {
+      if (e.origin === 'https://calendly.com' && e.data?.event === 'calendly.event_scheduled') setBooked(true);
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
     setStart((s) => s || defaultStart());
     setShowSlots(false);
+    setBooked(false);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -234,14 +246,31 @@ function BookingDialog({ open, onClose }: { open: boolean; onClose: () => void }
 
             {showSlots && booking.embedUrl ? (
               <>
-                <button
-                  type="button"
-                  onClick={() => setShowSlots(false)}
-                  className="flex items-center gap-1.5 border-b border-border/40 px-5 py-2.5 text-left text-xs text-muted transition hover:text-fg"
-                >
-                  <Icon name="arrow-right" size={12} className="rotate-180" /> Other ways to book
-                </button>
-                {/* Google's booking page renders on a white background in both themes. */}
+                <div className="flex items-center justify-between gap-3 border-b border-border/40 px-5 py-2.5 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setShowSlots(false)}
+                    className="flex items-center gap-1.5 text-left text-muted transition hover:text-fg"
+                  >
+                    <Icon name="arrow-right" size={12} className="rotate-180" /> Other ways to book
+                  </button>
+                  {booking.url && (
+                    <a
+                      href={booking.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-1 text-muted transition hover:text-accent"
+                    >
+                      Open in a new tab <Icon name="arrow-up-right" size={12} />
+                    </a>
+                  )}
+                </div>
+                {booked && (
+                  <div role="status" className="flex items-center gap-2 border-b border-success/30 bg-success/10 px-5 py-2.5 text-sm text-success">
+                    <Icon name="check" size={14} /> Booked. The invite and meeting link are on their way to your inbox.
+                  </div>
+                )}
+                {/* Embed colours are a paid Calendly feature, so the scheduler stays on its own white background. */}
                 <iframe src={booking.embedUrl} title={booking.label} className="h-full w-full flex-1 border-0 bg-white" loading="lazy" />
               </>
             ) : (
@@ -260,7 +289,7 @@ function BookingDialog({ open, onClose }: { open: boolean; onClose: () => void }
                   >
                     <span>
                       <span className="block text-sm font-semibold text-fg">Pick from my open slots</span>
-                      <span className="block text-xs text-muted">Google Calendar · only shows times I&apos;m free</span>
+                      <span className="block text-xs text-muted">{booking.slotsNote ?? 'Only shows times I\u2019m free'}</span>
                     </span>
                     <Icon name="arrow-right" size={16} className="text-accent" />
                   </a>

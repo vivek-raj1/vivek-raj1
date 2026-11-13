@@ -43,6 +43,7 @@ export function LiveSystems() {
 
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-12">
         <TerminalPanel running={running} reduce={reduce} className="lg:col-span-7" />
+        {/* The two cards share the terminal's height: each grows, and its content is centred in the extra space. */}
         <div className="flex flex-col gap-4 lg:col-span-5">
           <PipelinePanel running={running} />
           <ClusterFleet running={running} />
@@ -269,7 +270,7 @@ function PipelinePanel({ running }: { running: boolean }) {
   const done = active >= n;
 
   return (
-    <div className="rounded-2xl border border-border/60 glass p-5">
+    <div className="flex flex-1 flex-col rounded-2xl border border-border/60 glass p-5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div>
           <div className="text-sm font-semibold text-fg">{pipeline.title}</div>
@@ -287,7 +288,8 @@ function PipelinePanel({ running }: { running: boolean }) {
         </span>
       </div>
 
-      <ol className="relative mt-5 grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
+      <div className="flex flex-1 items-center pt-5">
+      <ol className="relative grid w-full" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
         <span aria-hidden className="absolute left-[8%] right-[8%] top-[17px] h-px bg-border/70" />
         <motion.span
           aria-hidden
@@ -325,6 +327,7 @@ function PipelinePanel({ running }: { running: boolean }) {
           );
         })}
       </ol>
+      </div>
     </div>
   );
 }
@@ -344,7 +347,7 @@ function ClusterFleet({ running }: { running: boolean }) {
   }, [running, clusters.count]);
 
   return (
-    <div className="rounded-2xl border border-border/60 glass p-5">
+    <div className="flex flex-1 flex-col rounded-2xl border border-border/60 glass p-5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm font-semibold text-fg">{clusters.title}</div>
         <div className="flex items-center gap-3 text-[11px] text-muted">
@@ -356,7 +359,8 @@ function ClusterFleet({ running }: { running: boolean }) {
           </span>
         </div>
       </div>
-      <div className="mt-4 grid grid-cols-[repeat(16,minmax(0,1fr))] gap-1.5 sm:grid-cols-[repeat(26,minmax(0,1fr))]">
+      <div className="flex flex-1 items-center pt-4">
+      <div className="grid w-full grid-cols-[repeat(16,minmax(0,1fr))] gap-1.5 sm:grid-cols-[repeat(26,minmax(0,1fr))]">
         {Array.from({ length: clusters.count }, (_, i) => {
           const on = syncing.includes(i);
           return (
@@ -369,6 +373,7 @@ function ClusterFleet({ running }: { running: boolean }) {
             />
           );
         })}
+      </div>
       </div>
       <p className="mt-3 text-[11px] text-muted">{clusters.caption}</p>
     </div>

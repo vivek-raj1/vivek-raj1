@@ -93,6 +93,14 @@ const structuredData = {
         },
       }),
       sameAs: meta.socials.map((s) => s.href).filter((h) => h.startsWith('http')),
+      ...(meta.booking?.url && {
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'Meeting booking',
+          url: meta.booking.url,
+          email: meta.person.email,
+        },
+      }),
       knowsAbout: skills.categories.flatMap((c) => c.items.map((i) => i.name)),
     },
     {

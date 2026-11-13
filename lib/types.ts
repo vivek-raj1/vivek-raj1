@@ -41,13 +41,15 @@ export interface MetaData {
     cta: { label: string; href: string };
   };
   socials: { label: string; href: string; icon: string }[];
-  /** Google Calendar appointment schedule. Empty `url`/`embedUrl` falls back to `nav.cta`. */
+  /** Scheduling page (Calendly, Google appointment schedule, …). Empty `url`/`embedUrl` falls back to `nav.cta`. */
   booking?: {
     label: string;
-    /** Public booking page link (e.g. https://calendar.app.google/…), opened in a new tab. */
+    /** Public booking page link (e.g. https://calendly.com/you/30min), opened in a new tab when there's no embed. */
     url: string;
-    /** Embed src from Google's "Website embed" option; when set, booking opens in a modal. */
+    /** Embeddable booking page; when set, "Pick from my open slots" shows it inside the booking dialog. */
     embedUrl?: string;
+    /** Second line under "Pick from my open slots", e.g. which tool and meeting length. */
+    slotsNote?: string;
     note?: string;
     /** Used for the pre-filled Google Calendar event when no appointment page is set. */
     eventTitle?: string;

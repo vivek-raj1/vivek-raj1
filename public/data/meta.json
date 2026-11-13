@@ -201,9 +201,10 @@
   ],
   "booking": {
     "label": "Book a call",
-    "url": "",
-    "embedUrl": "",
-    "note": "Pick a time · Google Meet, Microsoft Teams or Zoom",
+    "url": "https://calendly.com/vivek_raj/30min",
+    "embedUrl": "https://calendly.com/vivek_raj/30min?embed_domain=www.raj-vivek.com&embed_type=Inline&hide_gdpr_banner=1",
+    "slotsNote": "Calendly · 30-min Google Meet call · only times I'm free",
+    "note": "Pick a slot on Calendly, or send an invite on Meet, Teams or Zoom",
     "eventTitle": "Intro call — Vivek Raj"
   }
 }
