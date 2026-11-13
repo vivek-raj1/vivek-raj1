@@ -6,27 +6,24 @@ import { data } from '@/lib/data';
 import { Icon } from '@/lib/icons';
 
 export function ViewCounter() {
-  const { enabled, storageKey, label } = data.ui.viewCounter;
+  const { enabled, label } = data.ui.viewCounter;
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
     if (!enabled) return;
-    try {
-      const sessionFlag = 'vr_view_counted';
-      const raw = localStorage.getItem(storageKey);
-      const current = raw ? parseInt(raw, 10) || 0 : 0;
-      const alreadyCountedThisSession = sessionStorage.getItem(sessionFlag);
-      let next = current;
-      if (!alreadyCountedThisSession) {
-        next = current + 1;
-        localStorage.setItem(storageKey, String(next));
-        sessionStorage.setItem(sessionFlag, '1');
-      }
-      setCount(next);
-    } catch {
-      setCount(1);
-    }
-  }, [enabled, storageKey]);
+    // Unique visitors, counted on the server (/api/views) by hashed IP: a repeat visit from
+    // the same IP doesn't add, and the total never goes down.
+    let cancelled = false;
+    fetch('/api/views/', { method: 'POST', cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { count?: number } | null) => {
+        if (!cancelled && typeof d?.count === 'number') setCount(d.count);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [enabled]);
 
   if (!enabled || count === null) return null;
 

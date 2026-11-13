@@ -58,7 +58,6 @@
   },
   "viewCounter": {
     "enabled": true,
-    "storageKey": "vr_portfolio_views",
     "label": "Views"
   }
 }
